@@ -1,0 +1,92 @@
+/* pages/businessAlliance/index.wxss */
+.nav {
+padding: 16rpx;
+background-color: #fff;
+margin: 0 16rpx;
+border-radius: 18rpx;
+height: 64px;
+overflow: hidden;
+}
+.nav image {
+  height: 66rpx;
+  width: 66rpx;
+  border-radius: 50%;
+}
+.categoryBox {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.nav_item{
+  display: inline-block;
+  font-size: 25rpx;
+  text-align: center;
+  color: #696969;
+  margin: 0 8rpx;
+}
+.nav_item2{
+  display: inline-block;
+  font-size: 25rpx;
+  text-align: center;
+  color: #696969;
+  margin: 0 10rpx;
+}
+.item {
+  position: relative;
+  display: flex;
+  background-color: #FFF;
+  padding: 15rpx;
+  border-radius: 15rpx;
+  margin-top: 10rpx;
+  margin-left: 2%;
+  width: 96%;
+  justify-content: left;
+}
+.img {
+  height: 120rpx;
+  width: 160rpx;
+  border-radius: 10rpx;
+}
+.itembox{
+  margin-left: 10rpx;
+  color: #696969;
+}
+.title{
+  font-size: 28rpx;
+  font-weight: 700;
+}
+.adress{
+  margin-top: 10rpx;
+  display: flex;
+  justify-content: left;
+  font-size: 25rpx;
+}
+.icon{
+  margin-top: 1rpx;
+  height: 30rpx;
+  width: 30rpx;
+}
+.cards{
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap;
+}
+.card{
+  margin-left: 8rpx;
+  margin-top: 10rpx;
+  padding: 3rpx;
+  font-size: 20rpx;
+  color: #696969;
+  border-radius: 5rpx;
+  background-color: #F08080;
+}
+.card2{
+  background-color: #fff;
+  color: #F08080;
+}
+.itembox .detailAdress {
+overflow: hidden;
+text-overflow:ellipsis;
+white-space: nowrap;
+width: 500rpx;
+}

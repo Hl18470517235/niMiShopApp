@@ -1,0 +1,15 @@
+<view class='attr-window {{attribute==true?"on":""}}'>
+	<view class='textpic'>
+		<view class="l1">产品参数</view>
+		<view class='close acea-row row-middle row-center' bindtap='close'>
+			<image src="/image/product_details_close.png" />
+		</view>
+	</view>
+   <scroll-view class="list" scroll-y>
+      <view class="item acea-row row-middle" wx:for="{{attrList}}" wx:key="index">
+         <view class="n">{{item.key}}</view>
+         <view class="v">{{item.value}}</view>
+      </view>
+   </scroll-view>
+</view>
+<view class='mask' catchtouchmove="true" hidden='{{attribute==false}}' bindtap='close'></view>

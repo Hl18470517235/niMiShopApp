@@ -1,0 +1,67 @@
+page{background-color:#f5f5f5!important;}
+.pay-page .wraper{margin-top:32rpx;background-color:#fff;font-size:28rpx;}
+.pay-page .wraper .title{height:90rpx;line-height:90rpx;margin-left:30rpx;}
+.pay-page .wraper .type{height:100rpx;padding:0 30rpx;border-top:2rpx solid #f5f5f5;}
+.pay-page .wraper .type .icon{width:48rpx;height:48rpx;}
+.pay-page .wraper .type .icon image{width:100%; height: 100%;}
+.pay-page .wraper .type .name{margin-left:20rpx;} 
+.pay-page .wraper .w {height:100rpx;margin:0 30rpx;}
+.pay-page .wraper .w .amt{color:#DF5E39; font-weight: bold;}
+.pay-page .wraper .w .btn{color:white; height: 72rpx; font-size:28rpx; border-radius: 36rpx; line-height: 72rpx;padding:0 30rpx;font-weight: normal;}
+
+.pay-result{width:710rpx;margin:32rpx auto;background: white;border-radius: 20rpx;}
+.pay-result .title{height:120rpx;border-bottom: 2rpx solid #f5f5f5; font-weight: bold; font-size: 40rpx;}
+.pay-result .msg{height:90rpx;border-bottom: 2rpx solid #f5f5f5;color: #919191;}
+.pay-result .btns{height: 160rpx;padding:0 50rpx;}
+.pay-result .btns .btn{border:2rpx solid #BBB; font-size:28rpx; font-weight: normal; height:80rpx; line-height: 80rpx; padding: 0 70rpx;border-radius: 40rpx;color:#101010;}
+.pay-result .btns .btn.bg-color{border:0;color:white;}
+.nav {background-color: #06B7A4;text-align: center;height: 170rpx;position: relative;}
+.nav .left {
+  position: absolute;
+  left: 20rpx;
+  top: 90rpx;
+  height: 40rpx;
+  width: 40rpx;
+}
+.nav .text {
+  position: absolute;
+  left: 106rpx;
+  top: 88rpx;
+  font-size: 34rpx;
+  color: #fff;
+}
+#mas {
+  position: fixed;
+  z-index: 9999;
+  top: 0rpx;
+  left: 0rpx;
+  right: 0rpx;
+  bottom: 0rpx;
+  background-color: rgba(8, 8, 8, 0.384);
+}
+#masModel{
+  position: fixed;
+  z-index: 99999;
+  top: 40%;
+  left: 20%;
+  right: 20%;
+  bottom: 40%rpx;
+  height: 300rpx;
+  box-sizing: border-box;
+  padding: 20rpx;
+  background-color: #fff;
+  border-radius: 20rpx;
+  text-align: center;
+}
+#masModel .text {
+  margin-top: 48rpx;
+  margin-bottom: 60rpx;
+}
+#masModel .btn {
+  padding: 8rpx 36rpx;
+  background-color: #06B7A4;
+  border-radius: 20rpx;
+  color: #fff;
+}
+
+

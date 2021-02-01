@@ -1,0 +1,6 @@
+/* pages/ucenter/user_ promotion/index.wxss */
+.person-class{margin: 10px;font-size: 13px;font-weight: 800;}
+.person_detail_title{font-size: 11px;margin-left: 10px;font-weight: 600;}
+.person_detail_input{margin-left: 10px;margin-top: 5px;margin-right: 20px;margin-bottom: 10px;border-bottom: 1px solid #000;}
+.btn{position:fixed;bottom:20rpx;display:flex;width:100%;justify-content:center;}
+.addmember{position:fixed;width: 80%;background-color: white;top: 100px;padding: 20px;}

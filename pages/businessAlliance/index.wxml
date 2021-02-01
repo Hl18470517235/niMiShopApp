@@ -1,0 +1,43 @@
+<navbar parameter='{{parameter}}' id="navbar"></navbar>
+ <!-- <scroll-view class="nav" scroll-x="true" style="width: 96%">
+ </scroll-view> -->
+ <view class="nav"  animation="{{ani}}">
+   <view style="display: flex;justify-content: space-between;">
+      <view class="nav_item" bindtap="allnavbtn"> 
+        <image src="/image/me_menu08.png"></image>
+        <view style="margin-bottom: 24rpx;">全部商家</view>
+      </view>
+      <view class="nav_item" wx:for="{{tabList}}" wx:key="key" data-id="{{item.nimiIndustryTypeId}}" data-index="{{index}}" bindtap="navbtn"> 
+        <image src="{{item.nimiIndustryTypePhoto}}"></image>
+        <view>{{item.nimiIndustryTypeName}}</view>
+      </view>
+      <view class="nav_item" bindtap="catenavbtn">
+        <image src="/image/category.png"></image>
+        <view>更多分类</view>
+      </view>
+    </view>
+    <view class="categoryBox">
+      <view class="nav_item2" wx:for="{{categoryList}}" wx:key="key" data-id="{{item.nimiIndustryTypeId}}" data-index="{{index}}" bindtap="navbtn"> 
+        <image src="{{item.nimiIndustryTypePhoto}}"></image>
+        <view style="margin-bottom:24rpx;">{{item.nimiIndustryTypeName}}</view>
+      </view>
+    </view>
+ </view>
+  <view class="item" wx:for="{{BusinessList}}" wx:key="key" catchtap="itemAction" data-id="{{item.shopId}}" data-index="{{index}}">
+      <view><image class="img" src="{{item.userPhoto05}}"></image></view>
+      <view class="itembox">
+        <view class="title">{{item.shopName}}</view> 
+        <view class="adress">
+          <image class="icon" src="/image/ze-location-o.svg"></image>
+          <text class="detailAdress">{{item.shopAdressDetail}}</text>
+        </view>
+        <view class="cards">
+          <view  wx:for-item="testItem" wx:for="{{item.labels}}" wx:key="key" data-index="{{index}}">
+            <view class="card"><span class="card2">{{testItem}}</span></view>
+          </view>
+        </view>
+      </view>
+  </view>
+<view style="text-align: center;padding:40rpx;color:#919191;">已加载全部商家~~</view>
+
+

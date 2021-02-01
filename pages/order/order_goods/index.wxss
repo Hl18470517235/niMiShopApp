@@ -1,0 +1,6 @@
+.g-list .title{height:90rpx;border-bottom: 2rpx solid #F0F0F0;padding:0 30rpx;background: white;}
+.g-list .item {padding:20rpx 30rpx;background: white;border-bottom: 2rpx solid #F0F0F0;}
+.g-list .item .pic{width:140rpx;height:140rpx;border-radius: 10rpx;}
+.g-list .item .pr-num{text-align: right;}
+.g-list .item .pr-num .num{color:#919191;}
+.g-list .item .name{width:450rpx;text-align: left;}

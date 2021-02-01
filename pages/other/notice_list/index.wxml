@@ -1,0 +1,27 @@
+<navbar parameter='{{parameter}}'></navbar>
+<view class='newsList'>
+	<view class="title acea-row row-middle">
+		<image src="/image/home_notice.png" />
+		<text class="l">公告总数：</text>
+		<text class="n">{{articleList.length}}</text>
+	</view>
+	<view class='list'>
+		<block wx:for="{{articleList}}" wx:key="index">
+			<view bindtap="showBody" data-index='{{index}}' class='item acea-row row-between-wrapper'>
+				<view class='text acea-row row-middle'>
+					<view class='pictrue2'>
+						<image src="/image/notice_list.png"></image>
+					</view>
+					<text class="con">{{item.title}}</text>
+				</view>
+				<view class='pictrue'>
+					<image src='/image/me_enter.png'></image>
+				</view>
+			</view>
+		</block>
+	</view>
+</view>
+<view class='noCommodity' wx:if="{{articleList.length == 0 && loaded}}">
+   <view class='pictrue'><image src='/image/order_none.png'></image></view>
+	 <view class="text">数据空空如也~</view>
+</view>

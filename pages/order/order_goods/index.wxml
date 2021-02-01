@@ -1,0 +1,17 @@
+<navbar parameter='{{parameter}}'></navbar>
+<view class='g-list'>
+   <view class='title acea-row row-between-wrapper'>
+        <view>商品</view>
+        <view>共{{count}}件</view>
+   </view>
+   <view class='item acea-row row-between' wx:for="{{goods_list}}" wx:key="index">
+      <image class="pic" src="{{item.productIndexPhoto}}"/>
+      <view class="name">
+         <view>{{item.productName}}</view>
+      </view>
+      <view class="pr-num">
+         <view>¥{{item.price}}</view>
+         <view class="num">x{{item.num}}</view>
+      </view>
+    </view>
+</view>

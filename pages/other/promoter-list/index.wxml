@@ -1,0 +1,28 @@
+<navbar parameter='{{parameter}}'></navbar>
+<view class="promoter-list">
+	<view class='header acea-row row-middle'>
+		<view class="icon">
+			<image src="/image/me_partner.png" />
+		</view>
+		<view class='name'>直推总数：</view>
+		<text class='num'>{{total}}</text>
+	</view> 
+	<view class='list'>
+		<block wx:for="{{recordList}}" wx:key="index">
+			<view class='item acea-row row-between-wrapper'>
+				<view class="person acea-row row-middle">
+					<view class='icon'>
+						<image src='/image/tab_me_sel.png'></image>
+					</view>
+					<view class='name'>{{item.account}}</view>
+				</view>
+				<view class="time">{{item.crtTm}}</view>
+			</view>
+		</block>
+	</view>
+</view>
+<view class='noCommodity' wx:if="{{recordList.length == 0 && page > 1}}">
+   <view class='pictrue'><image src='/image/order_none.png'></image></view>
+	 <view class="text">数据空空如也~</view>
+</view>
+<authorize bind:onLoadFun='onLoadFun'></authorize>

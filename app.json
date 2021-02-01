@@ -1,0 +1,172 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/businessAlliance/index",
+    "pages/BusinessDetail/index",
+    "pages/user/user",
+    "pages/order_addcart/order_addcart",
+    "pages/local_cate/goods_cate",
+    "pages/goods_cate/goods_cate",
+    "components/navbar/index",
+    "components/recommend/index",
+    "components/orderGoods/index",
+    "components/swipers/index",
+    "components/goodList/index",
+    "components/promotionGood/index",
+    "components/productConSwiper/index",
+    "components/userEvaluation/index",
+    "components/product-window/index",
+    "components/platform-butie/index",
+    "components/address-window/index",
+    "pages/live_broadcast/index",
+    "pages/roomshop/roomdetail/index",
+    "pages/roomshop/index",
+    "pages/sameService/index",
+    "pages/cs/index",
+    "pages/withdrawal/index",
+    "pages/withdrawal/record/index",
+    "pages/withdrawal/WithdrawOperation/index",
+    "pages/withdrawal/accountRecord/index",
+    "pages/shopHome/index"
+  ],
+  "subPackages": [
+    {
+      "root": "pages/ucenter",
+      "name": "usercenter",
+      "pages": [
+        "user_spread_money/index",
+        "user_integral/index",
+        "user_bill/index",
+        "user_money/index",
+        "user_info/index",
+        "user_address/index",
+        "user_address_list/index",
+        "user_phone/index",
+        "user_pwd_edit/index",
+        "user_goods_collection/index",
+        "user_return_list/index",
+        "user_payment/index",
+        "user_setting/index",
+        "user_ promotion/index"
+      ]
+    },
+    {
+      "root": "pages/goods",
+      "name": "goods",
+      "pages": [
+        "goods_details/index",
+        "goods_comment_con/index",
+        "goods_search/index",
+        "goods_list/goods_list",
+        "goods_comment_list/index",
+        "goods_return/index",
+        "first-new-product/index",
+        "goods_logistics/index",
+        "store/goods_list"
+      ]
+    },
+    {
+      "root": "pages/order",
+      "name": "order",
+      "pages": [
+        "order_list/index",
+        "order_details/index",
+        "order_pay/index",
+        "order_confirm/index",
+        "ordermap/index"
+      ]
+    },
+    {
+      "root": "pages/other",
+      "name": "other",
+      "pages": [
+        "cash-audit/index",
+        "promoter-list/index",
+        "promoter-order/index",
+        "commission_rank/index",
+        "promoter_rank/index",
+        "notice_list/index",
+        "notice_info/index",
+        "protocol_list/index",
+        "protocol/index",
+        "download/index",
+        "promotional-items/index",
+        "bill/index",
+        "stock/index",
+        "applicationpartner/index",
+        "Experienceshop/index",
+        "openshop/index",
+        "shopList/index",
+        "mebHorseman/index",
+        "outurl/index",
+        "urlPage/index",
+        "sameService/index"
+      ]
+    }
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "white",
+    "navigationStyle": "custom",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "backgroundColor": "#ffffff",
+    "color": "#000000",
+    "selectedColor": "#06B7A4",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "image/tab_home_nor.png",
+        "selectedIconPath": "image/tab_home_sel.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/roomshop/index",
+        "iconPath": "image/tab_whole_nor.png",
+        "selectedIconPath": "image/tab_whole_sel.png",
+        "text": "直播商城"
+      },
+      {
+        "pagePath": "pages/local_cate/goods_cate",
+        "iconPath": "image/tab_region_nor.png",
+        "selectedIconPath": "image/tab_region_sel.png",
+        "text": "区域商城"
+      },
+      {
+        "pagePath": "pages/order_addcart/order_addcart",
+        "iconPath": "image/tab_cart_nor.png",
+        "selectedIconPath": "image/tab_cart_sel.png",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "iconPath": "image/tab_me_nor.png",
+        "selectedIconPath": "image/tab_me_sel.png",
+        "text": "个人中心"
+      }
+    ]
+  },
+  "plugins": {
+    "live-player-plugin": {
+      "version": "1.2.7",
+      "provider": "wx2b03c6e691cd7370"
+    },
+    "routePlan": {
+      "version": "1.0.11",
+      "provider": "wx50b5593e81dd937a"
+    }
+  },
+  "useExtendedLib": {
+    "weui": true
+  },
+  "sitemapLocation": "sitemap.json",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "仅用于商品、提货点的查询, 请开启!"
+    }
+  }
+}

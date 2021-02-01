@@ -1,0 +1,118 @@
+/* pages/other/bill/index.wxss */ 
+.navbtnbox {
+  display: flex;
+  background-color: #06B7A4;
+  padding-top: 25rpx;
+  padding-bottom: 10rpx;
+  color: #fff;
+}
+.navbtnbox .navitem{
+  text-align: center;
+  padding-bottom: 25rpx;
+  flex: 1;
+}
+.navStyle {
+  font-weight: bold;
+  border-bottom: 2rpx solid #fff;
+}
+.detail-box {
+  padding:16rpx 0;
+  background-color: #fff;
+}
+.detail-box .detail-item {
+  display: flex;
+  justify-content: space-around;
+  padding: 16rpx 16rpx 0 16rpx;
+}
+.detail-box .detail-item .img {
+  display: inline-block;
+  flex: 0 1 64rpx;
+  vertical-align: top;
+  overflow: hidden;
+  height: 64rpx;
+  width: 64rpx;
+  border-radius: 50%;
+}
+.detail-box .detail-item .title {
+  display: inline-block;
+  margin-left: 32rpx;
+}
+.detail-box .detail-item .title .title-text {
+  font-size: 28rpx;
+}
+.detail-box .detail-item .title .title-text {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 340rpx;
+  overflow: hidden;
+  font-size: 28rpx;
+  margin-right: 20rpx;
+}
+.detail-box .detail-item .title .detail-text {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 24rpx;
+  color: #919191;
+}
+.detail-box .detail-item .price-time {
+  display: inline-block;
+}
+.detail-box .detail-item .price-time .price {
+  color: #FF2F56;
+  font-size: 28rpx;
+}
+.detail-box .detail-item .price-time .time {
+  color: #919191;
+  font-size: 24rpx;
+}
+.detail-box .detail-item .border-bottom {
+  display: inline-flex;
+  padding-bottom: 15rpx;
+  border-bottom: 1px solid #9191910d;
+  flex:1;
+}
+.bottom-text{
+  text-align: center;
+  color: #919191;
+  font-size: 24rpx;
+  padding: 16rpx 0;
+}
+.statistics {
+  background-color: #fff;
+  padding: 16rpx;
+  margin-bottom: 16rpx;
+}
+.statistics .statistics-top {
+  display: flex;
+  justify-content: space-around;
+  font-size: 24rpx;
+  color:#919191;
+}
+.statistics .statistics-top .orderNum {
+  flex:1;
+  text-align: center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.statistics .statistics-top .allprice {
+  flex:1;
+  text-align: center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.statistics .statistics-top .proNum {
+  flex:1;
+  text-align: center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.statistics .statistics-bottom {
+  margin-top: 20rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color:#919191;
+}

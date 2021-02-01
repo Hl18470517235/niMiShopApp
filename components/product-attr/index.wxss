@@ -1,0 +1,14 @@
+@import '/app.wxss';
+.attr-window{position:fixed;bottom:0;width:100%;left:0;background-color:#fff;z-index:88;border-radius:16rpx 16rpx 0 0;padding-bottom:140rpx;transform:translate3d(0,100%,0);transition:all .3s cubic-bezier(.25,.5,.5,.9);}
+.attr-window.on{transform:translate3d(0,0,0);}
+.attr-window .textpic .close{position:absolute;right:30rpx;top:-5rpx;width:48rpx;height:48rpx;}
+.attr-window .textpic .close image{width:100%;height:100%;}
+.attr-window .textpic{padding:0 30rpx;margin-top:29rpx;position:relative;font-size:24rpx;}
+.attr-window .textpic .l1 {font-size: 32rpx;text-align: center;padding-bottom:20rpx;}
+.attr-window .list{font-size:28rpx;height:750rpx;border-top:1px solid #EEE;}
+.attr-window .item{border-bottom: 1rpx solid #EEE;white-space: nowrap;}
+.attr-window .n{color:#919191;display: inline-block;width:150rpx;margin-left:30rpx;overflow: hidden;text-overflow: ellipsis;padding:20rpx 0;}
+.attr-window .v{color: #101010;display: inline-block;width:500rpx;overflow: hidden;text-overflow: ellipsis;margin:0 30rpx;padding:20rpx 0;}
+
+
+

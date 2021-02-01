@@ -1,0 +1,251 @@
+/* pages/roomshop/roomdetail/index.wxss */
+.header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 184rpx;
+  background-color: #FF2F56;
+}
+.header .img {
+  height: 120rpx;
+  width: 120rpx;
+  border-radius: 50%;
+  margin-left: 40rpx;
+}
+.header .title {
+  margin-left: 40rpx;
+}
+.titlebottom {
+  position: relative;
+  height: 160rpx;
+  background-color: #FF2F56;
+  border-radius: 0 0 30rpx 30rpx;
+}
+.detailList {
+  position: relative;
+  box-sizing: border-box;
+  margin: 16rpx;
+  margin-top: 0rpx;
+  background-color: #FFF;
+  border-radius: 20rpx;
+  padding:20rpx;
+  box-shadow: 0px 2px 7px 2px rgba(0, 0, 0, 0.09);
+}
+.historyList {
+  position: relative;
+  box-sizing: border-box;
+  margin: 16rpx;
+  background-color: #FFF;
+  border-radius: 20rpx;
+  padding:12rpx;
+  box-shadow: 0px 2px 7px 2px rgba(0, 0, 0, 0.09);
+}
+.listBottom {
+  position: relative;
+  top: -150rpx;
+  z-index: 99;
+  /* box-shadow: 0px 2px 7px 2px rgba(0, 0, 0, 0.09); */
+}
+.listBottom .titlebox {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20rpx;
+}
+.listBottom .titlebox1 {
+  display: flex;
+  height: 170rpx;
+  flex-direction: column;
+  display: inline-block;
+  margin-left: 30rpx;
+  font-size: 20rpx;
+  align-content: space-between;
+}
+.listBottom .imgbox {
+  display: flex;
+}
+.detailList .imgbox .roomimg {
+  width: 456rpx;
+  height: 400rpx;
+  border-radius: 20rpx 0px 0px 20rpx;
+}
+.historybox {
+  position: absolute;
+  left: 230rpx;
+  top: 10rpx;
+}
+.historyList .roomimg {
+  vertical-align: top;
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 20rpx;
+}
+#roomListtext {
+  position: absolute;
+  right: 80rpx;
+  top: 40rpx;
+  padding-right: 10rpx;
+  padding-left: 10rpx;
+  padding-top: 2rpx;
+  padding-bottom: 2rpx;
+  background-color: #FF7875;
+  color: #fff;
+  border-radius: 20rpx;
+  font-size: 22rpx;
+}
+#idtext{
+  font-size: 20rpx;
+  position: absolute;
+  right: 16rpx;
+  top: 16rpx;
+}
+#roomListtext1 {
+  position: absolute;
+  right: 80rpx;
+  bottom: 30rpx;
+  padding-right: 10rpx;
+  padding-left: 10rpx;
+  padding-top: 2rpx;
+  padding-bottom: 2rpx;
+  background-color: #919191;
+  color: #fff;
+  border-radius: 20rpx;
+  font-size: 22rpx;
+}
+.detailList .imgbox .productbox {
+  position: relative;
+  flex:1;
+  border-radius: 0rpx 20rpx 20rpx 0rpx;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+.detailList image {
+overflow: hidden;
+height: 200rpx;
+width: 220rpx;
+}
+.detailList .imgbox .productbox .text1 {
+color: #FFF;
+position: absolute;
+bottom: 105rpx;
+left: 50%;
+transform:translate(-50%,0);
+}
+.detailList .imgbox .productbox .text2 {
+color: #FFF;
+position: absolute;
+bottom: 70rpx;
+left: 50%;
+transform:translate(-50%,0);
+}
+#navbox {
+  height: 576rpx;
+  width: 460rpx;
+  margin: 16rpx;
+  border-radius: 20rpx;
+  position: absolute;
+  top: 322rpx;
+  z-index: 100;  
+}
+#navbox2 {
+  height: 576rpx;
+  width: 360rpx;
+  margin: 16rpx;
+  border-radius: 20rpx;
+  position: absolute;
+  top: 331rpx;
+  z-index: 100;
+  left: 363rpx;
+}
+/* #shopBox1 {
+  position: absolute;
+  height: 226rpx;
+  width: 250rpx;
+  background:rgba(151, 151, 151, 0.096);
+}
+#shopBox2 {
+  position: absolute;
+  bottom: 0rpx;
+  height: 226rpx;
+  width: 250rpx;
+  background:rgba(151, 151, 151, 0.096);
+} */
+#navigatorbox {
+  height: 200rpx;
+}
+.listBottom .listBottomid {
+  position: absolute;
+  z-index: 999;
+  right: 28rpx;
+  top: 10rpx;
+  font-size: 20rpx;
+}
+#fontStyle {
+  position: absolute;
+  z-index: 888;
+  right: 14rpx;
+  bottom: 68rpx;
+  padding-right:10rpx;
+  padding-left: 30rpx;
+  font-size: 20rpx;
+  background: rgba(3, 3, 3, 0.171);
+  border-radius: 20rpx;
+  color: #FFF;
+}
+#actionStyle{
+  position: absolute;
+  z-index: 889;
+  bottom: 65rpx;
+  right: 120rpx;
+  box-sizing: border-box;
+  padding:6rpx;
+  display: flex;
+  justify-content: space-around;
+  height: 30rpx;
+  width: 30rpx;
+  border-radius: 50%;
+  background-color: #FF7875;
+  transform: rotate(180deg);
+  overflow: hidden;
+}
+#actionStyle .one {
+  height: 20rpx;
+  width: 18%;
+  background-color: #FFF;
+  /* animation:myfirst 2s;
+  animation-direction:alternate; */
+  animation: myfirst 1s linear infinite;
+}
+@keyframes myfirst
+{
+  0%   {height: 0rpx;}
+  25%   {height: 24rpx;}
+  50%   {height: 12rpx;}
+	100%  {height:32rpx}
+}
+#actionStyle .two {
+  height: 32rpx;
+  width: 18%;
+  background-color: #FFF;
+  animation: myfirsttwo 1.5s linear infinite;
+}
+@keyframes myfirsttwo
+{
+  0%   {height: 10rpx;}
+  25%   {height: 30rpx;}
+  50%   {height: 20rpx;}
+	100%  {height:24rpx}
+}
+#actionStyle .three {
+  height: 16rpx;
+  width: 18%;
+  background-color: #FFF;
+  animation: myfirstthree 1s linear infinite;
+}
+@keyframes myfirstthree
+{
+  0%   {height: 10rpx;}
+  25%   {height: 6rpxrpx;}
+  50%   {height: 12rpx;}
+	100%  {height:16rpx}
+}

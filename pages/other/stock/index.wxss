@@ -1,0 +1,6 @@
+/* pages/other/stock/index.wxss */ 
+.textBox {
+  background-color: #fff;
+  padding: 16rpx;
+  margin-bottom: 16rpx;
+}

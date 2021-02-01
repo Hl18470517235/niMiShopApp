@@ -1,0 +1,45 @@
+/* pages/withdrawal/index.wxss */
+.item-box {
+  display: flex;
+  background-color: #28b0f1;
+  margin: 16rpx;
+  padding: 0rpx 16rpx;
+  border-radius: 20rpx;
+}
+.item-box .imgbox {
+  padding: 16rpx;
+  width: 100rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-radius: 50%;
+  background-color: #af52b542;
+  text-align:center;
+  margin: auto;
+}
+.item-box .img {
+  width: 50rpx;
+  height: 50rpx;
+}
+.item-box .title {
+  flex: 400rpx 0 1;
+  display: flex;
+  padding: 20rpx 0;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 16rpx;
+  color: #fff;
+}
+.item-box .btn-box {
+  flex: 1;
+  text-align: right;
+}
+.item-box .btn-box .btn {
+  width: 150rpx;
+  padding: 6rpx 12rpx;
+  background-color: #fff;
+  text-align: center;
+  font-size: 24rpx;
+  margin: 8rpx 0;
+  border-radius: 30rpx;
+  color: #ff0000a1;
+}

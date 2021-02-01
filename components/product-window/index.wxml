@@ -1,0 +1,38 @@
+<view class='product-window {{attribute.cartAttr==true?"on":""}}'>
+   <view class='textpic acea-row row-between-wrapper'>
+      <view class='pictrue'><image src='{{productSelect.image}}'></image></view>
+      <view class='text'>
+         <view class='num font-color'>￥<text>{{productSelect.price}}</text></view>
+         <view class='bt font-color'>平台补贴: {{productSelect.butie}} 积分</view>
+         <view class='stock'>库存: {{productSelect.stock}}</view>
+         <view class='code'>编号: {{productSelect.unique}}</view>
+      </view>
+      <view class='close acea-row row-middle row-center' bindtap='close'>
+			<image src="/image/product_details_close.png" />
+		</view>
+   </view>
+   <view class='productWinList'>
+      <view class='item' wx:for='{{productAttr}}' wx:key="index1"> 
+         <view class='title'>{{item.productParamIndex}}</view>
+         <view class='listn acea-row row-middle'>
+            <view class='itemn {{item.checked==itemn ?"on":""}}' wx:for='{{item.productParamSubIndex}}' wx:for-item='itemn' wx:for-index='indexn' data-indexw='{{index}}' data-indexn='{{indexn}}' data-item='{{item}}' bindtap='tapAttr' wx:key="index2">{{itemn}}</view>
+         </view>
+      </view>
+   </view>
+   <view wx:if="{{model}}" class='cart acea-row row-between row-middle'>
+       <view class='title'>数量</view>
+       <view class='carnum acea-row row-left row-middle'>
+          <view class='reduce {{productSelect.cart_num <= 1 ? "on":""}}' bindtap='CartNumDes'>
+            <image src="/image/product_number_dec_sel.png" wx:if="{{productSelect.cart_num > 1}}"/>
+            <image src="/image/product_number_dec_nor.png" wx:else/>
+          </view>
+          <view class='num'>{{productSelect.cart_num}}</view>
+          <view class='plus {{productSelect.cart_num >= productSelect.stock || productSelect.is_on ? "on":""}}' bindtap='CartNumInt'>
+          <image src="/image/product_number_inc.png"/>
+          </view>
+       </view>
+   </view>
+   <view wx:else><button wx:if="{{shopmodel}}" bindtap="joinCart" class="joinCart">加入购物车</button><button wx:else class="joinNoCart">暂时缺货</button></view>
+</view>
+<view class='mask' catchtouchmove="true" hidden='{{attribute.cartAttr==false}}' bindtap='close'></view>
+ 

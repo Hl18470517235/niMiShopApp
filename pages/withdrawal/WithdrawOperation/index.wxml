@@ -1,0 +1,71 @@
+<navbar parameter='{{parameter}}' id="navbar"></navbar> 
+<block wx:if="{{txtype == 1}}">
+<view style="margin: 16rpx;">
+<view>请选择提现方式</view>
+<radio-group bindchange="radioChange">
+<label class="radio">
+  <radio value="3" checked="true"/>微信
+</label>
+<label class="radio">
+  <radio value="1" />银行卡
+</label>
+</radio-group>
+<view>
+  <view style="margin: 16rpx 0;">提现金额</view>
+  <view class="inputBox">
+  <input value="{{price}}" bindinput="Input" class="weui-input" placeholder="请输入提现金额"/>
+  </view>
+  <block wx:if="{{withdrawType == 1}}">
+  <view style="margin: 16rpx 0;">姓名</view>
+  <view class="inputBox">
+  <input value="{{realName}}" bindinput="nameInput" class="weui-input" placeholder="请输入姓名"/>
+  </view>
+  <view style="margin: 16rpx 0;">银行卡账号</view>
+  <view class="inputBox">
+  <input value="{{bankAccountNum}}" bindinput="bankInput" class="weui-input" placeholder="请输入银行卡账号"/>
+  </view>
+  </block>
+</view>
+</view>
+<button class="fromBox" bindtap="fromAction" type="primary">确认提现</button>
+</block>
+
+
+<block wx:if="{{txtype == 2}}">
+  <view style="margin: 16rpx;">
+  <view>请选择提现方式</view>
+  <radio-group bindchange="bankradioChange">
+  <label class="radio">
+    <radio value="1" checked="true"/>银行卡个人转账
+  </label>
+  <label class="radio">
+    <radio value="2" />银行卡对公转账
+  </label>
+  </radio-group>
+  <view>
+    <!-- <view style="margin: 16rpx 0;">姓名</view>
+    <view class="inputBox">
+    <input value="{{realName}}" bindinput="nameInput" class="weui-input" placeholder="请输入姓名"/>
+    </view> -->
+    <block wx:if="{{bankType == '2'}}">
+    <view style="margin: 16rpx 0;">公司名称</view>
+    <view class="inputBox">
+    <input value="{{corporateName}}" bindinput="corporateNameInput" class="weui-input" placeholder="请输入公司名称"/>
+    </view>
+    <view style="margin: 16rpx 0;">开户行名称</view>
+    <view class="inputBox">
+    <input value="{{bankName}}" bindinput="bankNameInput" class="weui-input" placeholder="请输入开户行名称"/>
+    </view>
+    </block>
+    <view style="margin: 16rpx 0;">转账金额</view>
+    <view class="inputBox">
+    <input value="{{price}}" bindinput="Input" class="weui-input" placeholder="请输入提现金额"/>
+    </view>
+    <view style="margin: 16rpx 0;">银行卡账号</view>
+    <view class="inputBox">
+    <input value="{{bankAccountNum}}" bindinput="bankInput" class="weui-input" placeholder="请输入银行卡账号"/>
+    </view>
+  </view>
+  </view>
+  <button class="fromBox" bindtap="fromAction" type="primary">确认提现</button>
+  </block>

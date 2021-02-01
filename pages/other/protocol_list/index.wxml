@@ -1,0 +1,23 @@
+<navbar parameter='{{parameter}}'></navbar>
+<view class='newsList'>
+   <!-- <view class='list'>
+      <navigator url="/pages/other/protocol/index?id=平台资质" hover-class='none' class='item acea-row row-between-wrapper'>
+         <view class='text acea-row row-column-between'>平台资质</view>
+         <view class='pictrue'><image src='/image/me_enter.png'></image></view>
+      </navigator>
+   </view> -->
+   <view class="list" style="border-top:20rpx solid #F0F0F0;">
+      <navigator url="/pages/other/protocol/index?id=亿家联创用户注册协议" hover-class='none' class='item acea-row row-between-wrapper'>
+         <view class='text acea-row row-column-between'>用户协议</view>
+         <view class='pictrue'><image src='/image/me_enter.png'></image></view>
+      </navigator>
+      <navigator url="/pages/other/protocol/index?id=亿家联创服务协议" hover-class='none' class='item acea-row row-between-wrapper'>
+         <view class='text acea-row row-column-between'>服务协议</view>
+         <view class='pictrue'><image src='/image/me_enter.png'></image></view>
+      </navigator>
+      <navigator url="/pages/other/protocol/index?id=亿家联创隐私政策" hover-class='none' class='item acea-row row-between-wrapper'>
+         <view class='text acea-row row-column-between'>隐私协议</view>
+         <view class='pictrue'><image src='/image/me_enter.png'></image></view>
+      </navigator>
+   </view>
+</view>

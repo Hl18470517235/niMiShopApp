@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "navbar": "/components/navbar/index",
+    "productConSwiper": "/components/productConSwiper/index",
+    "userEvaluation": "/components/userEvaluation/index",
+    "product-window":"/components/product-window/index",
+    "product-attr":"/components/product-attr/index",
+    "platform-butie":"/components/platform-butie/index",
+    "goodList": "/components/goodList/index",
+    "authorize": "/components/authorize/authorize"
+  }
+}

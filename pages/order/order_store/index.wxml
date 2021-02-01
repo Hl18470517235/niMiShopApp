@@ -1,0 +1,60 @@
+<navbar parameter='{{parameter}}'></navbar>
+<view class='ti-huo-list'>
+	<view class="addressBox" bindtap="onAddress" wx:if="{{storeList}}">
+		<view class="title">{{addressInfo.receivingUserName}}  {{addressInfo.receivingPhone}}</view>
+		<view class="address">{{addressInfo.provinceId}}{{addressInfo.cityId}}{{addressInfo.areaId}}{{addressInfo.detailAdress}}</view>
+		<view class="btn">切换地址</view>
+	</view>
+	<view class="inputBox" wx:if="{{storeList}}">
+		<input type="text" placeholder="请输入服务站名称查询" value="{{storeName}}" bindinput="storeChange"></input>
+		<image class="img" src="/image/search.png"></image>
+	</view>
+	<view class="item" wx:for="{{storeList}}" wx:key="index" data-index="{{index}}" bindtap="selectShop">
+		<view class="p20 itm acea-row row-middle">
+			<view class="icon">
+				<image src="/image/order_details_location.png" />
+			</view>
+			<view class="name">{{item.shopName}}</view>
+			<view class="distance"><text wx:if="{{index == 0}}" style="color: red;font-weight: bold;margin-right: 12rpx;font-size: 28rpx;">最近  </text>距您：{{item.distanceName}}</view>
+		</view>
+		<view class="p20 itm acea-row row-middle">
+			<view class="icon">
+				<image src="/image/product_details_location.png" />
+			</view>
+			<view class="txt">{{item.shopAdress}}</view>
+		</view>
+		<!-- <view class="p20 itm acea-row row-middle" data-phone="{{item.phonNo}}" catchtap="tel">
+			<view class="icon">
+				<image src="/image/phone.png" />
+			</view>
+			<view class="txt">服务站电话： <text>{{item.phonNo}}</text></view>
+		</view> -->
+		<!-- <view class="p20 itm acea-row row-middle">
+			<view class="icon">
+				<image src="/image/order_notifications.png" />
+			</view>
+			<view class="txt amt">提货时间：次日11:00以后</view>
+		</view> -->
+		<view class="btns acea-row row-middle row-around">
+			<view class="map acea-row row-middle" data-lat="{{item.lat}}" data-lng="{{item.lng}}" catchtap="showMap">
+				<view class="icon">
+					<image src="/image/me_order_delivery_loc.png"/>
+				</view>地图导航
+			</view> 
+			<view class="tel acea-row row-middle" data-hmPhoneNo="{{item.hmPhoneNo}}" data-phone="{{item.phonNo}}" catchtap="tel">
+				<view class="icon">
+					<image src="/image/me_order_delivery_call.png" />  
+				</view>致电联系
+			</view>
+		</view>
+	</view>
+</view>
+<view class="iconbox" wx:if="{{storeList.length == 0}}">
+<view animation="{{animationData}}" class="iconfont icon-dengdai iconStyle"></view>
+<view style="color: #BFBFBF;">加载中，请稍候~</view>
+</view>
+<authorize bind:onLoadFun='onLoadFun'></authorize>
+<view style="text-align:center;height:80rpx;line-height:80rpx;font-size:26rpx;">{{loadTitle}}</view>
+
+<mp-actionSheet bindactiontap="btnClick" show="{{showActionsheet}}" actions="{{groups}}" title="致电联系">
+</mp-actionSheet>

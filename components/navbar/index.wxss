@@ -1,0 +1,21 @@
+@import '/app.wxss';
+.navbar{position:fixed;background-color:var(--themeColor);top:0;left:0;z-index:999999;width:100%;}
+.navbar.on{background-color:#06B7A4;}
+.navbar.black{background-color:#232323;}
+.navbar.gray{background-color:#666;}
+.navbar.red{background-color:#eb5447;}
+.navbar.zhibo{background-color:#FF2F56;}
+.navbar.shopHome{background-color:#B90029;}
+.navbar.bgcHome{background-color:#D61943;}
+.navbar.gradual01{background-image: linear-gradient(to right,#f67837 0%,#f11d09 100%);}
+.navbar .navbarH{position:relative;}
+.navbar .navbarH .navbarCon{position:absolute;bottom:0;height:100rpx;width:100%;}
+.navbar .navbarH .navbarCon .name{color:#000;font-size:32rpx;font-weight:normal;width: 434rpx;margin-right:100rpx;text-align: left;}
+.navbar .navbarH .navbarCon .name.on{color:#fff;}
+.navbar .navbarH .navbarCon .icon-xiangzuo{color:#000;font-weight:bold;position:absolute;font-size:32rpx;left:36rpx;width:56rpx;height:56rpx;line-height:56rpx;top:50%;transform:translateY(-50%);}
+.navbar .navbarH .navbarCon .icon-xiangzuo.on{color:#fff;}
+.navbar .navbarH .navbarCon .logo{width:127rpx;height:45rpx;position:absolute;left:20rpx;top:50%;transform:translateY(-50%);}
+.navbar .navbarH .navbarCon .logo image{width:18rpx;height:24rpx;display:inline-block;margin-right:8rpx;}
+.navbar .navbarH .navbarCon .logo .txt{color:white;font-size:24rpx;width:86rpx;overflow: hidden;white-space: nowrap;}
+.navbar .navbarH .navbarCon .search{width:380rpx;height:60rpx;background-color:#f7f7f7;border-radius:30rpx;padding:0 28rpx;box-sizing:border-box;font-size:28rpx;color:#bbb;margin-right:46rpx;}
+.navbar .navbarH .navbarCon .search .icon-xiazai5{font-size:28rpx;margin-right:16rpx;}

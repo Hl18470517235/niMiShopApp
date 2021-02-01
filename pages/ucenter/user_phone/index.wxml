@@ -1,0 +1,20 @@
+<navbar parameter='{{parameter}}'></navbar>
+<view class="ChangePassword">
+	<view class="list">
+		<view class="item acea-row row-between-wrapper">
+			<view class="label">账号</view>
+			<input type='number' value="{{phone}}" placeholder='请输入您的手机号' bindinput='inputgetName' data-name='phone' placeholder-class='placeholder'></input>
+      <view class="btn" catchtap="clearPhone"><image src="/image/clear-text.png"></image></view>
+		</view>
+		<view class="item acea-row row-between-wrapper">
+				<view class="label">登录密码</view>
+				<input  type='{{pwdType}}' placeholder='请设置您的登录密码' bindinput='inputgetName' data-name='password' placeholder-class='placeholder'></input>
+        <view class="btn" bindtap="toggleSee">
+        <image src="/image/eye-see.png" wx:if="{{pwdType == 'password'}}"></image>
+        <image src="/image/eys-insee.png" wx:else></image>
+        </view>
+			</view>
+		</view>
+		<view class="confirmBnt bg-color" bindtap="editPwd">确认</view>
+	</view>
+	<authorize bind:onLoadFun="onLoadFun"></authorize>

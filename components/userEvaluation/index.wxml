@@ -1,0 +1,25 @@
+<view class='evaluateWtapper'>
+	<view class='evaluateItem' wx:for="{{reply}}" wx:key>
+		<view class='pic-text acea-row row-middle'>
+			<view class='pictrue'>
+				<image src='{{item.userPhoto}}' wx:if="{{item.userPhoto}}"></image>
+				<image wx:else src="/image/userPhoto.png"></image>
+			</view>
+			<view class='acea-row row-middle'>
+				<view class='name line1' wx:if="{{item.userNike}}">{{item.userNike}}</view>
+				<view class="name line1" wx:else>****</view>
+			</view>
+		</view>
+		<view class="sc-tm acea-row row-middle row-between">
+			<view class='start star{{item.evaluateCount01}}'></view>
+			<view class='time'>{{item.crtTm}} {{item.suk}}</view>
+		</view>
+		<view class='evaluate-infor'>{{item.talkBody}}</view>
+		<view class='imgList acea-row'>
+			<view class='pictrue' wx:for="{{item.photoList}}" wx:for-item="items" wx:for-index='pic_index' wx:key="pic_index">
+				<image wx:if="{{items}}" src='{{items}}' data-index="{{index}}" data-pic_index='{{pic_index}}' bindtap='getpreviewImage'></image>
+			</view>
+		</view>
+		<view class='reply' wx:if='{{item.merchant_reply_content}}'><text class='font-color'>店小二</text>:{{item.merchant_reply_content}}</view>
+	</view>
+</view>

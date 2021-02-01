@@ -1,0 +1,20 @@
+<!--pages/order/ordermap/index.wxml-->
+<navbar parameter='{{parameter}}'></navbar>
+<view class="page-body">
+  <view class="page-section page-section-gap">
+    <map
+      id="myMap"
+      scale="12"
+      style="width: 100%; height: 70vh;"
+      latitude="{{latitude}}"
+      longitude="{{longitude}}"
+      markers="{{markers}}"
+      polyline="{{polyline}}"
+    ></map>
+    <view style="display: inline;text-align: center; ">骑手姓名：{{name}}</view>
+    <view wx:if="{{distributionStatus == '1'}}">订单状态：已接单，正在取货！</view>
+    <view wx:if="{{distributionStatus == '2'}}">订单状态：已取货，正在送达~</view>
+    <view>距离目的地：{{distance}}米</view>
+    <button style="margin-top: 20rpx;" type="primary" plain="true" bindtap="callPhone">联系骑手</button>
+  </view>
+</view>

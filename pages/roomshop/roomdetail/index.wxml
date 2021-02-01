@@ -1,0 +1,66 @@
+<!--pages/roomshop/roomdetail/index.wxml-->
+<navbar parameter='{{parameter}}' id="navbar"></navbar>
+<view class="header">
+<view wx:if="{{timeModel2}}" id="actionStyle">
+<view class="one"></view>
+<view class="two"></view>
+<view class="three"></view>
+</view>
+<view wx:if="{{timeModel2}}" id="fontStyle">正在直播中</view>
+<image class="img" src="https://yjlc.yijialianchuang.com/yjlc/file/group3/M00/00/68/wKh9DF-APZ6AGeZtAAAl55il5sk033.jpg"></image>
+<view class="title">
+<view style="font-size:32rpx;color:#FFF">{{roomItem.anchor_name}}</view>
+<view style="margin-top:20rpx;font-size:24rpx;color:#FFF">{{historyNum + historyNumber}}场直播回放</view>
+</view>
+</view> 
+<view class="titlebottom"></view>
+<!-- <navigator id="navbox" hover-class="none"  url="{{miBaoBaoRoomUrl}}">
+</navigator>
+<navigator wx:if="{{roomItem.productBeans.length == 0}}" id="navbox2" hover-class="none"  url="{{miBaoBaoRoomUrl}}">
+</navigator> -->
+<view class="listBottom">
+ <navigator class="detailList" hover-class="none"  url="{{miBaoBaoRoomUrl}}">
+<text style="background-color: #1890FF;" wx:if="{{timeModel2}}"  id="roomListtext">查看直播</text>
+<text style="background-color: #919191;" wx:if="{{timeModel1}}" id="roomListtext">查看回放</text>
+<text wx:if="{{timeModel}}" id="roomListtext">即将开播</text>
+<text id="idtext">#{{roomItem.room_id}}</text>
+<view style="font-weight:bold;font-size:28rpx;">{{roomItem.mini_room_name}}</view>
+<view style="margin-bottom:10rpx;" class="titlebox">
+<text style="color:#919191;" wx:if="{{timeModel1}}">直播时间:{{timestart}} 至 {{endtime}}</text>
+<text style="color:blue;" style="color:#1890FF;" wx:if="{{timeModel2}}">正在直播:今日{{timestart1}} 至 今日{{endtime1}}</text>
+<text style="color:red;" wx:if="{{timeModel}}">开播倒计时:<text wx:if="{{countDownTxt.day > 0}}">{{countDownTxt.day}}天</text><text>{{countDownTxt.hou}}时</text> <text>{{countDownTxt.min}}分</text><text>{{countDownTxt.sec}}秒</text></text>
+</view>
+<view class="imgbox">
+<image class="roomimg" src="{{roomItem.feeds_img_self}}"></image>
+<view class="productbox">
+<view id="shopBox1"></view>
+<view id="shopBox2"></view>
+<div wx:if="{{!roomItem.productBeans.length == 0}}" id="navigatorbox" data-index="{{roomItem.productBeans[0].productId}}" catchtap="navaciton1">
+<image src="{{roomItem.productBeans[0].productIndexPhoto}}"></image>
+</div>
+<div wx:if="{{roomItem.productBeans.length > 1}}" id="navigatorbox" data-index="{{roomItem.mini_room_id}}" catchtap="navaciton2">
+<image src="{{roomItem.productBeans[1].productIndexPhoto}}"></image>
+<text class="text1">+{{roomItem.productCount}}</text> 
+<text class="text2">商品</text>
+</div>
+</view>
+</view>
+</navigator>
+</view>
+
+<navigator   class="listBottom" wx:for="{{historyList}}" hover-class="none"  url="{{item.historyUrl}}" wx:key>
+  <view class="listBottomid">#{{item.room_id}}</view>
+<view class="historyList" data-index="{{item.historyUrl}}" bindtap="roomaction">
+<text id="roomListtext1">查看回放</text>
+<view style="display:inline-block;">
+<image class="roomimg" src="{{item.feeds_img_self}}"></image>
+</view>
+<view class="historybox">
+
+
+<view style="font-weight:bold;font-size:28rpx;">{{item.mini_room_name}}</view>
+<view style="margin-top:20rpx;font-size:20rpx;color:#ccc;">直播时间：{{item.historytime}}</view>
+</view>
+<!-- <view style="font-size:28rpx;">尚未开播</view> -->
+</view>
+</navigator>

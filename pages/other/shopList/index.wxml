@@ -1,0 +1,31 @@
+<navbar parameter='{{parameter}}' id="navbar"></navbar> 
+<view wx:for="{{shopList}}" class="box" wx:key>
+  <image src="{{item.photo}}" class="img"></image>
+  <view class="title">
+    <view class="text"><image class="iconimg" src="../../../image/me_menu08.png"></image>{{item.name}}</view>
+    <view class="adress"><image class="iconimg" src="../../../image/me_menu01.png"></image>{{item.adress}}</view>
+  </view>
+  <image wx:if="{{item.model}}" bindtap="addAction" data-index="{{index}}" data-item="{{item}}" src="../../../image/join.png" class="icon"></image>
+</view>
+<view class="bottomtext"></view>
+
+<view catchtap="searchAction" class="bottom-box">
+  <view class="title">已选择{{selectList.length}}个商家门店（点击查看已选门店）</view>
+  <text class="btn" catchtap="fromAction">确定</text>
+</view>
+
+
+<view wx:if="{{masModel}}" id='mas' bindtap="close"></view> 
+<view wx:if="{{detailModel}}" id="detailbox">
+  <image class="img1" bindtap="close" src="../../../image/clear-text.png"></image>
+	<scroll-view scroll-y="true" style="height: 600rpx;">
+    <view wx:for="{{selectList}}" class="box" wx:key>
+  <image src="{{item.photo}}" class="img"></image>
+  <view class="title">
+    <view class="text"><image class="iconimg" src="../../../image/me_menu08.png"></image>{{item.name}}</view>
+    <view class="adress"><image class="iconimg" src="../../../image/me_menu01.png"></image>{{item.adress}}</view>
+  </view>
+  <image bindtap="delAction" data-index="{{index}}" data-adminId="{{item.adminId}}" src="../../../image/collect_delete.png" class="icon"></image>
+</view>
+  </scroll-view>
+  </view>

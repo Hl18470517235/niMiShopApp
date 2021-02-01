@@ -1,0 +1,97 @@
+
+<navbar parameter='{{parameter}}'></navbar>
+<view class="body">
+  <view wx:if="{{flag == 2}}"> 
+  <view class="title">个人信息</view>
+<view class="page-section">
+    <view class="weui-cells__title"><text class="texticon">*</text>骑手姓名</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <input bindinput="Input" data-name="horseManName" value="{{horseManName}}" class="weui-input" placeholder="请输入您的姓名"/>
+      </view>
+      <view class="bottom-soild"></view>
+</view>
+</view>
+<view class="page-section">
+<view style="margin-bottom:12rpx;" class="weui-cells__title"><text class="texticon">*</text>负责地区</view>
+<picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+	<view class='acea-row'>
+		<view class="picker">{{region[0]}}，{{region[1]}}，{{region[2]}}</view>
+		<view class='iconfont icon-dizhi font-color'></view>
+	</view>
+</picker>
+  <view style="margin-top:8rpx;" class="bottom-soild"></view>
+</view>
+<view class="page-section">
+    <view class="weui-cells__title"><text class="texticon">*</text>工作手机号码</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <input bindinput="Input" data-name="horseManPhone" value="{{horseManPhone}}" class="weui-input" placeholder="请入输您的工作手机号"/>
+      </view>
+      <view class="bottom-soild"></view>
+</view>
+</view>
+<view class="page-section">
+    <view class="weui-cells__title"><text class="texticon">*</text>常用手机号码</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <input bindinput="Input" data-name="horseManRealPhone" value="{{horseManRealPhone}}" class="weui-input" placeholder="请入输您的常用手机号"/>
+      </view>
+      <view class="bottom-soild"></view>
+</view>
+</view>
+<view class="page-section">
+    <radio-group bindchange="radioChange">
+    <view class="page-section-title"><text class="texticon">*</text>骑手类型</view>
+    <label class="radio">
+      <radio value="1" checked="{{horseManType == 1}}"/>全职
+    </label>
+    <label class="radio">
+      <radio value="2" checked="{{horseManType == 2}}"/>兼职
+    </label>
+  </radio-group>
+  </view>
+<view  class="imgBox">
+<view class="imgitem" bindtap="FrontcardAction">
+  <view class="text"><text class="texticon">*</text>身份证正面</view>
+  <view class="imgitem-box">
+    <image wx:if="{{!horseManPhotoOne}}" class="icon" src="../../../image/photo.png"></image>
+    <image class="upimg" src="{{horseManPhotoOne}}"></image>
+  </view>
+</view>
+<view class="imgitem" bindtap="ReversecardAction">
+  <view class="text"><text class="texticon">*</text>身份证反面</view>
+  <view class="imgitem-box">
+    <image wx:if="{{!horseManPhotoTwo}}" class="icon" src="../../../image/photo.png"></image>
+    <image class="upimg" src="{{horseManPhotoTwo}}"></image>
+  </view>
+</view>
+</view>
+<view bindtap="fromAction" class="fromBtnbox btn">确认提交</view>
+</view>
+<view wx:if="{{flag == 1}}">
+<view class="flagone"> 
+  <image wx:if="{{horseManState == 98}}" class="img" src="../../../image/dai.png"></image>
+  <image wx:if="{{horseManState == 01}}" class="img" src="../../../image/tongguo.png"></image>
+  <image  wx:if="{{horseManState == 97}}" class="img" src="../../../image/jujue.png"></image>
+  <view style="margin-top:20px;" wx:if="{{horseManState == 98}}">待审核中，请稍候~</view>
+  <view style="margin-top:20px;" wx:if="{{horseManState == 97}}">申请被驳回，原因：<text wx:if="{{horseManStateRemark}}">{{horseManStateRemark}}</text><text wx:else>暂无</text></view>
+  <view style="margin-top:20px;" wx:if="{{horseManState == 01}}">申请成功！！</view>
+  <view wx:if="{{horseManState == 98}}" class="btn"><text>待审核中</text></view>
+  <view wx:if="{{horseManState == 01}}" bindtap="successAction" class="btn"><text>修改信息</text></view>
+  <view wx:if="{{horseManState == 97}}" bindtap="upAction" class="btn"><text>审核失败，请重试</text></view>
+</view>
+</view> 
+</view>
+
+
+<view wx:if="{{masModel}}" id='mas' bindtap="close"></view> 
+<view wx:if="{{detailModel}}" id="detailbox">
+  <text>常用手机号：</text>
+  <input bindinput="Input" data-name="horseManRealPhone" value="{{horseManRealPhone}}" class="weui-input" placeholder="请输入您的常用手机号"/>
+  <view style="margin-bottom:20rpx;" class="upbottom"></view>
+  <text>工作手机号：</text>
+  <input bindinput="Input" data-name="horseManPhone" value="{{horseManPhone}}" class="weui-input" placeholder="请输入您的常用手机号"/>
+  <view style="margin-bottom:20rpx;" class="upbottom"></view>
+  <view class="upbtn" bindtap="upData" >修改</view>
+</view>

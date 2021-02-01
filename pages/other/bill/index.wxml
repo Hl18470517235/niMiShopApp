@@ -1,0 +1,31 @@
+<!--pages/other/bill/index.wxml-->
+<navbar parameter='{{parameter}}'></navbar> 
+<view class="navbtnbox">
+  <view class="navitem {{navIndex==1 ? 'navStyle': ''}}" data-status="1" bindtap="statusClick">上周</view>
+  <view class="navitem {{navIndex==2 ? 'navStyle': ''}}" data-status="2" bindtap="statusClick">本周</view>
+  <view class="navitem {{navIndex==3 ? 'navStyle': ''}}" data-status="3" bindtap="statusClick">本月</view>
+</view>
+<view class="statistics">
+  <view class="statistics-top">
+    <view class="orderNum">共{{orderNum}}笔订单</view>
+    <view class="allprice">消费 ￥{{allprice}}</view>
+    <view class="proNum">商品数量{{proNum}}件</view>
+  </view>
+  <!-- <view class="statistics-bottom">{{startTime}}  至  {{endTime}}</view> -->
+</view>
+<view class="detail-box">
+  <view class="detail-item" wx:for="{{orderList}}" wx:key="key">
+    <image class="img" src="{{item.photo}}"></image>
+    <view class="border-bottom">
+      <view class="title">
+      <view class="title-text">{{item.productName}}</view>
+      <view class="detail-text">{{item.shopName}}</view>
+    </view>
+    <view class="price-time">
+      <view class="price">¥{{item.price}}</view>
+      <view class="time">{{item.payTime}}</view>
+    </view>
+    </view>
+  </view>
+  <view class="bottom-text">账单已全部展示，没有更多啦~</view>
+</view>

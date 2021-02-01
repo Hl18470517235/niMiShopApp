@@ -1,0 +1,26 @@
+<navbar parameter='{{parameter}}' id="navbar"></navbar> 
+<view class="item-box">
+  <view class="imgbox">
+  <image class="img" src="/image/TX.png"></image>
+  </view>
+  <view class="title"><view>现金红包</view><view>{{userQuotaBean.userDivideMoney}}</view></view>
+  <view class="btn-box">
+    <view class="btn" data-value="02" data-type="1" bindtap="action">申请提现</view>
+    <view class="btn" data-value="02" bindtap="txaction">提现记录</view>
+    <view class="btn" data-value="02" bindtap="dzaction">到账记录</view>
+  </view>
+</view>
+
+<view class="item-box" style="background-color: #28f1cc;">
+  <view class="imgbox" style="background-color: #527eb533;">
+  <image class="img" src="/image/TX.png"></image>
+  </view>
+  <view class="title"><view>对账金</view><view>{{userQuotaBean.userCheckGold}}</view></view>
+  <view class="btn-box">
+    <view class="btn-box">
+      <view class="btn" data-value="04" data-type="2" bindtap="action">申请对账</view>
+      <view class="btn" data-value="04" bindtap="txaction">提现记录</view>
+      <view class="btn" data-value="04" bindtap="dzaction">到账记录</view>
+    </view>
+  </view>
+</view>

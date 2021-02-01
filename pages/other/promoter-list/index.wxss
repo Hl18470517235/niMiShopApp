@@ -1,0 +1,14 @@
+.promoter-list .header{padding:20rpx 54rpx}
+
+.promoter-list .header .icon{width: 48rpx; height:48rpx;}
+.promoter-list .header .icon image{width:100%;height:100%;}
+.promoter-list .header .name{padding-left: 18rpx;}
+.promoter-list .header .num{color:rgba(250,108,55,1);font-size:36rpx;}
+
+.promoter-list .list{width: 712rpx;margin:0 auto;background: white;border-radius: 30rpx;padding:0 30rpx;}
+.promoter-list .list .item{border-bottom:2rpx solid #eee;height:100rpx;font-size:24rpx;color:#101010;}
+.promoter-list .list .item .person .icon{width:48rpx;height: 48rpx;}
+.promoter-list .list .item .person .icon image{width: 100%;height:100%;}
+.promoter-list .list .item .person .name{font-size:28rpx;margin-left:18rpx}
+
+

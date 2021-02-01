@@ -1,0 +1,36 @@
+<navbar parameter='{{parameter}}'></navbar>
+<view class="ChangePassword">
+    <view class="list">
+      <view class="item acea-row row-middle">
+      <view class="label">账号</view>
+        <input type='number' class="txt" value="{{phone}}" placeholder='请输入您的手机号' bindinput='inputgetName' data-name='phone' placeholder-class='placeholder'></input>
+        <view class="btn" bindtap="clearPhone"><image src="/image/clear-text.png"></image></view>
+      </view>
+      <view class="item acea-row row-middle">
+      <view class="label">验证码</view>
+        <input type='number' placeholder='填写验证码' placeholder-class='placeholder' bindinput='inputgetName' data-name='captcha'  class="codeIput"></input>
+         <button
+              class="code font-color {{disabled === true ? 'on' : ''}}"
+              disabled='{{disabled}}'
+              bindtap="code"
+            >
+            {{ timetext }}
+          </button>
+      </view>
+      <view class="item acea-row row-middle">
+      <view class="label">登录密码</view>
+        <input type='{{pwdType}}' class="txt" value="{{passowrd}}" placeholder='请设置您的登录密码' bindinput='inputgetName' data-name='password' placeholder-class='placeholder'></input>
+        <view class="btn" bindtap="toggleSee">
+        <image src="/image/eye-see.png" wx:if="{{pwdType == 'password'}}"></image>
+        <image src="/image/eys-insee.png" wx:else></image>
+        </view>
+      </view>
+      <view class="item acea-row row-middle">
+      <view class="label">邀请码</view>
+        <input type='number' class="txt" value="{{inviter}}" placeholder='请输入推荐人手机号(选填)' bindinput='inputgetName' data-name='inviter' placeholder-class='placeholder'></input>
+        <view class="btn" bindtap="scan"></view>
+      </view>
+    </view>
+    <view class="confirmBnt bg-color" bindtap="editPwd">确认注册并绑定</view>
+  </view>
+<authorize bind:onLoadFun="onLoadFun"></authorize>

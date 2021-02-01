@@ -1,0 +1,145 @@
+<navbar parameter='{{parameter}}' logoUrl="{{logoUrl}}"></navbar>
+<view class="nav2 acea-row row-top row-between">
+	<view class="item acea-row row-middle">
+		<text class="addr" wx:if="{{address}}">送至：{{address}}</text>
+		<text class="addr" wx:else>暂无地址</text>
+	</view>
+	<view class="item acea-row row-middle row-between">
+		<view class="icon">
+			<image src="/image/home_icon01.png" />
+		</view>
+		<text>次日配送</text>
+	</view>
+	<view class="item acea-row row-middle">
+		<view class="icon">
+			<image src="/image/home_icon02.png" />
+		</view>
+		品质保障
+	</view>
+	<view class="item acea-row row-middle">
+		<view class="icon">
+			<image src="/image/home_icon03.png" />
+		</view>
+		安心退换
+	</view>
+	<view class="jt3"></view>
+</view>
+<view class="navStyle"></view>
+<view class='index'  bindtouchstart="touchStart" bindtouchend="touchEnd">
+	<view class='index-bg' wx:if="{{imgUrls.length}}">
+		<swiper indicator-dots="true" autoplay="{{autoplay}}" circular="{{circular}}" interval="{{interval}}" duration="{{duration}}" indicator-color="rgba(255,255,255,0.6)" indicator-active-color="#fff">
+			<block wx:for="{{imgUrls}}" wx:key="index">
+				<swiper-item>
+					<navigator url='{{item.url}}' class='slide-navigator acea-row row-between-wrapper' hover-class='none'>
+						<image mode="widthFix" src="{{item.adverImg}}" class="slide-image" />
+					</navigator>
+				</swiper-item>
+			</block>
+		</swiper>
+	</view>
+
+
+	<view class='news acea-row row-between-wrapper' wx:if="{{itemNew.length}}">
+		<view class='pictrue'>
+			<image src='/image/index_notice.png'></image>
+		</view>
+		<view class='swiperTxt'>
+			<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="2500" duration="{{duration}}" vertical="true" circular="true">
+				<block wx:for="{{itemNew}}" wx:key="index">
+					<swiper-item catchtouchmove='catchTouchMove'>
+						<navigator url='/pages/other/notice_list/index' class='acea-row row-between-wrapper' hover-class='none'>
+							<view class='text acea-row row-between-wrapper'>
+								<view class='newsTitle line1'>{{item.title}}</view>
+							</view>
+							<view class='iconfont icon-xiangyou'></view>
+						</navigator>
+					</swiper-item>
+				</block>
+			</swiper>
+		</view>
+	</view>
+
+	<!-- <view class='wrapper' wx:if="{{firstList.length}}" style="background-color:#D2FBF7">
+		<navigator hover-class="none" url='/pages/goods/first-new-product/index'>
+			<view class='f-title'>
+				<image src="/image/home_bg01.png" mode="widthFix" />
+			</view>
+		</navigator>
+		<view class='newProducts'>
+			<scroll-view class="scroll-view_x" scroll-x style="width:auto;overflow:hidden;">
+				<block wx:for="{{firstList}}" wx:key="index">
+					<navigator hover-class="none" url='/pages/goods/goods_details/index?id={{item.productId}}' class='item'>
+						<view style="position:relative">
+							<view class='img-box'>
+								<image src='{{item.productIndexPhoto}}'></image>
+							</view>
+							<view class="img-box act-box" wx:if="{{item.activityId}}">
+								<image src="/image/product_list_act.png" />
+							</view>
+						</view>
+						<view class='pro-info line1'>{{item.productName}}</view>
+						<view class='line2' wx:if="{{item.activityLabel}}"><text>{{item.activityLabel}}</text></view>
+						<view class='money font-color'>￥{{item.activityPrice}}</view>
+						<view class='mold'>￥{{item.shopPrice}}</view>
+						<view class="icon" data-id="{{item.productId}}" data-index="{{index}}" catchtap="addToCart">
+							<image src="/image/home_shopping.png" />
+						</view>
+					</navigator>
+				</block>
+				<navigator hover-class="none" url='/pages/goods/first-new-product/index' class="item" style="text-align:center;">
+							<view class='jt' style="display:inline-block;">
+								<image src="/image/rjt.png" />
+							</view>
+							<view style="padding-bottom:100rpx;color:#919191;">查看更多</view>
+							<view style="color:white;">-</view>
+				</navigator>
+			</scroll-view>
+		</view>
+	</view> -->
+
+      <!-- {
+        "pagePath": "pages/goods_cate/goods_cate",
+        "iconPath": "image/tab_whole_nor.png",
+        "selectedIconPath": "image/tab_whole_sel.png",
+        "text": "全国商城"
+      }, -->
+	<view class='wrapper'>
+	<view class="leftview">
+		<!-- <navigator   hover-class="none"  url="{{miBaoBaoRoomUrl}}">
+			<image class="imga01" src="https://yjlc.yijialianchuang.com/yjlc/file/group1/M00/00/73/wKh9C19q8oSAHT0HAAasnfchTdM942.png"/>
+			<view class="zhibostatus">查看直播</view>
+		</navigator> -->
+		<navigator hover-class="none"  url='{{bbbUrl}}'>
+			<image class="imga01" src="https://yjlc.yijialianchuang.com/yjlc/file/group1/M00/00/88/wKh9C2APgZWAFdwuAAYajBcv_-A007.png"/> 
+		</navigator>
+		<navigator hover-class="none" url="{{aaaUrl}}">
+			<image  class="imga02" src="https://yjlc.yijialianchuang.com/yjlc/file/group3/M00/00/78/wKh9DGAPgiaAVU0EAAD-fWNdoDs599.jpg"/>
+		</navigator>
+	</view>
+	<view class="rightview">
+		  <navigator hover-class="none"  url='/pages/goods_cate/goods_cate' >
+		  	<image  class="imga02" src="https://yjlc.yijialianchuang.com/yjlc/file/group1/M00/00/7B/wKh9C1_J0x2AW7pWAABPtPo61u0245.png"/>
+		  </navigator>
+			<navigator hover-class="none"  url='/pages/businessAlliance/index?type=2' >
+				<image style="margin-top: -2rpx; margin-bottom: 2rpx;"  class="imga02" src="https://yjlc.yijialianchuang.com/yjlc/file/group3/M00/00/6D/wKh9DF_J1gWAXeg1AAC71Z8NE1g261.png"/>
+			</navigator>
+			<navigator hover-class="none"  url='/pages/goods/first-new-product/index?type=6' >
+				<image  class="imga02" src="https://yjlc.yijialianchuang.com/yjlc/file/group1/M00/00/7B/wKh9C1_J08aAGFDMAAEK3VK0oUc766.png"/>
+			</navigator>
+			<!-- <navigator  hover-class="none"   url='/pages/businessAlliance/index?type=3'>
+				<image class="imga01" src="https://yjlc.yijialianchuang.com/yjlc/file/group3/M00/00/67/wKh9DF9y0DOAUGhrAAClI8HLY2w809.png"/>
+			</navigator> -->
+	</view>
+	</view>
+	<view class='wrapper' wx:if="{{benefit.length}}">
+		<view class='b-title'>
+			<image src="https://yjlc.yijialianchuang.com/yjlc/file/group3/M00/00/6D/wKh9DF_J2hKAOCBAAAKuEfRTQjc481.png" mode="widthFix" />
+		</view>
+		<goodList imgType="1" bastList="{{benefit}}"></goodList>
+	</view>
+</view>
+	<view>
+	<image class="addTuiGuang" bindtap="toUserPromotion" src='/image/user_promotion.png'></image>
+	</view>
+<view style="text-align:center;height:80rpx;line-height:80rpx;font-size:26rpx;color: #fff;">{{loadTitle}}</view> 
+

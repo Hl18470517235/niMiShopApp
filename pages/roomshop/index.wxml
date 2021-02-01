@@ -1,0 +1,122 @@
+<navbar parameter='{{parameter}}' id="navbar"></navbar> 
+<!-- <view class="timeBar">
+	<image class="img_zhibo" src="https://yjlc.yijialianchuang.com/yjlc/file/group3/M00/00/67/wKh9DF9y2y-Ab_zIAAAlh6GYDRU517.png"/>
+  <view class="time_body"  wx:for="{{listTime}}" wx:key="pindex" wx:for-index="pindex" bindtap="timeClick"  data-id="{{item.productId}}">
+       <view style="text-align: center;font-weight: 800;">{{item}}:00</view>
+       <view class='{{checkTime === pindex? "desc2":"desc"}}' wx:if="{{pindex === 0}}">查看回放</view>
+       <view class='{{checkTime === pindex? "desc2":"desc"}}' wx:if="{{pindex === 1}}">正在直播</view>
+       <view class='{{checkTime === pindex? "desc2":"desc"}}' wx:if="{{pindex > 1}}">即将开始</view>
+  </view>
+  <view>
+
+  </view>
+</view> -->
+<!-- <view class="bar">
+<text class="{{listNum == 1?'action':''}}" bindtap="action1">正在直播</text>
+<text style="color:#FC3A0F;">|</text>
+<text class="{{listNum == 2?'action':''}}" bindtap="action2">历史回放</text>
+</view> -->
+
+<view class="topnav" style="height:220rpx;transition: height 1s;">
+  <view style="position: relative;">
+    <image id="hlsearchIcon" src="/image/hlsearch.svg"></image>
+    <input class="input" type="text" bindinput="adInputChange" placeholder="搜索  直播间名" style="transition: all 1s;margin-left: 24rpx;margin-right: 24rpx;">
+</input>
+  </view>
+
+<scroll-view scroll-x="true" class="tabBox scrollBox" scroll-left="{{navScrollLeft}}" scroll-with-animation="{{true}}">
+<view class="twoNav2 item">
+<view bindtap="allNavAction" style="text-align: center;display:inline-block;margin:0 12rpx">
+  <image src="https://yjlc.yijialianchuang.com/yjlc/file/group3/M00/00/6A/wKh9DF-Q_HiAXMuWAAAyCC41eA0676.jpg"></image>
+    <view>全部</view>
+</view>
+  <view wx:for="{{categorylist1}}" bindtap="twoNavAction" data-index="{{index}}"  data-current="{{index}}" data-id="{{item.nimiIndustryTypeId}}" style="text-align: center;display:inline-block;margin:0 12rpx" wx:key="key">
+    <image src="{{item.nimiIndustryTypePhoto}}"></image>
+    <view>{{item.nimiIndustryTypeName}}</view>
+  </view>
+</view>
+</scroll-view>
+<!-- <view class="timeNav">
+<view class="timeNavbox" bindtap="timeBtnone">
+<view class="{{findType == '2' ? 'timeNavTitle titleStyle' : 'timeNavTitle'}}">今日直播</view>
+<view class="{{findType == '2' ? 'timeNavitem timeNavStyle' : 'timeNavitem'}}">精选好店</view>
+</view>
+<view class="timeNavbox" bindtap="timeBtntwo">
+<view class="{{findType == '3' ? 'timeNavTitle titleStyle' : 'timeNavTitle'}}">明日直播</view>
+<view class="{{findType == '3' ? 'timeNavitem timeNavStyle' : 'timeNavitem'}}">精彩预告</view>
+</view>
+<view class="timeNavbox" bindtap="timeBtnthree">
+<view class="{{findType == '1' ? 'timeNavTitle titleStyle' : 'timeNavTitle'}}">昨日直播</view>
+<view class="{{findType == '1' ? 'timeNavitem timeNavStyle' : 'timeNavitem'}}">好物返场</view>
+</view> -->
+<!-- <view class="timeNavbox">
+<view class="timeNavTitle">历史频道</view>
+<view class="timeNavitem">重播回放</view>
+</view> -->
+<!-- </view> -->
+<view class="twoNav" wx:if="{{categorylist2.length > 7}}">
+  <view  class="{{navIndex2 == index ? 'twoNavItem':''}}" bindtap="twoNavAction" data-index="{{index}}" style="text-align: center;width:25%;" wx:for="{{categorylist2}}" wx:key>
+    <image src="{{item.nimiIndustryTypePhoto}}"></image>
+    <view>{{item.nimiIndustryTypeName}}</view>
+  </view>
+   <view style="text-align: center;width:25%;" catchtap="allAction" >
+    <image src="{{categorylistAll[7].nimiIndustryTypePhoto}}"></image>
+    <view>更多</view>
+  </view>
+</view>
+</view>
+<view id="content">
+<view wx:if="{{listNum == 1}}">
+<view class="roomList" wx:for="{{roomList}}"  data-index="{{index}}" data-id="{{item.mini_room_id}}" bindtap="roomaction" wx:key>
+<view wx:if="{{item.timeModel1 == '1'}}" id="actionStyle">
+<view class="one"></view>
+<view class="two"></view>
+<view class="three"></view>
+</view>
+<view wx:if="{{item.timeModel1 == '1'}}" id="fontStyle">正在直播</view>
+<!-- <view id="clickbox" data-index="{{index}}" bindtap="roomaction"></view> -->
+<image class="roomImg" src="{{item.feeds_img_self}}"></image>
+<view class="roomItem">
+<view id="roomname">{{item.mini_room_name}}</view>
+<view wx:if="{{item.timeModel2 == '1'}}" style="color:#919191;font-size:20rpx;padding:6rpx 0;">直播已结束 丨 {{item.start_timeone}}</view>
+<view wx:if="{{item.timeModel1 == '1'}}" style="color:#1890FF;font-size:20rpx;">正在直播：今日{{item.start_timetwo}} 至 今日{{item.end_timetwo}}</view>
+<text wx:if="{{item.timeModel == '1'}}"  style="color:red;font-size:28rpx;">开播倒计时:<text wx:if="{{item.timeObj.day > 0 }}">{{item.timeObj.day}}天</text><text>{{item.timeObj.hou}}时</text> <text>{{item.timeObj.min}}分</text><text>{{item.timeObj.sec}}秒</text></text>
+<view style="color:red;font-size:24rpx;">{{item.anchor_name}}</view>
+<view style="position: relative;">
+<div wx:if="{{!item.productBeans.length == 0}}" data-index="{{item.productBeans[0].productId}}" catchtap="navaciton1" id="nav" style="height:130rpx;width:130rpx;display:inline-block;">
+<text class="text1">¥{{item.productBeans[0].price}}</text>
+</div>
+<image src="{{item.productBeans[0].productIndexPhoto}}"></image>
+<div wx:if="{{item.productBeans.length >1 }}" data-index="{{item.productBeans[1].productId}}" catchtap="navaciton1" id="nav1" style="height:130rpx;width:130rpx;display:inline-block;">
+<text class="text1">¥{{item.productBeans[1].price}}</text>
+</div>
+<image src="{{item.productBeans[1].productIndexPhoto}}"></image>
+<view style="display:inline-block;" wx:if="{{item.productCount > 1}}">
+<div wx:if="{{item.productBeans.length >2}}" id="navigator" data-index="{{item.mini_room_id}}" catchtap="navaciton2" style="height:130rpx;width:130rpx;display:inline-block;" >
+<text class="text2">+{{item.productCount}}</text>
+<text class="text3">商品</text>
+</div>
+<image  style="margin-left:2rpx" src="{{item.productBeans[2].productIndexPhoto}}"></image>
+</view>
+</view>
+</view>
+</view>
+</view>
+<view wx:if="{{pageModel}}" style="text-align: center;font-size:28rpx;color:#919191;padding:40rpx;">已展示全部直播间~！</view>
+<image src='../../image/topimg.svg' id='goTop' hidden='{{!floorstatus}}' bindtap="goTop"></image>
+</view>
+<!-- <view style="text-align: center;color:#5A5A5A">已展示全部直播间~</view>  -->
+
+<!-- <view class="mask" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+<view class="modalDlg" wx:if="{{showModal}}">
+  <text style="margin-top:40rpx;font-size:20px;">全部分类</text>
+<view class='fenggexian'></view>
+<view class='vipinfo'>{{vipinfo}}</view>
+<scroll-view class="allBox" scroll-y='true'>
+  <view class="itembox" data-index="{{index}}" wx:for="{{categorylistAll}}" style="text-align: center;display:inline-block;" catchtap="allitemAction">
+    <image src="{{item.nimiIndustryTypePhoto}}"></image>
+    <view>{{item.nimiIndustryTypeName}}</view>
+  </view>
+</scroll-view>
+<button id="btn" catchtap="btnAction">取消</button>
+</view> -->

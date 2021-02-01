@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "navbar": "/components/navbar/index",
+    "codeviewer": "/components/codeWindow/index",
+    "authorize": "/components/authorize/authorize"
+  },
+  "navigationBarTextStyle": "white"
+}

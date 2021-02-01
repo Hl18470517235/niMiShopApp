@@ -1,0 +1,80 @@
+<navbar id="the-id" parameter='{{parameter}}'></navbar>
+<scroll-view class="scroll-view_H" bindscroll="bindscroll" scroll-y="true" scroll-into-view="{{toView}}" style="height: 100vh;">
+  <view style="height: 0rpx;" id="item100"></view>
+<image mode="widthFix" class="banner" src="https://yjlc.yijialianchuang.com/yjlc/file/group3/M00/00/78/wKh9DGAPvJyAb5FWAAq3NBw3-8I138.png"></image>
+<!-- <view class="header-box">
+  <view class="text"><view class="borders"></view><text>爆款销售</text><view class="border"></view></view>
+</view>
+<view class="content-box">
+<view class="good-item">
+  <image class="img-box" src="/image/logo.jpg"></image>
+  <view class="title">云南山冷藏黄牛油好差好吃好吃好吃好吃好吃</view>
+  <view class="label">限时9折</view>
+  <view class="price">￥29.9</view>
+  <view class="old-price">￥30.5</view>
+  <view class="car-box">
+    <view class="iconfont icon-gouwuche_huaban car"></view>
+  </view>
+</view>
+<view class="good-item">
+  <image class="img-box" src="/image/logo.jpg"></image>
+  <view class="title">云南山冷藏黄牛油</view>
+  <view class="label">限时9折</view>
+  <view class="price">￥29.9</view>
+  <view class="old-price">￥30.5</view>
+  <view class="car-box">
+    <view class="iconfont icon-gouwuche_huaban car"></view>
+  </view>
+</view>
+</view> -->
+<scroll-view scroll-x="true" class="tabBox" scroll-left="{{navScrollLeft}}" scroll-with-animation="{{true}}" id="navbar">
+  <block wx:for="{{navData}}" wx:for-index="idx" wx:for-item="navItem" wx:key="idx">
+    <view class="item"  data-current="{{idx}}" bindtap="switchNav">
+	    <text>{{navItem}}</text>
+    </view>
+  </block>
+</scroll-view>
+<view class="fixScroll" style="position: fixed;top: {{barHeight}}px;left: 0;right: 0;z-index: 9999;" wx:if="{{!navModal}}">
+<scroll-view scroll-x="true" class="tabBox" scroll-left="{{navScrollLeft}}" scroll-with-animation="{{true}}">
+  <block wx:for="{{navData}}" wx:for-index="idx" wx:for-item="navItem" wx:key="idx">
+    <view class="item"  data-current="{{idx}}" bindtap="switchNav">
+	    <text>{{navItem}}</text>
+    </view>
+  </block>
+</scroll-view>
+</view>
+<block wx:for="{{categoryList}}" wx:key="key">
+<view class="header-boxs" id="item{{index}}">
+  <view class="text"><view class="twoborder"></view><text>{{item.productTypeName}}</text><view class="twoborders"></view></view>
+</view>
+<view class="content-box">
+<view class="good-item" wx:for="{{item.productList}}" wx:for-item="items" wx:for-index="{{index}}" wx:key="key" data-id="{{items.productId}}" catchtap="itemAction">
+  <image class="{{items.showImg ? 'active': ''}} img-box img{{index}}" src="{{items.showImg ? items.productIndexPhoto : ''}}"></image>
+  <view class="title">{{items.productName}}</view>
+  <view class="label" wx:if="{{items.activityLabel}}">{{items.activityLabel}}</view>
+  <view class="price">￥{{items.price}}</view>
+  <view class="old-price">￥{{items.shopPrice}}</view>
+  <view class="car-box" data-item="{{items}}" catchtap="addToCart">
+    <view class="iconfont icon-gouwuche_huaban car"></view>
+  </view>
+</view>
+<view wx:if="{{item.itemModal}}" style="width: 224rpx;"></view>
+<view wx:if="{{item.totalModal}}" class="findAll" data-index="{{index}}" data-item="{{items}}" bindtap="searchAll">查看更多商品<view class="iconfont icon-xia"></view></view>
+<view class="bottomBox" wx:else><view class="bottom-border"></view>已展示全部商品<view class="bottom-border"></view></view>
+</view>
+</block>
+<view class="bottomStyle"></view>
+</scroll-view>
+<view class="navBtnBox">
+<view class="iconBox" animation="{{heightAni}}">
+<block wx:if="{{aniModel}}">
+  <view bindtap="goHome" class="iconfont icon-shouye homeIcon"></view>
+  <view bindtap="goHome" class="text" style="color: #D61943;margin-bottom: 8rpx;">首页</view>
+  <view bindtap="goCar" class="iconfont icon-gwc carIcon"></view>
+  <view bindtap="goCar" class="text" style="color: #F2D9A7;margin-bottom: 8rpx;">购物车</view>
+  <view bindtap="goTop" class="iconfont icon-tubiao02 topIcon"></view>
+  <view bindtap="goTop" class="text" style="color: #27c2f1;margin-bottom: 8rpx;">回顶部</view>
+</block>
+</view>
+<view bindtap="fixdBtnEvent" animation="{{animationData}}" class="iconfont icon-jia-tianchong iconStyle"></view>
+</view>

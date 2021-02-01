@@ -1,0 +1,68 @@
+<view class='goodList {{status}}' wx:if="{{type == 0}}">
+	<block wx:for="{{bastList}}" wx:key="index">
+		<view data-id="{{item.productId}}" bindtap="toDetail" class='item acea-row row-between-wrapper'>
+			<view style="position:relative">
+				<view class='pictrue'>
+					<image src='{{item.productIndexPhoto}}'></image>
+				</view>
+				<view class="pictrue act-box" wx:if="{{item.activityId}}">
+					<image src="/image/product_list_act.png" />
+				</view>
+			</view>
+			<view class='underline'>
+				<view class='text'>
+					<view class='line1'>{{item.productName}}</view>
+					<view class='line2'>{{item.productRemark}}</view>
+					<view class="line3">
+						<view class="ps in" wx:if="{{item.productIsFlag == 2}}">物流配送</view>
+						<view class="ps in" wx:else>
+							<text wx:if="{{item.productGetType == 1}}">到店自提</text>
+							<text wx:else>支持送货上门</text>
+						</view>
+						<view class="zy in" wx:if="{{rlabel == 1}}">
+							<text wx:if="{{item.productIsFlag == 1}}">区域商品</text>
+							<text wx:if="{{item.productIsFlag == 2}}">全国商品</text>
+							<text wx:if="{{item.productIsFlag == 3}}">商家联盟</text>
+						</view>
+						<view class="act in" wx:if="{{item.activityLabel}}">
+							<text>{{item.activityLabel}}</text>
+						</view>
+					</view>
+					<view class='money font-color'>
+						<text class='price' wx:if="{{item.activityId}}">￥{{item.activityPrice}}</text>
+						<text class='price' wx:else>￥{{item.price}}</text>
+						<text class='market-price'>￥{{item.shopPrice}}</text>
+						<!-- <text class="count">库存：{{item.count}}</text> -->
+					</view>
+				</view>
+			</view>
+			<view class='icon' data-id="{{item.productId}}" data-index="{{index}}" catchtap="addToCart">
+				<image wx:if="{{imgType == '0'}}" src="/image/home_shopping.png" />
+				<view wx:else class="fontBox">
+				<view class="iconfont icon-tianchongxing-"></view>
+			  </view>
+			</view>
+		</view>
+	</block>
+</view>
+<view class="goodslist">
+	<view class="list acea-row row-around" wx:if="{{type == 1}}">
+		<view class="item" wx:for="{{bastList}}" wx:for-item='item' wx:key="index" bindtap="toDetail" data-replace="1" data-id="{{item.productId}}">
+			<view style="position:relative">
+				<view class="pic">
+					<image src="{{item.productIndexPhoto}}" />
+				</view>
+				<view class="pic act-box" wx:if="{{item.activityId}}">
+					<image src="/image/product_list_act.png" />
+				</view>
+			</view>
+			<view class="name">{{item.productName}}</view>
+			<view class='price' wx:if="{{item.activityId}}">￥{{item.activityPrice}}</view>
+			<view class='price' wx:else>￥{{item.price}}</view>
+			<view class="icon" data-id="{{item.productId}}" data-index="{{index}}" catchtap="addToCart">
+				<image src="/image/home_shopping.png" />
+			</view>
+		</view>
+	</view>
+</view>
+<authorize id="authorize" type="{{type}}" bind:onLoadFun="onLoadFun" isAuto="{{isAuto}}" iShidden="{{iShidden}}"></authorize>

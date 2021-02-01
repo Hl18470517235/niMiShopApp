@@ -1,0 +1,56 @@
+<navbar parameter='{{parameter}}'></navbar>
+<view class='index'>
+	<view class='index-bg' wx:if="{{adlist.length}}">
+		<swiper indicator-dots="true" autoplay="{{autoplay}}" circular="{{circular}}" interval="{{interval}}" duration="{{duration}}" indicator-color="rgba(255,255,255,0.6)" indicator-active-color="#fff">
+			<block wx:for="{{adlist}}" wx:key="index">
+				<swiper-item>
+					<navigator url='{{item.url}}' class='slide-navigator acea-row row-between-wrapper' hover-class='none'>
+						<image src="{{item.image}}" class="slide-image" />
+					</navigator>
+				</swiper-item>
+			</block>
+		</swiper>
+	</view>
+</view>
+<view class='productList'>
+	<view class='nav acea-row row-middle row-around bg-color' style='top:{{navH}}rpx;'>
+		<view class='item acea-row row-middle' bindtap='set_where' data-type='1'>
+			综合排序
+			<view>
+				<image wx:if="{{zhsort==1}}" src='/image/product_list_paixu02_sel.png'></image>
+				<image wx:else src='/image/product_list_paixu02_nor.png'></image>
+				<image style="margin-top:8rpx;" wx:if="{{zhsort==2}}" src='/image/product_list_paixu01_sel.png'></image>
+				<image style="margin-top:8rpx;" wx:else src='/image/product_list_paixu01_nor.png'></image>
+			</view>
+		</view>
+		<view class='item acea-row row-middle' bindtap='set_where' data-type='2'>
+			价格
+			<view>
+				<image wx:if="{{price==1}}" src='/image/product_list_paixu02_sel.png'></image>
+				<image wx:else src='/image/product_list_paixu02_nor.png'></image>
+				<image style="margin-top:8rpx;" wx:if="{{price==2}}" src='/image/product_list_paixu01_sel.png'></image>
+				<image style="margin-top:8rpx;" wx:else src='/image/product_list_paixu01_nor.png'></image>
+			</view>
+		</view>
+		<view class='item acea-row row-middle' bindtap='set_where' data-type='3'>
+			销量
+			<view>
+				<image wx:if="{{stock==1}}" src='/image/product_list_paixu02_sel.png'></image>
+				<image wx:else src='/image/product_list_paixu02_nor.png'></image>
+				<image style="margin-top:8rpx;" wx:if="{{stock==2}}" src='/image/product_list_paixu01_sel.png'></image>
+				<image style="margin-top:8rpx;" wx:else src='/image/product_list_paixu01_nor.png'></image>
+			</view>
+		</view>
+	</view>
+	<view class='list acea-row row-between-wrapper {{is_switch==true?"":"on"}}'>
+		<goodList bastList="{{productList}}"></goodList>
+		<view class='loadingicon acea-row row-center-wrapper' wx:if='{{productList.length > 0}}'>
+			<text class='loading iconfont icon-jiazai' hidden='{{loading==false}}'></text>{{loadTitle}}
+		</view>
+	</view>
+</view>
+<view class='noCommodity' wx:if="{{productList.length==0 && where.page > 1}}">
+	<view class='pictrue'>
+		<image src='/image/product_none.png'></image>
+	</view>
+</view>

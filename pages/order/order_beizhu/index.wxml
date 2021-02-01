@@ -1,0 +1,12 @@
+<navbar parameter='{{parameter}}'></navbar>
+<view class='bz-page'>
+		<view class="btns acea-row row-middle">
+			<view bindtap="sel" class="btn {{state == 1 ? 'on' : ''}}" data-state="1">无接触配送</view>
+			<view bindtap="sel" class="btn {{state == 2 ? 'on' : ''}}" data-state="2">备注其他信息</view>
+		</view>
+		<view class="con" wx:if="{{state == 2}}">
+			<textarea value="{{content}}" maxlength="50" style="width:100%;height:100%;" placeholder="请输入备注信息，最多50个字" placeholder-style="color:#CCC;" bindinput="setValue"></textarea>
+		</view>
+		<view class="sub" bindtap="add">确认添加</view>
+</view>
+<authorize bind:onLoadFun='onLoadFun'></authorize>

@@ -1,0 +1,13 @@
+<view class='butie-window {{attribute==true?"on":""}}'>
+	<view class='textpic'>
+		<view class="l1">平台补贴</view>
+		<view class="l2">购物返积分</view>
+		<view class="l3">用户在商城购买商品并确认收货后即可获得“充值积分”，当“充值积分”达到一定数量后，就可以用来获得充话费或充加油卡时平台补贴的相应广告奖励。</view>
+		<view class="l4">充10元奖励0.8元，充50元奖励4元，充100元奖励8元，充200元奖励16元。</view>
+		<view class="l5">*现仅支持安卓端app使用，微信小程序暂不支持！</view>
+		<view class='close acea-row row-middle row-center' bindtap='close'>
+			<image src="/image/product_details_close.png" />
+		</view>
+	</view>
+</view>
+<view class='mask' catchtouchmove="true" hidden='{{attribute==false}}' bindtap='close'></view>

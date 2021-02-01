@@ -1,0 +1,3 @@
+<!--pages/live_broadcast/index.wxml-->
+<navbar parameter='{{parameter}}' id="navbar"></navbar>
+<text>pages/live_broadcast/index.wxml</text>123

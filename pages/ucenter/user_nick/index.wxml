@@ -1,0 +1,16 @@
+<navbar parameter='{{parameter}}'></navbar>
+<form bindsubmit="formSubmit" report-submit='true'>
+  <view class='personal-data'>
+  <view class="wrapper">
+    <view class='list'>
+        <view class='item acea-row row-between-wrapper'>
+          <view>昵称</view>
+          <view class='input'><input type='text' name='nickname' value='{{userInfo.userNike}}'></input></view>
+        </view>
+    </view>
+    <button class='modifyBnt bg-color' formType="submit">保存修改</button>
+  </view>
+  </view>
+</form>
+
+<authorize bind:onLoadFun="onLoadFun"></authorize>

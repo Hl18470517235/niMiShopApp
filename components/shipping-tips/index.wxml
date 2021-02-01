@@ -1,0 +1,13 @@
+<view class='butie-window {{attribute==true?"on":""}}'>
+	<view class='textpic'>
+		<view class="l1">配送方式说明</view>
+		<view class="l2">平台已支持“提货店自提”以及“送货上门”服务。</view>
+		<view class="l3">补充说明：</view>
+		<view class="l4">1. “提货店自提”：您就近选择提货体验店，次日待配送员将商品配送入店后，您须至所选店铺提货；</view>
+		<view class="l5">2. “送货上门”：您就近选择提货体验店，次日由配送员为您配送到家，送货上门需要支付5元配送费。</view>
+		<view class='close acea-row row-middle row-center' bindtap='close'>
+			确认，已阅读
+		</view>
+	</view>
+</view>
+<view class='mask' catchtou chmove="true" hidden='{{attribute==false}}' bindtap='close'></view>

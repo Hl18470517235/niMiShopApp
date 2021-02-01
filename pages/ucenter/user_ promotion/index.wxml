@@ -1,0 +1,14 @@
+<navbar parameter='{{parameter}}' logoUrl="{{logoUrl}}"></navbar>
+<authorize bind:onLoadFun="onLoadFun" isAuto="{{isAuto}}" iShidden="{{iShidden}}"></authorize>
+<view class="bgindex" style="{{bgstyle}}" bindtap="addQuMember">
+  <image src="https://yjlc.yijialianchuang.com/yjlc/file/group3/M00/00/6D/wKh9DF_J2B-ABJeuAAOMhju4kSw418.png" style="width: 100%;height:100%;background-size: 100% 100%;background-repeat: no-repeat;"></image>
+</view>
+
+
+
+
+
+
+
+
+

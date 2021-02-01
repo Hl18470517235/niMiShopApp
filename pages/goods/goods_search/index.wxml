@@ -1,0 +1,46 @@
+<navbar parameter='{{parameter}}'></navbar>
+<view class='searchGood'>
+	<view class='search acea-row row-between-wrapper'>
+		<view class='input acea-row row-between-wrapper'>
+			<text class='iconfont icon-sousuo2'></text>
+			<input type='text' value='{{searchValue}}' focus="{{focus}}" placeholder='关键词' placeholder-class='placeholder' bindinput="setValue" confirm-type="search" bindconfirm="searchBut"></input>
+		</view>
+		<view bindtap="searchBut">
+			<button class="bnt bg-color">搜索</button>
+		</view>
+	</view>
+	<view class="history">
+		<view class='title'>
+			<image class="icon" src="/image/search_hot.png" />
+			历史搜索
+		</view>
+		<view class='list acea-row'>
+			<block wx:for="{{hotSearchList}}" wx:key="index">
+				<view class='item' bindtap='setHotSearchValue' data-item="{{item}}">{{item}}</view>
+			</block>
+		</view>
+	</view>
+	<view class='wrapper' wx:if="{{host_product.length}}">
+		<view class='newProducts'>
+			<scroll-view class="scroll-view_x" scroll-x style="width:auto;overflow:hidden;">
+				<block wx:for="{{host_product}}" wx:key="index">
+					<navigator hover-class="none" url='/pages/goods/goods_details/index?id={{item.productId}}' class='item'>
+						<view style="position:relative">
+							<view class='img-box'>
+								<image src='{{item.productIndexPhoto}}'></image>
+							</view>
+							<view class="img-box act-box" wx:if="{{item.activityId}}">
+								<image src="/image/product_list_act.png" />
+							</view>
+						</view>
+						<view class='pro-info line1'>{{item.productName}}</view>
+						<view class='line2' wx:if="{{item.activityLabel}}"><text>{{item.activityLabel}}</text></view>
+						<view class='money font-color' wx:if="{{item.activityId}}">￥{{item.activityPrice}}</view>
+						<view class='money font-color' wx:else>￥{{item.price}}</view>
+						<view class='mold'>￥{{item.shopPrice}}</view>
+					</navigator>
+				</block>
+			</scroll-view>
+		</view>
+	</view>
+</view>

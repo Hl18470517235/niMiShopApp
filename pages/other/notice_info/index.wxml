@@ -1,0 +1,7 @@
+<navbar parameter='{{parameter}}'></navbar>
+<view class='newsDetail'>
+   <view class='conter'>
+     <template is="wxParse" data="{{wxParseData:content.nodes}}"/>
+   </view>
+</view>
+<import src="/wxParse/wxParse.wxml"/>

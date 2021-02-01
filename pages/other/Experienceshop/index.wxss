@@ -1,0 +1,83 @@
+/* pages/other/Experienceshop/index.wxss */
+.body {
+  padding: 16rpx;
+}
+.body .texticon {
+  color: red;
+  font-size: 30rpx;
+  margin-right: 6rpx;
+}
+.body .title {
+  font-weight: bold;
+  margin: 16rpx auto;
+}
+.body .weui-cells__title {
+  margin-top: 8rpx;
+}
+.body .weui-cell {
+  margin-top: 8rpx;
+}
+.body .bottom-soild {
+  margin-bottom: 8rpx;
+  height: 2rpx;
+  background-color: #ccc;
+}
+
+.imgBox {
+  display: flex;
+}
+.imgBox .imgitem {
+  flex:1;
+}
+.imgBox .imgitem .text{
+  margin: 8rpx 0;
+}
+.imgBox .imgitem-box {
+  position: relative;
+  height: 300rpx;
+  width: 300rpx;
+  border-radius: 20rpx;
+  border: 2rpx dashed  #bfbfbf;
+}
+.imgBox .imgitem-box .upimg {
+  width: 100%;
+  height: 100%;
+}
+.imgBox .imgitem-box .icon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 120rpx;
+  height: 100rpx;
+}
+.fromBtnbox {
+  margin-top: 40rpx;
+  margin-bottom: 20rpx;
+  text-align: center;
+  background-color: #06B7A4;
+  border-radius: 10rpx;
+  color: #fff;
+  padding: 20rpx 0;
+}
+.flagone {
+  text-align: center;
+}
+.flagone .img {
+  height: 200rpx;
+  width: 200rpx;
+  margin-top: 60rpx;
+}
+.flagone .text {
+  font-weight: bold;
+  margin: 20rpx 0;
+}
+.flagone .btn {
+  margin-top: 60rpx;
+}
+.flagone .btn text{
+  padding: 16rpx 160rpx;
+  background-color: #06B7A4;
+  border-radius: 50rpx;
+  color: #fff;
+}

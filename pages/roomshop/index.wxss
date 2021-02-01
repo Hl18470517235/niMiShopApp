@@ -1,0 +1,575 @@
+/* pages/roomshop/index.wxss */
+/* .timeBar{width: 100%;height: 101rpx;background-color: white;display: flex;justify-content: left;display: -webkit-flex}
+.img_zhibo{width: 16%;height: 70rpx;margin-top: 20rpx;margin-left: 3%;}
+.time_body{width: 17%;height: 70rpx;margin-top: 20rpx;margin-left: 3%;}
+.desc{font-size: 20rpx;text-align: center;}
+.desc2{font-size: 20rpx;text-align: center;background-color: #FC3A0F;padding: 5rpx;border-radius: 20rpx;color: white;} */
+page {
+  height: 1300rpx;
+}
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 80rpx;
+  width: 100%;
+  background-color: #FFF;
+}
+.action {
+  color: #FC3A0F;
+  font-weight: bold;
+}
+.roomList {
+  position: relative;
+  display: flex;
+  box-sizing: border-box;
+  padding: 10rpx;
+  border-radius: 20rpx;
+  margin: 16rpx;
+  background-color: #FFF;
+  overflow: hidden;
+  box-shadow: 0px 2px 7px 2px rgba(0, 0, 0, 0.09);
+}
+#roomListtext {
+  position: absolute;
+  left: 20rpx;
+  top: 24rpx;
+  padding-right: 10rpx;
+  padding-left: 10rpx;
+  padding-top: 5rpx;
+  padding-bottom: 5rpx;
+  background-color: #FF7875;
+  color: #fff;
+  border-radius: 10rpx;
+}
+#roomname {
+  font-weight: bold;
+  font-size:24rpx;
+  height: 30rpx;
+  display: -webkit-box; 
+  -webkit-box-orient: vertical; 
+  -webkit-line-clamp: 1; 
+  overflow: hidden;
+  margin-top: 6rpx;
+}
+.roomList .roomImg {
+width: 250rpx;
+height: 250rpx;
+border-radius: 10rpx;
+}
+ .roomList .roomItem {
+margin-left: 30rpx;
+} 
+.roomList .roomItem image {
+  width: 128rpx;
+  height: 128rpx;
+  border-radius: 10rpx;
+  margin-top: 10rpx;
+  border: 1px solid rgba(255, 255, 255, 100);
+}
+.roomList .roomItem .text1 {
+  position: absolute;
+  bottom: 10rpx;
+  left: 12rpx;
+  color: #FFF;
+  font-size: 22rpx;
+}
+.roomList .roomItem .text2 {
+  position: absolute;
+  bottom: 60rpx;
+  left: 50%;
+  transform:translate(-50%,0);
+  color: #FFF;
+  font-size: 24rpx;
+}
+.roomList .roomItem .text3 {
+  position: absolute;
+  bottom: 30rpx;
+  left: 50%;
+transform:translate(-50%,0);
+  color: #FFF;
+  font-size: 24rpx;
+}
+.historyList {
+  display: flex;
+  justify-content: space-between;
+  height: 272rpx;
+  margin: 16rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+  background-color: #FFF;
+}
+.historyList .roomImg {
+  height: 272rpx;
+  width: 272rpx;
+}
+.historyList .roomItem {
+  width: 430rpx;
+  padding: 20rpx 0;
+}
+.historyList .roomItem image {
+  height: 120rpx;
+  width: 120rpx;
+  border-radius: 10rpx;
+}
+.historyList .roomItem .text1 {
+position: absolute;
+bottom: 10rpx;
+left: 10rpx;
+color: #FFF;
+font-size: 24rpx;
+}
+.historyList .roomItem .text2 {
+  position: absolute;
+  bottom: 60rpx;
+  left: 35rpx;
+  color: #FFF;
+  font-size: 24rpx;
+  }
+  .historyList .roomItem .text3 {
+    position: absolute;
+    bottom: 32rpx;
+    left: 38rpx;
+    color: #FFF;
+    font-size: 24rpx;
+    }
+#navigator {
+  position: absolute;
+  bottom: 10rpx;
+  right: 0px;
+  display:inline-block;
+  z-index: 999;
+  border-radius: 10rpx;
+  background:rgba(3, 3, 3, 0.171);
+}
+#nav {
+  position: absolute;
+  bottom: 10rpx;
+  left: 0rpx;
+  z-index: 999;
+  border-radius: 10rpx;
+  background:rgba(3, 3, 3, 0.171);
+}
+#nav1 {
+  position: absolute;
+  bottom: 10rpx;
+  left: 134rpx;
+  z-index: 999;
+  border-radius: 10rpx;
+  background:rgba(3, 3, 3, 0.171);
+}
+#clickbox {
+  position: absolute;
+  right: 0rpx;
+  top: 0rpx;
+  height: 120px;
+  width: 186px;
+}
+.topnav {
+  /* position: fixed;
+  top: 110rpx; */
+  /* z-index: 99999; */
+  /* position: fixed;
+  top: 66px;
+  z-index: 9999999; */
+  background-color: #FF2F56;
+  width: 100%;
+  border-radius: 0 0 40rpx 40rpx;
+}
+.topnav .scroll-view_x {
+  font-size: 26rpx;
+  display: flex;
+white-space: nowrap;
+  height: 40rpx;
+  overflow: hidden;
+  color: #FFCBD5;
+  margin: 10rpx 0;
+}
+.scroll-view_x text {
+  margin: 0 20rpx;
+}
+.topnav .input {
+  height: 64rpx;
+  background-color: #fff;
+  box-sizing: border-box;
+  padding-left: 100rpx;
+  border-radius: 30rpx;
+}
+#hlsearchIcon {
+  position: absolute;
+  top: 12rpx;
+  left: 70rpx;
+  height: 40rpx;
+  width: 40rpx;
+}
+.twoNav {
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  padding: 16rpx;
+  margin: 16rpx;
+  border-radius: 20rpx;
+  background-color: #FFF;
+  font-size: 24rpx;
+}
+.twoNavItem{
+  padding: 10rpx; 
+  background-color: rgba(255, 231, 186, 100);
+  border-radius: 20rpx;
+  margin: 6rpx;
+}
+.twoNav image{
+  height: 96rpx;
+  width: 96rpx;
+  border-radius: 50%;
+}
+.scrollBox {
+  position: relative;
+  z-index: 1000;
+  height: 68px;
+  margin: 16rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+  background-color: #FFF;
+  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.4);
+}
+.nav3 {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.nav3 image{
+  height: 66rpx;
+  width: 66rpx;
+  border-radius: 50%;
+}
+.twoNav2 {
+  display: flex;
+  justify-content: space-between;
+  padding: 16rpx;
+  font-size: 26rpx;
+}
+.twoNavItem{
+  display: inline-block; 
+  padding: 10rpx; 
+  background-color: rgba(255, 231, 186, 100);
+  border-radius: 20rpx;
+}
+.twoNav2 image{
+  height: 66rpx;
+  width: 66rpx;
+  border-radius: 50%;
+}
+.scrollBox .textBox {
+  position: relative;
+  padding-top: 8rpx;
+  padding-right: 40rpx;
+  padding-left:8rpx;
+  border-radius: 0 20rpx 20rpx 0;
+  margin-top: 16rpx;
+  margin-bottom: 16rpx;
+  background-color: #fff;
+  width: 3%;
+  font-size: 18rpx;
+  color: #919191;
+}
+
+.scrollBox .textBox image {
+  position: absolute;
+  transform: translate(0,-50%);
+  height: 20rpx;
+  width: 20rpx;
+  animation: textBox 1.2s linear infinite;
+}
+@keyframes textBox
+{
+  0%   {top: 50%;right: -1rpx;}
+  25%   {top: 50%;right: 2rpx;}
+  50%   {top: 50%;right: 6rpx;}
+	100%  {top: 50%;right: 8rpx;}
+}
+.bold {
+  font-weight: bold;
+}
+#goTop {
+  height: 75rpx;
+  width: 75rpx;
+  position: fixed;
+  bottom: 50rpx;
+  right: 30rpx;
+  z-index: 999999;
+  border-radius: 50%;
+}
+#fontStyle {
+  position: absolute;
+  z-index: 888;
+  left: 16rpx;
+  top: 14rpx;
+  padding-right:10rpx;
+  padding-left: 30rpx;
+  font-size: 20rpx;
+  background: rgba(3, 3, 3, 0.171);
+  border-radius: 20rpx;
+  color: #FFF;
+}
+#actionStyle{
+  position: absolute;
+  z-index: 889;
+  top: 14rpx;
+  left: 14rpx;
+  box-sizing: border-box;
+  padding:6rpx;
+  display: flex;
+  justify-content: space-around;
+  height: 30rpx;
+  width: 30rpx;
+  border-radius: 50%;
+  background-color: #FF2F56;
+  transform: rotate(180deg);
+  overflow: hidden;
+}
+#actionStyle .one {
+  height: 20rpx;
+  width: 18%;
+  background-color: #FFF;
+  /* animation:myfirst 2s;
+  animation-direction:alternate; */
+  animation: myfirst 1s linear infinite;
+}
+@keyframes myfirst
+{
+  0%   {height: 0rpx;}
+  25%   {height: 24rpx;}
+  50%   {height: 12rpx;}
+	100%  {height:32rpx}
+}
+#actionStyle .two {
+  height: 32rpx;
+  width: 18%;
+  background-color: #FFF;
+  animation: myfirsttwo 1.5s linear infinite;
+}
+@keyframes myfirsttwo
+{
+  0%   {height: 10rpx;}
+  25%   {height: 30rpx;}
+  50%   {height: 20rpx;}
+	100%  {height:24rpx}
+}
+#actionStyle .three {
+  height: 16rpx;
+  width: 18%;
+  background-color: #FFF;
+  animation: myfirstthree 1s linear infinite;
+}
+@keyframes myfirstthree
+{
+  0%   {height: 10rpx;}
+  25%   {height: 6rpxrpx;}
+  50%   {height: 12rpx;}
+	100%  {height:16rpx}
+}
+.mask{
+
+  width: 100%;
+  
+  height: 100%;
+  
+  position: fixed;
+  
+  top: 0;
+  
+  left: 0;
+  
+  background: #000;
+  
+  z-index: 9999;
+  
+  opacity: 0.7;
+  
+  }
+  
+  .modalDlg{
+  width: 96vw;
+  height: 820rpx;
+  position: fixed;
+  margin:0 16rpx;
+  bottom:60rpx;
+  z-index: 9999;
+  
+  
+  background-color: #fff;
+  
+  border-radius: 36rpx;
+  
+  display: flex;
+  
+  flex-direction: column;
+  
+  align-items: center;
+  
+  }
+
+  .img_wrap{
+
+    width: 130rpx;
+    
+    height: 130rpx;
+    
+    background: white;
+    
+    border-radius:50%;
+    
+    border:1px solid #0097ff;
+    
+    margin: 0rpx auto;
+    
+    position: absolute;
+    
+    top: -65rpx;
+    
+    margin-bottom: 30rpx;
+    
+    }
+    
+    .img_wrap image{
+    
+    width: 100rpx;
+    
+    height: 100rpx;
+    
+    padding-top:15rpx;
+    
+    padding-left:15rpx;
+    
+    margin: 0rpx auto;
+    
+    }
+    
+    .useralert_huiyuan
+    
+    {
+    
+    font-size: 13px;
+    
+    margin-top: 100rpx;
+    
+    }
+    
+    .useralert_quanyi
+    
+    {
+    
+    font-size: 13px;
+    
+    color: darkgray;
+    
+    }
+    
+    .fenggexian{
+    
+    width: 100%;
+    
+    margin-top: 50rpx;
+    
+    border-bottom:1px solid #e8e8e8;
+    
+    }
+    
+    .vipinfo{
+    
+    margin-top: 30rpx;
+    
+    color: #6698ff;
+    
+    font-size: 11px;
+    
+    }
+    
+     
+    
+    .shutalert{
+    
+    width: 110rpx;
+    
+    margin: 0rpx auto
+    
+    }
+    
+    .shutalert image{
+    
+    width: 100rpx;
+    
+    height: 100rpx;
+    
+    position: absolute;
+    
+    bottom: -120rpx;
+    
+    }
+    .allBox {
+      box-sizing: border-box;
+      padding: 0 20rpx;
+      height: 480rpx;
+    }
+    .allBox image {
+      height: 96rpx;
+      width: 96rpx;
+      border-radius: 50%;
+    }
+   #btn {
+     position: absolute;
+     bottom: 40rpx;
+     color: #FFF;
+      padding: 10rpx 60rpx;
+      background-color: #0097ff;
+    }
+    .allBox .itembox {
+      width: 25%;
+      margin: 16rpx auto;
+    }
+.timeNav {
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding-left: 16rpx;
+  padding-right: 16rpx;
+  background-color: #F5F5F5;
+  }
+  .timeNav .timeNavbox{
+    text-align: center;
+    padding-bottom: 6rpx;
+  }
+  .timeNav .timeNavTitle {
+    font-size: 28rpx;
+    color:#404040;
+    font-weight: bold;
+    font-family: SourceHanSansSC-bold;
+  }
+  .timeNav .timeNavitem {
+    margin-top: 10rpx;
+    font-size: 22rpx;
+    color:#919191;
+  }
+  .timeNav .timeNavStyle {
+    padding: 6rpx;
+    color: #FFF;
+    background-color: #FF2F56;
+    border-radius: 20rpx;
+  }
+  .titleStyle {
+    color: #FF2F56!important;
+  }
+  .tabBox {
+    overflow: hidden;
+    width: 96%;
+    box-sizing: border-box;
+    font-size: 16px;
+    white-space: nowrap;
+    border-bottom: 2rpx solid #F5F5F5;
+  }
+  .tabBox .item {
+    display: inline-block;
+    text-align: center;
+    margin: 0 12rpx;
+  }

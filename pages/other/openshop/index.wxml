@@ -1,0 +1,211 @@
+
+<!--pages/other/applicationpartner/index.wxml-->
+<navbar parameter='{{parameter}}'></navbar>
+<view class="body">
+  <view wx:if="{{flag == 2}}"> 
+  <view class="title">经营信息</view>
+  <view class="page-section">
+    <radio-group bindchange="radioChange">
+    <view class="page-section-title"><text class="texticon">*</text>商店类型</view>
+    <label class="radio">
+      <radio value="5" checked="{{type == 5}}"/>区域商家联盟店
+    </label>
+    <label class="radio">
+      <radio value="6" checked="{{type == 6}}"/>全国商店
+    </label>
+  </radio-group>
+  </view>
+<view class="page-section">
+    <view class="weui-cells__title"><text class="texticon">*</text>店铺名称</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <input bindinput="Input" data-name="storeName" value="{{storeName}}" class="weui-input" placeholder="请输入店铺名称"/>
+      </view>
+      <view class="bottom-soild"></view>
+</view>
+</view>
+<view class="page-section">
+    <view class="weui-cells__title"><text class="texticon">*</text>店铺所在地</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <input bindtap="shopAction" bindinput="Input" data-name="storeadress" value="{{PCD}}" class="weui-input" placeholder="请选择店铺所在地"/>
+      </view>
+      <view class="bottom-soild"></view>
+</view>
+</view>
+<view class="page-section">
+    <view class="weui-cells__title"><text class="texticon">*</text>详细地址（门牌号）</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <input bindinput="Input" data-name="street" value="{{street}}" class="weui-input" placeholder="请输入店铺详细地址"/>
+      </view>
+      <view class="bottom-soild"></view>
+</view>
+</view>
+<view class="page-section">
+    <view class="weui-cells__title"><text class="texticon">*</text>业务范围描述</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <input bindinput="Input" data-name="businessScope" value="{{businessScope}}" class="weui-input" placeholder="请输入业务范围"/>
+      </view>
+      <view class="bottom-soild"></view>
+</view>
+</view>
+<view  class="imgBox">
+<view class="imgitem" bindtap="imglogoAction">
+  <view class="text"><text class="texticon">*</text>店铺Logo</view>
+  <view class="imgitem-box">
+    <image wx:if="{{!storeLogoimg}}" class="icon" src="../../../image/photo.png"></image>
+    <image class="upimg" src="{{storeLogoimg}}"></image>
+  </view>
+</view>
+<view class="imgitem" bindtap="storeimgAction">
+  <view class="text"><text class="texticon">*</text>店铺宣传图</view>
+  <view class="imgitem-box">
+    <image wx:if="{{!storeimg}}" class="icon" src="../../../image/photo.png"></image>
+    <image class="upimg" src="{{storeimg}}"></image>
+  </view>
+</view>
+</view>
+<view class="title">个人信息</view>
+<view class="page-section">
+    <view class="weui-cells__title"><text class="texticon">*</text>手机号码</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <input bindinput="Input" data-name="phone" value="{{phone}}" class="weui-input" placeholder="请输入您的手机号"/>
+      </view>
+      <view class="bottom-soild"></view>
+</view>
+</view>
+<view  class="imgBox">
+<view class="imgitem" bindtap="FrontcardAction">
+  <view class="text"><text class="texticon">*</text>身份证正面</view>
+  <view class="imgitem-box">
+    <image wx:if="{{!Frontcardimg}}" class="icon" src="../../../image/photo.png"></image>
+    <image class="upimg" src="{{Frontcardimg}}"></image>
+  </view>
+</view>
+<view class="imgitem" bindtap="ReversecardAction">
+  <view class="text"><text class="texticon">*</text>身份证反面</view>
+  <view class="imgitem-box">
+    <image wx:if="{{!Reversecardimg}}" class="icon" src="../../../image/photo.png"></image>
+    <image class="upimg" src="{{Reversecardimg}}"></image>
+  </view>
+</view>
+</view>
+<view   class="imgBox">
+  <view class="imgitem" bindtap="businessAction">
+  <view class="text"><text class="texticon">*</text>营业执照</view>
+  <view class="imgitem-box">
+    <image  wx:if="{{!businessimg}}" class="icon" src="../../../image/photo.png"></image>
+    <image class="upimg" src="{{businessimg}}"></image>
+  </view>
+</view>
+</view>
+<view class="title">提现信息（选填）</view>
+<view class="page-section">
+    <radio-group bindchange="txChange">
+    <view class="page-section-title"><text class="texticon">*</text>提现方式</view>
+    <label class="radio">
+      <radio value="1" checked="{{txtype == 1}}"/>银行卡
+    </label>
+    <label class="radio">
+      <radio value="2" checked="{{txtype == 2}}"/>支付宝
+    </label>
+    <label class="radio">
+      <radio value="3" checked="{{txtype == 3}}"/>微信
+    </label>
+  </radio-group>
+  </view>
+<view  wx:if="{{txtype == 1}}">
+<view class="page-section">
+    <view class="weui-cells__title"><text class="texticon">*</text>银行卡</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <input bindinput="Input" data-name="bankcard" value="{{bankcard}}" class="weui-input" placeholder="请输入您的银行卡号"/>
+      </view>
+      <view class="bottom-soild"></view>
+</view>
+</view>
+<view class="page-section">
+    <view class="weui-cells__title"><text class="texticon">*</text>开户行</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <input bindinput="Input" data-name="bank" value="{{bank}}" class="weui-input" placeholder="请输入您的开户行名称"/>
+      </view>
+      <view class="bottom-soild"></view>
+</view>
+</view>
+<view class="page-section">
+    <view class="weui-cells__title"><text class="texticon">*</text>公司名称</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <input bindinput="Input" data-name="companyName" value="{{companyName}}" class="weui-input" placeholder="请输入您的公司名称"/>
+      </view>
+      <view class="bottom-soild"></view>
+</view>
+</view>
+</view>
+<view  wx:if="{{txtype == 2}}">
+<view class="page-section">
+    <view class="weui-cells__title"><text class="texticon">*</text>支付宝账号</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <input bindinput="Input" data-name="Alipay" value="{{Alipay}}" class="weui-input" placeholder="请输入您的支付宝账号"/>
+      </view>
+      <view class="bottom-soild"></view>
+</view>
+</view>
+<view class="page-section">
+    <view class="weui-cells__title"><text class="texticon">*</text>支付宝名称</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <input bindinput="Input" data-name="AlipayName" value="{{AlipayName}}" class="weui-input" placeholder="请输入您的支付宝姓名"/>
+      </view>
+      <view class="bottom-soild"></view>
+</view>
+</view>
+</view>
+<view  wx:if="{{txtype == 3}}">
+<view class="page-section">
+    <view class="weui-cells__title"><text class="texticon">*</text>微信账号</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <input bindinput="Input" data-name="weixin" value="{{weixin}}" class="weui-input" placeholder="请输入您的微信号"/>
+      </view>
+      <view class="bottom-soild"></view>
+</view>
+</view>
+<view class="page-section">
+    <view class="weui-cells__title"><text class="texticon">*</text>微信昵称</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <input bindinput="Input" data-name="weixinName" value="{{weixinName}}" class="weui-input" placeholder="请输入您的微信昵称"/>
+      </view>
+      <view class="bottom-soild"></view>
+</view>
+</view>
+</view>
+<view bindtap="fromAction" class="fromBtnbox btn">确认提交</view>
+</view>
+<view wx:if="{{flag == 1}}">
+<view class="flagone"> 
+  <image wx:if="{{memberApplicationState == 01}}" class="img" src="../../../image/dai.png"></image>
+  <image wx:if="{{memberApplicationState == 00}}" class="img" src="../../../image/tongguo.png"></image>
+  <image  wx:if="{{memberApplicationState == 98}}" class="img" src="../../../image/jujue.png"></image>
+  <view class="text">申请名称：{{datalist[0].shopName}}</view>         
+  <view class="text">申请类型：联盟商店</view>
+  <view wx:if="{{memberApplicationState == 98}}" class="text">失败原因：<text wx:if="{{datalist[0].memberApplicationFailRemark}}">{{datalist[0].memberApplicationFailRemark}}</text><text wx:else>暂无</text></view>
+  <view wx:if="{{memberApplicationState == 01}}" class="btn"><text>待审核中</text></view>
+  <view wx:if="{{memberApplicationState == 00}}" class="btn"><text>已申请成功</text></view>
+  <view wx:if="{{type == 5}}"><button wx:if="{{memberApplicationState == 00}}" class="button" type="primary" plain="true" bindtap='urlbtn'>查看操作手册</button></view>
+  <view wx:if="{{memberApplicationState == 00}}">
+    <view style="margin-top:40rpx;" class="text">长按保存图片扫码联系客服</view>
+    <image show-menu-by-longpress style="height:200rpx;width:200rpx;" src="../../../image/EWM.png"></image>
+  </view>
+  <view wx:if="{{memberApplicationState == 98}}" bindtap="upAction" class="btn"><text>审核失败，请重试</text></view>
+</view>
+</view> 
+</view>
+
+<authorize id="authorize" type="{{type}}" closeModel="false" bind:onLoadFun="onLoadFun" isAuto="{{isAuto}}" iShidden="{{iShidden}}"></authorize>

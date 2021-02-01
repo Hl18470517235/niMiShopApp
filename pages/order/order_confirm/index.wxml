@@ -1,0 +1,164 @@
+<navbar parameter='{{parameter}}'></navbar>
+<view class='order-submission'>
+	<!-- <view class="alar acea-row row-middle">
+		<view class="icon">
+			<image src="/image/order_notifications.png" /> 
+		</view>
+		<text>预售时间：当天7:00以后，提货时间：次日7:00以后!</text>
+	</view> -->
+	<view class="allAddress" wx:if="{{!onlyQuShop}}">
+		<view class='address acea-row row-between-wrapper' bindtap='onAddress'>
+			<view class='addressCon acea-row row-middle' wx:if="{{addressInfo.receivingUserName}}">
+				<view class="icon">
+					<image src="/image/order_location_nor.png" />
+				</view>
+				<view style="padding-left:12rpx;width: 540rpx;">
+					<view class='name'>{{addressInfo.receivingUserName}}
+						<text class='phone'>{{addressInfo.receivingPhone}}</text>
+					</view> 
+					<view>{{addressInfo.provinceId}}{{addressInfo.cityId}}{{addressInfo.areaId}}{{addressInfo.detailAdress}}</view>
+				</view>
+			</view>
+			<view class='addressCon acea-row row-middle' wx:else>
+				<view class="icon">
+					<image src="/image/order_location_nor.png" />
+				</view>
+				<view class='setaddress'>选择收货地址</view>
+			</view>
+			<view class="icon"> 
+				<image src="/image/me_enter.png" />
+			</view>
+		</view>
+	</view>
+	<view class="cartw" wx:for="{{cartInfo}}" wx:for-item="cart" wx:for-index="cartidx" wx:key="cartidx">
+		<view class="title p20 acea-row row-middle" data-id="{{cart.shoppingId}}" bindtap="headerAction">
+			<view class="icon">
+				<image src="/image/home_title01.png" />
+			</view>
+			{{cart.shopName}} 
+		</view>
+		<view class="glist p20 acea-row row-between row-middle" bindtap="viewGlist" data-index="{{cartidx}}">
+			<scroll-view scroll-x class="itms">
+				<view class="itm" wx:for="{{cart.shoppingSettlementBean}}" wx:key="idx">
+					<image src="{{item.productIndexPhoto}}" />
+				</view>
+			</scroll-view>
+			<view style="margin-top:10rpx;">共{{cart.goodsCount}}件</view>
+			<view class="icon">
+				<image src="/image/me_enter.png" />
+			</view>
+		</view>
+		<view class="psfs bb2 p20 acea-row row-middle row-between">
+			<view class="acea-row row-middle">
+				<view>配送方式</view>
+				<view class="icon" catchtap="showShippingTips" wx:if="{{cart.adminType != 2}}">
+					<image src="/image/info.png" />
+				</view>
+			</view>
+			<picker bindchange="bindShippingTypeChange" value="{{cart.shippingTypeIndex}}" range="{{cart.shippingTypeList}}" wx:if="{{cart.canShippingToHome}}" data-index="{{cartidx}}">
+				<view class="v acea-row row-middle row-between">
+					<text>{{TypeLabel}}</text>
+					<view class="icon">
+						<image src="/image/me_enter.png" />
+					</view>
+				</view>
+			</picker>
+			<view class="v acea-row row-middle row-between" wx:else>
+				<text>{{TypeLabel}}</text>
+			</view> 
+		</view>
+		<view class="sys-store bb2 p20 acea-row row-column-between" wx:if="{{cart.adminType != 2}}" wx:if="{{shopModel}}">
+			<view class="store itm acea-row row-between" wx:if="{{shopModel}}">
+				<view class="acea-row row-middle" >
+					<view class="icon" wx:if="{{shopModel}}">
+						<image src="/image/order_details_location.png" />
+					</view>
+					<view class="name">
+						<text wx:if="{{cart.tiHuoShop.shopId}}">{{cart.tiHuoShop.shopName}}</text>
+						<text wx:else>请选择小区服务站</text>
+					</view>
+				</view>   
+				<view class="sel acea-row row-middle row-right" bindtap="toSelectShop" data-index="{{cartidx}}"wx:if="{{shopModel}}">
+					<text wx:if="{{cart.tiHuoShop.shopId}}">选择其他</text>
+					<text wx:else>去选择</text>
+					<view class="icon">
+					<image src="/image/me_enter.png"/>
+					</view>
+				</view>
+			</view>
+			<view class="itm acea-row row-middle">    
+				<view class="icon">
+					<image src="/image/product_details_location.png" />
+				</view>
+				<view class="adr txt">{{cart.tiHuoShop.shopAdress}}</view>
+			</view>
+			<!-- <view class="itm acea-row row-middle">
+				<view class="icon">
+					<image src="/image/order_notifications.png" />
+				</view>
+				 <view class="txt amt">提货时间：次日11:00以后</view>
+			</view> -->
+		</view>
+		<!-- <view class="btns bb2 acea-row row-middle row-around" wx:if="{{cart.adminType ==1}}">
+			<view class="map acea-row row-middle" data-lat="{{cart.tiHuoShop.lat}}" data-lng="{{cart.tiHuoShop.lng}}" bindtap="showMap">
+				<view class="icon">
+					<image src="/image/me_order_delivery_loc.png" />
+				</view>地图导航
+			</view>
+			<view class="tel acea-row row-middle" data-phone="{{cart.tiHuoShop.phonNo}}" bindtap="tel">
+				<view class="icon">
+					<image src="/image/me_order_delivery_call.png" />
+				</view>致电联系
+			</view>
+		</view> -->
+		<view class="total p20">
+			<view class="acea-row row-middle row-between">
+				<view>商品总价</view>
+				<view class="amt">¥{{cart.sumMoneyLabel}}</view>
+			</view>
+			<view class="acea-row row-middle row-between">
+				<view>配送费</view>
+				<view class="amt">+ ¥{{cart.shoppingAmount}}</view>
+			</view>
+			<view class="acea-row row-middle row-between">
+				<view>优惠金额</view>
+				<view class="amt">-¥{{cart.discountsMoney}}</view>
+			</view>
+			<!-- <view class="acea-row row-middle row-between">
+				<view>返积分</view>
+				<view class="amt">+ ¥{{cart.allLimit}}</view>
+			</view> -->
+			<view class="acea-row row-middle row-between">
+				<view>发票</view>
+				<view>本次不开具发票</view>
+			</view>
+			<view class="acea-row row-middle row-between" catchtap="toBeiZhu" data-index="{{cartidx}}">
+				<view>订单备注</view>
+				<view class="beizhu acea-row row-middle">
+					<text wx:if="{{cart.beizhu}}">{{cart.beizhu}}</text>
+					<text wx:else>无接触配送</text>
+					<view class="icon">
+						<image src="/image/me_enter.png" style="display:block" />
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="p20 xj">
+			小计：<text class="amt">¥{{cart.totalMoneyLabel}}</text>
+		</view>
+	</view>
+
+	<view style='height:120rpx;'></view>
+	<view class='footer acea-row row-between-wrapper'>
+		<view>共优惠
+			<text class='font-color'>￥{{totalDiscount || 0}}</text>
+		</view>
+		<view>待支付
+			<text class='font-color'>￥{{totalAmount || 0}}</text>
+		</view>
+		<view class='settlement bg-color' style='z-index:100' bindtap="SubOrder" data-name="{{cart.tiHuoShop.shopName}}">立即结算</view> 
+	</view>
+</view>
+<shipping-tips attribute='{{shipping_tips_show}}' bind:myevent="hideShippingTips" id='shipping-tips'></shipping-tips>
+<address-window bind:changeTextareaStatus="changeTextareaStatus" address='{{address}}' pagesUrl="{{pagesUrl}}" id="address-window" bind:OnChangeAddress="OnChangeAddress"></address-window>
+<authorize bind:onLoadFun='onLoadFun'></authorize>

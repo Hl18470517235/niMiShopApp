@@ -1,0 +1,60 @@
+/* pages/withdrawal/record/index.wxss */
+.tab {
+  display: flex;
+  justify-content: space-between;
+}
+.tab .btnstyle {
+  margin: 16rpx auto;
+}
+.item {
+  padding: 0 16rpx;
+}
+.item .left {
+  padding: 16rpx 0;
+  border-top: 2rpx solid #9f9f9f1f;
+}
+.item .left .header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.item .left .header .txt {
+  color: #5f5f5f5e;
+  font-size: 20rpx;
+}
+
+.item .left .content {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20rpx;
+}
+.btnstyle {
+  margin: 16rpx;
+  width: 200rpx;
+  height: 50rpx;
+  background-color: red;
+  text-align: center;
+  line-height: 50rpx;
+  color: #fff;
+  border-radius: 40rpx;
+}
+.btnstyle {
+  margin: 16rpx;
+  width: 200rpx;
+  height: 50rpx;
+  background-color: red;
+  text-align: center;
+  line-height: 50rpx;
+  color: #fff;
+  border-radius: 40rpx;
+}
+.btnstyle2 {
+  margin: 16rpx;
+  width: 200rpx;
+  height: 50rpx;
+  background-color: blue;
+  text-align: center;
+  line-height: 50rpx;
+  color: #fff;
+  border-radius: 40rpx;
+}

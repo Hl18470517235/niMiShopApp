@@ -1,0 +1,148 @@
+<navbar parameter='{{parameter}}'></navbar>
+<view class='product-con'>
+	<productConSwiper imgUrls="{{storeInfo.productLunList}}"></productConSwiper>
+	<view class='wrapper'>
+		<view class='share acea-row row-between row-bottom'>
+			<view class='money acea-row row-between row-bottom' wx:if="{{productSelect.unique}}">
+				<text class='num font-color'>￥{{storeInfo.price}}</text>
+				<view class="old">￥{{storeInfo.shopPrice}}</view>
+				<view class="lbl font-color" wx:if="{{productSelect.label}}">{{productSelect.label}}</view>
+			</view>
+			<view class='money acea-row row-between row-bottom' wx:else>
+				<text class='num font-color'>￥{{productSelect.price}}</text>
+				<view class="old">￥{{productSelect.shopPrice}}</view>
+				<view class="lbl font-color" wx:if="{{storeInfo.activityLabel}}">{{storeInfo.activityLabel}}</view>
+			</view>
+			<view class="salenum">销量：{{storeInfo.productBuyCount}}</view>
+		</view>
+		<view class='introduce'>{{storeInfo.productName}}</view>
+		<view class='label acea-row row-between-wrapper'>
+			{{storeInfo.productRemark}}
+		</view>
+		<!-- 分享按键开始 -->
+		<view>
+			<button open-type="share"  class='shareButton'>
+				<image src="{{shareToWechart}}"></image>
+				<!-- <text class='btntxt'>分享给朋友</text> -->
+			</button>
+		</view>
+		<!-- 结束-->
+	</view>
+	<view class="wrapper on">
+		<view class='oline acea-row row-between-wrapper'>
+			<view class='hide line1 acea-row'>
+				平台补贴
+				<text class='btext' wx:if="{{!productSelect}}">购物返积分</text>
+				<text class='btext' wx:elif="{{productSelect.butie > 0}}">购物返{{productSelect.butie}}积分</text>
+				<text class='btext' wx:else>购物返{{productSelect.butie}}积分（活动商品不参与积分）</text>
+			</view>
+		</view>
+	</view>
+	<view class="wrapper on" wx:if="{{list.length > 0}}" style="padding-bottom:10px;">
+		<view style="margin-top:10px;text-align: center;">---------------- <span style="font-size:12px;font-weight: 700;">商品参数</span> ----------------</view>
+		<view>
+    <view class="table" style="margin-top:10px;margin-bottom:10px;">
+        <view class="tr">
+            <block wx:for="{{headers}}" wx:key="{{index}}">
+            <view class="th left">{{item}}</view>
+            </block>
+        </view>
+        <view class="tr" wx:for="{{list}}" wx:key="index">
+            <block wx:for="{{item}}" wx:key="index">
+                <view class="td left">{{item}}</view>
+            </block>
+        </view>
+    </view>
+</view>
+	</view>
+	<view class="wrapper on">
+		<view class='oline acea-row row-between-wrapper' bindtap='selecAttr'>
+			<view style="white-space: nowrap;text-overflow: ellipsis;overflow: hidden;width:280px">{{attr}}
+				<text class='atterTxt'>{{attrValue}}</text>
+			</view>
+			<view class='iconfont icon-jiantou'></view>
+		</view>
+		<!-- <view style="white-space: nowrap;text-overflow: ellipsis;overflow: hidden;" class='oline acea-row row-between-wrapper' bindtap='showattr' wx:if="attrList.length > 0">
+			<view class='hide line1 acea-row'>
+				产品参数
+			</view>
+			<view class='iconfont icon-jiantou'></view>
+		</view> -->
+	</view>
+	<view class="wrapper on" wx-if="{{storeInfo.labelList.length > 0}}">
+		<view class="labels acea-row row-between-wrapper">
+			<view class="item acea-row row-middle" wx:for="{{storeInfo.labelList}}">
+				<view class="sq"></view>
+				<text class="label">{{item}}</text>
+			</view>
+		</view>
+	</view>
+	<view class='userEvaluation'>
+		<view class='title acea-row row-between-wrapper'>
+			<view>用户评价({{replyCount}})</view>
+			<navigator class='praise' hover-class='none' url='/pages/goods/goods_comment_list/index?product_id={{id}}&chance={{replyChance}}'>
+				<text class='font-color'>{{replyChance}}%</text>好评率
+				<text class='iconfont icon-jiantou'></text>
+			</navigator>
+		</view>
+		<userEvaluation reply="{{reply}}"></userEvaluation>
+	</view>
+
+	<view class='product-intro'>
+		<view class='title'>商品详情.Details</view>
+		<view class='conter'>
+			<view wx:for="{{storeInfo.productDeList}}" wx:key="index">
+				<image src="{{item}}" mode="widthFix" style="height:auto;" />
+			</view>
+		</view>
+	</view>
+		<view class="superior" wx:if="{{good_list.length}}">
+		<view class="title acea-row row-middle">
+			<view class="titleTxt">猜你喜欢</view>
+		</view>
+		<goodList bastList="{{good_list}}" type="1"></goodList>
+	</view>
+	<view style='height:120rpx;'></view>
+	<view class='footer acea-row row-between-wrapper'>
+		<block wx:if="{{storeInfo.shopId == '82021012617480725484294307901120'}}">
+		<navigator hover-class='none' class="animated item" url='/pages/shopHome/index?id=82021012617480725484294307901120'>
+			<view class='item'>
+				<image src="/image/tab_whole_nor.png" style="width:48rpx;height:48rpx;" />
+				<view>店铺主页</view>
+			</view>
+		</navigator>
+   	</block>
+		<navigator hover-class='none' class="animated item" url='/pages/index/index' open-type='switchTab'>
+			<view class='item'>
+				<image src="/image/tab_home_nor.png" style="width:48rpx;height:48rpx;" />
+				<view>首页</view>
+			</view>
+		</navigator>
+		<button open-type="contact" hover-class='none' class='item ' send-message-title="{{storeInfo.store_name}}" send-message-img="{{storeInfo.image}}" send-message-path="/pages/goods/goods_details/index?id={{storeInfo.id}}" show-message-card>
+			<image src="/image/product_details_custom.png" style="width:48rpx;height:48rpx;" />
+			<view>客服</view>
+		</button>
+
+		<navigator open-type='switchTab' class="animated item" hover-class='none' url='/pages/order_addcart/order_addcart'>
+			<view class='cart'>
+				<image src="/image/product_details_cart.png" style="width:48rpx;height:48rpx;" />
+				<text class='num bg-color' wx:if="{{CartCount}}">{{CartCount}}</text>
+			</view>
+			<view>购物车</view>
+		</navigator>
+		<view class='bnt acea-row'>
+			<form bindsubmit="joinCart" report-submit='true'>
+				<button wx:if="{{detailModel}}" class='joinCart bnts' formType="submit">加入购物车</button><button wx:else class='joinCartNo bnts'>暂时缺货</button>
+			</form>
+			<form bindsubmit="goBuy" report-submit='true'>
+				<button wx:if="{{detailModel}}" class='buy bnts' formType="submit">立即购买</button><button style="margin-left: 20rpx;" wx:else class='joinCartNo bnts'>暂时缺货</button>
+			</form>
+		</view>
+	</view>
+</view>
+<!-- 组件 -->
+<product-window attribute='{{attribute}}' allAttr="{{allList}}" productAttr="{{productAttr}}" productSelect="{{productSelect}}" bind:myevent="onMyEvent" bind:ChangeAttr="ChangeAttr" bind:ChangeCartNum="ChangeCartNum" id='product-window'></product-window>
+<platform-butie attribute='{{pans.butie}}' bind:myevent="hidebutie" id='butie-window'></platform-butie>
+<product-attr attribute='{{pans.attr}}' attrList='{{attrList}}' bind:myevent="hideattr" id='attr-window'></product-attr>
+<coupon-list-window coupon='{{coupon}}' bind:ChangCouponsClone="ChangCouponsClone" bind:ChangCoupons="ChangCoupons"></coupon-list-window>
+<authorize bind:onLoadFun="onLoadFun" isAuto="{{isAuto}}" iShidden="{{iShidden}}"></authorize>

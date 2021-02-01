@@ -1,0 +1,97 @@
+/* pages/other/shopList/index.wxss */
+#mas {
+  position: fixed;
+  z-index: 9999;
+  top: 0rpx;
+  left: 0rpx;
+  right: 0rpx;
+  bottom: 0rpx;
+  background-color: rgba(8, 8, 8, 0.384);
+}
+#detailbox{
+  position: fixed;
+  z-index: 999999;
+  transition: all 1s;
+  bottom: 0rpx;
+  padding-top: 70rpx;
+  left: 0rpx;
+  right: 0rpx;
+  background-color: #fff;
+  border-radius: 30rpx 30rpx 0 0;
+  overflow: hidden;
+  animation: Box 0.7s; 
+}   
+@keyframes Box
+{
+  0%   {bottom: -50%;}
+	100%  {bottom: 0rpx;}
+} 
+.box {
+  display: flex;
+  margin: 16rpx;
+  padding: 10rpx;
+  background-color: #fff;
+  border-radius: 20rpx;
+  box-shadow: 1px 1px 0 rgba(8, 8, 8, 0.17);
+}
+.bottomtext {
+  padding: 40rpx 0;
+  text-align: center;
+  background-color: #f5f5f5;
+}
+#detailbox .img1 {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  height: 60rpx;
+  width: 60rpx;
+}
+.box .img {
+  flex: 0 0 100rpx;
+  width: 100rpx;
+  height: 100rpx;
+}
+.box .title .adress {
+  padding-top: 16rpx;
+  font-size: 24rpx;
+  color: #919191;
+}
+.box .title {
+  flex: 0 0 500rpx;
+  margin-left: 10rpx;
+}
+.box .icon {
+  width: 70rpx;
+  height: 70rpx;
+  margin: auto 0;
+  margin-right: 20rpx;
+}
+.bottom-box {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  background-color: #f5f5f5;
+  padding: 8rpx 0;
+}
+.bottom-box .title {
+  font-size: 20rpx;
+  margin: auto 0;
+  color: #919191;
+}
+.box .title .iconimg {
+  height: 30rpx;
+  width: 30rpx;
+  display: inline-block;
+  margin-right: 8rpx;
+  vertical-align: bottom;
+}
+
+.bottom-box .btn {
+  padding: 10rpx 30rpx;
+  background-color: #06B7A4;
+  color:#fff;
+  border-radius: 10rpx;
+}

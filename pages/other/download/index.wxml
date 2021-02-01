@@ -1,0 +1,9 @@
+<navbar parameter='{{parameter}}'></navbar>
+<view class='newsDetail'>
+   <view class='title'>复制以下地址，然后在手机浏览器中打开</view>
+   <view class='conter'>
+     {{url}}
+   </view>
+   <view bindtap="copy" class="dw bg-color">复制下载地址</view>
+</view>
+   

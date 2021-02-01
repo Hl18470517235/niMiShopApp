@@ -1,0 +1,45 @@
+<navbar parameter='{{parameter}}'></navbar>
+<view class='newsList'>
+	<view class='list'>
+		<navigator catchtap="resetAvatar" hover-class='none' class='item acea-row row-between-wrapper'>
+			<view class='text acea-row row-middle row-between'>头像</view>
+			<view class="acea-row row-middle">
+				<view class="avatar">
+          <image wx:if="{{userInfo.userPhoto}}" src="{{userInfo.userPhoto}}"/>
+					<image wx:else src="/image/userPhoto.png"></image>
+        </view>
+				<view class='pictrue'>
+					<image src='/image/me_enter.png'></image>
+				</view>
+			</view>
+		</navigator>
+		<navigator url='/pages/ucenter/user_nick/index' hover-class='none' class='item acea-row row-between-wrapper'>
+			<view class='text acea-row row-column-between'>昵称</view>
+			<view class="acea-row row-middle">
+				<view wx:if="{{userInfo.userNike}}" class="nick">{{userInfo.userNike}}</view>
+				<view wx:elif="{{userInfo.userPhone}}" class="nick">{{userInfo.userPhone}}</view>
+				<view wx:else class="nick">{{userInfo.userAccount}}</view>
+				<view class='pictrue'>
+					<image src='/image/me_enter.png'></image>
+				</view>
+			</view>
+		</navigator>
+		<navigator url='/pages/ucenter/user_phone/index' hover-class='none' class='item acea-row row-between-wrapper' wx:if="{{userInfo.existPwd == 1}}">
+			<view class='text acea-row row-column-between'>设置登录密码</view>
+			<view class="acea-row row-middle">
+				<view style="margin-right:20rpx;color:#919191;margin-bottom:-12rpx;"></view>
+				<view class='pictrue'>
+					<image src='/image/me_enter.png'></image>
+				</view>
+			</view>
+		</navigator>
+		<navigator url='/pages/other/protocol_list/index' hover-class='none' class='item acea-row row-between-wrapper' style="margin-top:20rpx;">
+			<view class='text acea-row row-column-between'>服务协议</view>
+			<view class='pictrue'>
+				<image src='/image/me_enter.png'></image>
+			</view>
+		</navigator>
+	</view>
+</view>
+
+<authorize bind:onLoadFun="onLoadFun"></authorize>

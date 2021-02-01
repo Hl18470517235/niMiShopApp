@@ -1,0 +1,17 @@
+<!--pages/other/stock/index.wxml-->
+<navbar parameter='{{parameter}}'></navbar> 
+<view class="textBox" wx:if="{{dataList}}" wx:for="{{dataList}}" wx:key="key">
+  <view style="border-bottom: 1px solid #9191910d;padding-bottom:16rpx;color:#919191;">
+    <text>占股商店名称：</text><text>{{item.shopName}}</text>
+  </view>
+  <view style="margin-top:20rpx;border-bottom: 1px solid #9191910d;padding-bottom:16rpx;color:#919191;">
+    <text>分配股份：</text><text>{{item.sharesValue}}</text>
+  </view>
+  <view style="margin-top:20rpx;border-bottom: 1px solid #9191910d;padding-bottom:16rpx;color:#919191;">
+    <text>股份分配用户职位或名称：</text><text>{{item.sharesUserName}}</text>
+  </view>
+  <view style="margin-top:20rpx;border-bottom: 1px solid #9191910d;padding-bottom:16rpx;color:#919191;">
+    <text>是否是实际控股人：</text><text wx:if="{{item.adminFlag == 0}}">是</text><text wx:if="{{item.adminFlag == 1}}">否</text>
+  </view>
+</view> 
+

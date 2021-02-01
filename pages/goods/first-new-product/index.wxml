@@ -1,0 +1,6 @@
+<navbar parameter='{{parameter}}'></navbar>
+<view class='quality-recommend'>
+   <goodList bastList="{{benefit}}" status="{{status}}"></goodList>
+</view>
+<view style="text-align:center;height:80rpx;line-height:80rpx;font-size:26rpx;">{{loadTitle}}</view>
+

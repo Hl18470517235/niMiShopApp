@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "navbar": "/components/navbar/index",
+    "authorize": "/components/authorize/authorize",
+    "mp-actionSheet": "/miniprogram_npm/weui-miniprogram/actionsheet/actionsheet"
+  }
+}

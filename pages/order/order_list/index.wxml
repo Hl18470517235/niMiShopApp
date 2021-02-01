@@ -1,0 +1,89 @@
+<navbar parameter='{{parameter}}'></navbar>
+<view class='my-order'>
+  <view class='nav acea-row row-around bg-color' style='top:{{navH}}rpx;'>
+    <view class='item {{orderStatus=="All" ? "on": ""}}' data-status="All" bindtap="statusClick">
+      <view>全部</view>
+    </view>
+    <view class='item {{orderStatus==1 ? "on": ""}}' data-status="1" bindtap="statusClick">
+      <view>待付款</view>
+    </view>
+    <view class='item {{orderStatus==2 ? "on": ""}}' data-status="2" bindtap="statusClick">
+      <view>待发货</view>
+    </view>
+    <view class='item {{orderStatus==3 ? "on": ""}}' data-status="3" bindtap="statusClick">
+      <view>待收货</view>
+    </view>
+    <view class='item {{orderStatus==4 ? "on": ""}}' data-status="4" bindtap="statusClick">
+      <view>待评价</view>
+    </view>
+  </view>
+  <view class='list'>
+    <view class='item' wx:for="{{orderList}}" wx:key="key" wx:for-item="order">
+      <view bindtap='goOrderDetails' data-order_id="{{order.orderId}}">
+        <!-- 顶部店铺名 + 订单状态 -->
+        <view class='title acea-row row-between-wrapper'>
+          <view class="name acea-row row-middle"> 
+            <view>{{order.shopName}}</view>
+          </view>
+          <view wx:if="{{order.orderStatus == 1}}" class='font-color'>等待付款</view>
+          <view wx:elif="{{order.orderStatus == 2}}" class='font-color'>买家已付款</view>
+          <view wx:elif="{{order.orderStatus == 3}}" class='font-color'>卖家已发货</view>
+          <view wx:elif="{{order.orderStatus == 4}}" class='font-color'>待评价</view>
+          <view wx:elif="{{order.orderStatus == 5}}" class='font-color'>交易关闭</view>
+          <view wx:elif="{{order.orderStatus == 6}}" class='font-color'>已评价</view>
+        </view>
+        <!-- 商品图 + 商品名 + 价格 + 数量 -->
+        <view class='item-info acea-row row-between row-top' wx:for="{{order.appOrderDetailBean}}" wx:key="pindex" wx:for-index="pindex">
+          <view class='pictrue'>
+            <image src='{{item.image}}'></image>
+          </view>
+          <view class='text acea-row row-between'>
+            <view class='name line2'>
+              <text>{{item.title}}</text>
+              <view class="spec">
+                <text wx:for="{{item.ownSpec}}" wx:for-item="spec" wx:key>{{spec.value}}</text>
+              </view>
+            </view>
+            <view class='money'>
+              <view>￥{{item.price}}</view>
+              <view>x{{item.num}}</view>
+              <view wx:if="{{order.orderStatus == 4}}">
+                <view class="btn bg-color" wx:if="{{item.buyerRate != 1}}" data-ord="{{index}}" data-pro="{{pindex}}" catchtap="ping">去评价</view>
+                <view wx:else>已评价</view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class='afterSales'>
+          <text class='title-0'>安心退换</text>
+          <text class='title-1'>不满意当天免费退换</text>
+          <text class='title-2'>已出单</text>
+        </view>
+        <view class='totalPrice'>共{{order.totalNum || 0}}件商品，合计：
+          <text class='money'>￥{{order.actualPay}}<text wx:if="{{order.postFee > 0}}" style="font-size:24rpx;color:#919191;margin-left:12rpx;">(含{{order.postFee}}运费)</text></text>
+        </view>
+      </view>
+      <view class='bottom acea-row row-right row-middle'>
+        <view class='bnt cancelBnt' wx:if="{{order.orderStatus == 1}}" data-index="{{index}}" data-order_id="{{order.orderId}}" bindtap='cancelOrder'>取消付款</view>
+        <view class='bnt border-color' wx:if="{{order.orderStatus == 1}}" data-index="{{index}}" bindtap='goPay'>去付款</view>
+        <view class='bnt border-color' wx:if="{{order.orderStatus}}" data-order_id="{{order.orderId}}" bindtap='goOrderDetails'>查看详情</view>
+        <view style="display: inline-block;margin-left:16rpx;" wx:if="{{order.dispatchingType == '4'}}"><view class='bnt border-color' wx:if="{{order.orderStatus == '2'}}" data-order_id="{{order.orderId}}" bindtap='getHorseMan'>查看骑手</view></view>
+        <view class='bnt bnt-code' wx:if="{{(order.orderStatus == 3 || order.orderStatus == 2) && order.getId}}" data-order_id="{{order.orderId}}" data-index="{{index}}" bindtap='showCode'>取货码</view>
+        <view class='bnt border-color' wx:if="{{order.orderStatus == 3}}" data-index="{{index}}" bindtap='confirmOrder'>确认收货</view>
+      </view>
+    </view>
+    <view class='noMore' wx:if="{{orderList.length !== 0}}">到底了，滑不动了……</view>
+  </view>
+  <view class='loadingicon acea-row row-center-wrapper' wx:if="{{loading}}">
+    <text class='loading iconfont icon-jiazai' hidden='{{loading==false}}'></text>{{loadTitle}}
+  </view>
+</view>
+<view class='noCart' wx:if="{{orderList.length == 0 && page > 1}}">
+  <view class='pictrue'>
+    <image src='/image/order_none_01.png'></image>
+  </view>
+  <view style="text-align:center;">亲，没有相应的订单记录~</view>
+</view>
+<authorize bind:onLoadFun='onLoadFun'></authorize>
+<payment payMode='{{payMode}}' pay_close="{{pay_close}}" bind:onChangeFun='onChangeFun' order_id="{{pay_order_id}}" totalPrice='{{totalPrice}}'></payment>
+<codeviewer bind:onClose="onClose" iShidden="{{codeViewerHidden}}" code="{{code}}"></codeviewer>

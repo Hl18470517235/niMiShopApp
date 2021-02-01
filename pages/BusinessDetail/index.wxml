@@ -1,0 +1,193 @@
+<!--pages/BusinessDetail/index.wxml-->
+<!-- <navigator id="car" open-type='switchTab' url='/pages/order_addcart/order_addcart'> 
+  <image src="/image/antOutline-shopping-cart.svg"></image>
+</navigator> -->
+<view id="dot" animation='{{ani}}' hidden="{{!showdot}}">+1</view>
+<view class="shopcar" id="shopcar" bindtap="shopAction">
+	<view id="shopcarimg" class="img"><image style="top:{{imgtop}}rpx;" src="../../image/shoppingcart_none.png"></image></view>
+	<view class="priceBox">
+	<view><text wx:if="{{allshopprice > 0}}">¥ {{carallPrice}}</text><text wx:if="{{allshopprice > 0}}" style="font-size:24rpx;margin-left:20rpx;color:#ccc;text-decoration:line-through;">¥{{allshopprice}}</text><text wx:if="{{allshopprice == 0}}">购物车还是空的哦~</text></view>
+	</view>
+	<view class="text">去结算</view>
+	<text class="num">{{ListLength}}</text>
+</view>
+<navbar parameter='{{parameter}}' id="navbar"></navbar>
+<view class="swiper_view">
+  <swiper class="swiper" autoplay indicator-dots indicator-active-color='#ffffff60'>
+    <swiper-item>
+      <image class="img" src="{{detailList.userPhoto06}}"></image> 
+    </swiper-item>
+  </swiper>
+</view>
+<view class="title1">
+  <view class="title_item">
+    <image class="icon1" src="/image/riLine-store-2-line.svg"></image>
+    <text style="font-size: 28rpx;font-weight: 700;">{{detailList.shopName}}</text>
+  </view>
+  <view class="title_item">
+    <image class="icon1" src="/image/ze-location-o.svg"></image>
+    <text>{{detailList.shopAdressDetail}}</text><text class="mapstyle" bindtap="mapAction">导航</text>
+  </view>
+  <view class="title_item">
+    <image class="icon1" src="/image/time.png"></image>
+    <text>营业时间丨 <text wx:if="{{detailList.startTime.length > 6}}">{{detailList.startTime}} ~ {{detailList.endTime}}</text><text wx:if="{{detailList.startTime == null}}">全天营业</text><text><text wx:if="{{detailList.startTime.length > 5}}"> 丨打烊后不接单~</text></text></text>
+	</view>
+	<view class="title_item">
+		<image class="icon1" src="/image/shopType.png"></image>
+		<text>商店类型：{{detailList.shopType}}</text>
+  </view>
+  <!-- <view class="title_item" data-s="{{detailList.shopPhone}}" bindtap="callPhone">
+    <image class="icon1" src="/image/phone.png"></image>
+    <text style="color:#1890FF;">{{detailList.shopPhone}}</text>
+  </view> -->
+</view>
+<view class="goodsList">
+  <view class="name" style="font-family: SourceHanSansSC-bold;font-weight:bold;text-align: center;">店铺商品 </view>
+    <view class="goodsItem" wx:for="{{goodsList}}" wx:key="key">
+      <view class="goods" catchtap="itemAction" data-index="{{item.productId}}" data-id="{{item.productId}}">
+         <view><image src="{{item.productIndexPhoto}}"></image></view>
+         <view style="margin-left: 10rpx;">
+          <view class="pro_name">{{item.productName}}</view> 
+					<view class="pro_remark">{{item.productRemark}}</view>
+					<view style="color:red;">￥{{item.price}}      <text style="color:#9F9F9F;font-size: 24rpx;text-decoration: line-through;">￥{{item.shopPrice}}</text></view>
+					<view style="font-size: 24rpx;color:#919191;">库存：{{item.count}}</view>
+          <view wx:if="{{item.activityLabel !== null}}" class="cards"><view class="card"><span class="card2">{{item.activityLabel}}</span></view></view>
+          <view class="text1" catchtap="selectAction" data-index="{{item.productId}}" data-id="{{item.productId}}">加入购物车</view>
+          <!-- <view class="text1" catchtap="itemAction" data-index="{{item.productId}}" data-id="{{item.productId}}">去选购</view> -->
+         </view>
+      </view>
+    </view>
+  <!-- <view class="bottomBtn" wx:if="{{proPageInfo.next}}" catchtap="allAction">
+    <text>查看更多</text>
+    <image style="height:40rpx;width:40rpx;" src="/image/md-expand_more.svg"></image>
+  </view> -->
+  <view wx:if="{{!proPageInfo.next}}" style="padding:90rpx 0;text-align: center;color:#919191;">已加载全部商品！</view>
+</view>
+
+<view wx:if="{{masModel}}" id='mas' bindtap='close'></view> 
+<view wx:if="{{detailModel}}" id="detailbox"> 
+<image catchtap='close' id="colseimg" src="/image/clear-text.png"></image>
+<view class='shoppingCart'>
+	<view class="store" wx:for="{{cartList}}" wx:key="key" wx:for-item="items" wx:for-index="cindex">
+		<view class="title">
+			<checkbox disabled="{{items.seleModel}}" data-id="{{items.adminId}}"  data-cindex="{{cindex}}" checked="{{items.checked}}" bindtap="checkboxPartChange" />
+			<view class="name">{{items.adminName}}</view>
+		</view>
+		<view class='list'>
+			<scroll-view scroll-y="true" style="height: 600rpx;">
+			<block wx:for="{{items.productCarbeans}}" wx:key="index">
+				<view class='item acea-row row-between-wrapper'>
+					<view id="noBox" wx:if="{{item.boxModel}}"></view>
+					<checkbox disabled="{{item.seleModel}}" data-id="{{item.shoppingCarId}}" data-adminid="{{items.adminId}}" data-cindex="{{cindex}}" value="{{item.shoppingCarId}}" checked="{{item.checked}}" bindtap="checkboxChange" />
+					<navigator url='/pages/goods/goods_details/index?id={{item.productId}}' hover-class='none' class='picTxt acea-row row-between-wrapper'>
+						<view class='pictrue'> 
+							<image src='{{item.proIndexPhoto}}'></image>
+						</view>
+						<view class='text'>
+							<view class='line1'>{{item.productName}}</view>
+							<view class='infor line1 acea-row row-middle' wx:if="{{item.specificationsValue.length}}">
+								<view wx:for="{{item.specificationsValue}}" wx:for-item="spec" wx:for-index="speckey" style="margin-right:10rpx;" wx:key="id91">
+									{{spec.value}}
+								</view>
+							</view>
+							<view class="line2">
+								<view class="ps in" wx:if="{{item.productIsFlag == 2}}">物流配送</view>
+								<view class="ps in" wx:else>
+									<text wx:if="{{item.productGetType == 1}}">到店自提</text>
+									<text wx:else>支持送货上门</text>
+								</view>
+								<view class="zy in">
+									<text wx:if="{{item.productIsFlag == 1}}">区域商品</text>
+									<text wx:else>全国商品</text>
+								</view>
+							</view>
+							<view class="line3">
+								<view class='money'>￥{{item.price}}</view>
+								<view class='unit'>/{{item.productDan}}</view>
+								<view class='carnum acea-row row-center-wrapper'>
+									<view class="reduce {{item.numSub ? '' : ''}}" catchtap='subCart' data-cindex="{{cindex}}" data-index="{{index}}">
+										<image class="image" src="/image/product_number_dec_sel.png" />
+									</view>
+									<view class='num'>{{item.buyCount}}</view>
+									<view class="plus {{item.numAdd ? 'on' : 'on'}}" catchtap='addCart' data-cindex="{{cindex}}" data-index="{{index}}">
+										<image class="image" src="/image/product_number_inc.png" />
+									</view>
+								</view>
+							</view>
+						</view>
+					</navigator>
+				</view>
+			</block>
+		</scroll-view>
+
+			<view class='footer2 acea-row row-between-wrapper' wx:if="{{cartList.length > 0}}">
+		<view>
+			<!-- <checkbox data-id="{{items.adminId}}" checked="{{items.checked}}" bindtap="checkboxPartChange" /><text class='checkAll'>全选</text> -->
+			<!-- <checkbox-group bindchange="checkboxAllChange">
+				<checkbox value="all" checked="{{isAllSelect}}" /><text class='checkAll'>全选</text>
+			</checkbox-group> -->
+		</view>
+		<view class='money acea-row row-middle' wx:if='{{footerswitch==true}}'>
+			<text class="hj">合计:</text>
+			<text class='amt font-color'>￥<text style="font-size:30rpx;">{{items.Allprice}}</text></text>
+			<view class="del" catchtap="delete">删除</view>
+			<form bindsubmit="subOrder" data-id="{{items.adminId}}" data-isHorseManFlag="{{items.isHorseManFlag}}" data-shopLat="{{items.shopLat}}" data-shopLng="{{items.shopLng}}" data-cindex="{{cindex}}" report-submit='true'>
+				<button class='placeOrder bg-color' formType="submit">去结算</button>
+			</form>
+		</view>
+		<view class='button acea-row row-middle' wx:else>
+			<form bindsubmit="subCollect" report-submit='true'>
+				<button class='bnt cart-color' formType="submit">收藏</button>
+			</form>
+			<form bindsubmit="subDel" report-submit='true'>
+				<button class='bnt' formType="submit">删除</button>
+			</form>
+		</view>
+	</view>
+
+
+
+		</view>
+		<view class='invalidGoods' wx:if="{{cartList.invalid.length > 0}}">
+			<view class='goodsNav acea-row row-between-wrapper'>
+				<view bindtap='goodsOpen'><text class='iconfont {{goodsHidden==true?"icon-xiangxia":"icon-xiangshang"}}'></text>失效商品</view>
+				<view class='del' bindtap='unsetCart'><text class='iconfont icon-shanchu1'></text>清空</view>
+			</view>
+			<view class='goodsList' hidden='{{goodsHidden}}'>
+				<block wx:for="{{cartList.invalid}}" wx:key="idx90">
+					<view class='item acea-row row-between-wrapper'>
+						<view class='invalid'>失效</view>
+						<view class='pictrue'>
+							<image wx:if="{{item.productInfo.attrInfo}}" src='{{item.productInfo.attrInfo.image}}'></image>
+							<image wx:else src='{{item.productInfo.image}}'></image>
+						</view>
+						<view class='text acea-row row-column-between'>
+							<view class='line1'>{{item.productInfo.store_name}}</view>
+							<view class='infor line1' wx:if="{{item.productInfo.attrInfo}}">属性：{{item.productInfo.attrInfo.suk}}</view>
+							<view class='acea-row row-between-wrapper'>
+								<view>￥{{item.truePrice}}</view>
+								<view class='end'>该商品已失效</view>
+							</view>
+						</view>
+					</view>
+				</block>
+			</view>
+		</view>
+	</view>
+	<view class='noCart' wx:if="{{cartList.length == 0 && loaded}}">
+		<view class='pictrue'>
+			<image src='/image/shoppingcart_none.png'></image>
+		</view>
+		<view style="text-align:center;padding:50rpx 0;">购物车还是空的哦~</view>
+	</view>
+	<view style='height:44rpx;'></view>
+</view>
+</view>
+
+<view wx:if="{{mModel}}" id='mas'></view>
+<view wx:if="{{mModel}}" id="masModel">
+	<view class="text"><text style="text-align: left;">该订单已放置待付款页面，请在待付款页面付款！</text></view>
+	<view><text class="btn" catchtap="yesAction">确认</text></view>
+</view>
+<authorize id="authorize" type="{{type}}" bind:onLoadFun="onLoadFun" isAuto="{{isAuto}}" iShidden="{{iShidden}}"></authorize>
+<product-window attribute='{{attribute}}' allAttr="{{proDetailList}}" productAttr="{{seleList}}" productSelect="{{productSelect}}" model="{{detamodel}}" bind:myevent="myevent" bind:ChangeAttr="ChangeAttr"  bind:joincar="joincar" id='product-window'></product-window>

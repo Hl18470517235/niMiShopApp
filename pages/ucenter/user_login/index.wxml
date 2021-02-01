@@ -1,0 +1,12 @@
+<navbar parameter='{{parameter}}'></navbar>
+<view class="ChangePassword">
+    <view class="list">
+      <view class="item">
+        <input type='number' placeholder='填写手机号码' bindinput='inputgetName' data-name='account' placeholder-class='placeholder'></input>
+      </view>
+      <view class="item">
+        <input type='password' placeholder='登录密码' bindinput='inputgetName' data-name='pwd' placeholder-class='placeholder'></input>
+      </view>
+    </view>
+    <view class="confirmBnt bg-color" bindtap="login">登录</view>
+  </view>

@@ -1,0 +1,46 @@
+@import '/app.wxss';
+.product-window{position:fixed;bottom:0;width:100%;left:0;background-color:#fff;z-index:88;border-radius:16rpx 16rpx 0 0;padding-bottom:140rpx;transform:translate3d(0,100%,0);transition:all .3s cubic-bezier(.25,.5,.5,.9);}
+.product-window.on{transform:translate3d(0,0,0);}
+.product-window .textpic{padding:0 30rpx 0 30rpx;margin-top:29rpx;position:relative;}
+.product-window .textpic .pictrue{width:150rpx;height:150rpx;}
+.product-window .textpic .pictrue image{width:100%;height:100%;border-radius:10rpx;}
+.product-window .textpic .text{width:520rpx;font-size:24rpx;color:#919191;}
+.product-window .textpic .text .money{font-size:28rpx;margin-top:40rpx;} 
+.product-window .textpic .text .num{font-size:28rpx;font-weight: bold;color: #CB2424;}
+.product-window .textpic .close{position:absolute;right:30rpx;top:-5rpx;width:48rpx;height:48rpx;}
+.product-window .textpic .close image{width:100%;height:100%;}
+.product-window .textpic .text .stock{padding:12rpx 0;}
+.product-window .textpic .text .bt{padding-top:12rpx;}
+.product-window .textpic .iconfont{position:absolute;right:30rpx;top:-5rpx;font-size:35rpx;color:#8a8a8a;}
+.product-window .productWinList{max-height:500rpx;overflow:auto;margin-top:36rpx;}
+.product-window .productWinList .item~.item{margin-top:36rpx;}
+.product-window .productWinList .item .title{font-size:26rpx;color:#999;padding:0 30rpx;}
+.product-window .productWinList .item .listn{padding:0 30rpx 0 16rpx;}
+.product-window .productWinList .item .listn .itemn{font-size:26rpx;color:#101010;padding:0rpx 33rpx;border-radius:30rpx;margin:14rpx 0 0 14rpx;line-height: 60rpx; height:60rpx;background: #F2F2F2;}
+.product-window .productWinList .item .listn .itemn.on{color:#CB2424;background-color:#F4D1D1;border:2rpx solid #CB2424;}
+.product-window .cart{margin:136rpx 30rpx 36rpx;}
+.product-window .cart .title{font-size:26rpx;color:#919191;}
+.product-window .cart .carnum{height:54rpx;}
+.product-window .cart .carnum .reduce{width:32rpx;height:32rpx;}
+.product-window .cart .carnum image{width: 100%; height: 100%;}
+.product-window .cart .carnum .reduce.on{border-color:#e3e3e3;color:#dedede;}
+.product-window .cart .carnum .plus{width:32rpx;height:32rpx;}
+.product-window .cart .carnum .plus.on{border-color:#e3e3e3;color:#dedede;}
+.product-window .cart .carnum .num{color:#101010;font-size:28rpx;background: #F2F2F2;width:88rpx;height:44rpx;line-height:44rpx;text-align: center;margin:0 4rpx;}
+.joinCart {
+  border-radius: 50rpx;
+  background-image: linear-gradient(to right,#fea10f 0%,#fa8013 100%);
+  margin: 20rpx 230rpx;
+  font-size: 32rpx;
+  padding: 10rpx 0;
+  color:#FFF
+}
+.joinNoCart {
+  border-radius: 50rpx;
+  background-image: linear-gradient(to right,#b7b3ad 0%,#9e9185 100%);
+  margin: 20rpx 230rpx;
+  font-size: 32rpx;
+  padding: 10rpx 0;
+  color:#FFF
+}
+

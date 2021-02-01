@@ -1,0 +1,139 @@
+<navbar parameter='{{parameter}}' id="navbar"></navbar>
+<view class='order-details'>
+	<!-- 给header上与data上加on为退款订单-->
+	<view class='header bg-color acea-row row-middle'>
+		<view class='data' wx:if="{{orderInfo.status == 1}}">
+			<view class='state'>等待买家付款</view>
+		</view>    
+		<view class='data' wx:if="{{orderInfo.status == 2}}">
+			<view class='state'>已支付，等待出库</view>
+		</view>     
+		<view class='data' wx:if="{{orderInfo.status == 3}}">
+			<view class='state'>已出库，待收货</view>
+		</view>
+		<view class='data' wx:if="{{orderInfo.status == 4}}"> 
+			<view class='state'>已收货，待评价</view>
+		</view>     
+		<view class='data' wx:if="{{orderInfo.status == 5}}"> 
+			<view class='state'>已取消付款</view>
+		</view>      
+		<view class='data' wx:if="{{orderInfo.status == 6}}">
+			<view class='state'>已评价，交易完成</view>
+		</view>
+		<view class='pictrue'>
+			<image src='https://yjlc.yijialianchuang.com/yjlc/file/group3/M00/00/6D/wKh9DF_J2O-AcDmxAABY5hZJnHQ660.png' wx:if="{{orderInfo.status == 1}}"></image>
+			<image src='https://yjlc.yijialianchuang.com/yjlc/file/group3/M00/00/6D/wKh9DF_J2QKAFbcSAABUR2wU_F4283.png' wx:if="{{orderInfo.status == 2}}"></image>
+			<image src='https://yjlc.yijialianchuang.com/yjlc/file/group3/M00/00/6D/wKh9DF_J2ROAIc2qAABaQIP77vQ998.png' wx:if="{{orderInfo.status == 3}}"></image>
+			<image src='https://yjlc.yijialianchuang.com/yjlc/file/group3/M00/00/6D/wKh9DF_J2SWAYrrdAABSbr-etKU265.png' wx:if="{{orderInfo.status == 4}}"></image>
+			<image src='https://yjlc.yijialianchuang.com/yjlc/file/group3/M00/00/6D/wKh9DF_J2TeAUzhCAABXpABndH4283.png' wx:if="{{orderInfo.status == 5}}"></image>
+			<image src='https://yjlc.yijialianchuang.com/yjlc/file/group3/M00/00/6D/wKh9DF_J2SWAYrrdAABSbr-etKU265.png' wx:if="{{orderInfo.status == 6}}"></image>
+		</view>
+	</view> 
+	<view class="alladdr">
+		<view class='address acea-row row-middle'>
+			<view class="pic">
+				<image src="/image/order_details_location.png" />
+			</view>
+			<view class="txt">
+				<view class='name'>{{orderInfo.receiver}}<text class='phone'>{{orderInfo.receiverMobile}}</text></view>
+				<view>{{orderInfo.receiverState}} {{orderInfo.receiverCity}} {{orderInfo.receiverDistrict}} {{orderInfo.receiverAddress}}</view>
+			</view>
+		</view>
+		<view class='address acea-row row-middle' wx:if="{{orderInfo.orderType == 2}}">
+			<view class="pic">
+				<image src="/image/me_order_delivery_car.png" />
+			</view>
+			<view class="txt">
+				<view wx:if="{{orderInfo.getId}}">物流单号：
+					<text wx:if="{{orderInfo.getId}}">{{orderInfo.getId}}</text>
+					<text wx:else>无</text>
+				</view>
+				<view>联系方式：{{orderInfo.phoneNo}}</view>
+			</view>
+		</view>
+		<view class='address acea-row row-middle' wx:else>
+			<view  wx:if="{{orderInfo.pickShoppName}}">
+			<!-- <view class="pic">
+				<image src="/image/order_details_sto.png" />
+			</view> -->
+			<view class="txt">
+				<image class="iconimg" src='/image/tab_whole_nor.png'></image><view class='name'>{{orderInfo.pickShoppName}}</view>
+				<view style="margin:16rpx 0"><image class="iconimg" src='/image/me_order_delivery_call.png'></image><view data-s="{{orderInfo.phoneNo}}" class="titlephone" bindtap="callPhone">{{orderInfo.phoneNo}}</view></view>
+				<image class="iconimg" src='/image/me_location.png'></image><view class="pickShoppAdress" data-lat="{{orderInfo.pickShoppLat}}" data-lng="{{orderInfo.pickShoppLng}}" catchtap="showMap">{{orderInfo.pickShoppAdress}}</view>
+			</view>
+		</view>
+		</view>
+	</view>
+	<view class='storew acea-row row-middle'>
+		<view class="pic">
+			<image src="/image/product_details_shop.png" />
+		</view>
+		<view class="name">{{orderInfo.shopName}}</view>
+	</view>
+	<orderGoods evaluate='{{orderInfo.status}}' orderId="{{orderInfo.orderId}}" cartInfo="{{orderInfo.orderDetails}}"></orderGoods>
+	<view class="total_info">
+		<view class="acea-row row-middle row-between">
+			<view>商品总价</view>
+			<view>¥{{orderInfo.totalPay}}</view>
+		</view>
+		<view class="acea-row row-middle row-between">
+			<view>配送费</view>
+			<view>¥{{orderInfo.postFee}}</view>
+		</view>
+		<view class="acea-row row-middle row-between">
+			<view>优惠金额</view>
+			<view>-¥{{orderInfo.discount}}</view>
+		</view>
+		<view class="acea-row row-middle row-between">
+			<view>返积分</view>
+			<view>{{orderInfo.allLimit}}</view>
+		</view>
+		<view class="bold acea-row row-middle row-between">
+			<view>合计</view>
+			<view class="amt">¥{{orderInfo.actualPay}}</view>
+		</view>
+	</view>
+	<view class='wrapper order-tips'>
+		<view class='item acea-row row-between'>
+			<view class="acea-row row-middle">
+				<view>订单编号：</view>
+				<view class='conter'>{{orderInfo.orderId}}</view>
+			</view>
+			<text class='copy' bindtap='copy'>复制</text>
+		</view>
+		<view class='item acea-row row-middle'>
+			<view>交易单号：</view>
+			<view class='conter'>{{orderInfo.transactionSerialId}}</view>
+		</view>
+		<view class='item acea-row row-middle'>
+			<view>创建时间：</view>
+			<view class='conter'>{{orderInfo.createTimed}}</view>
+		</view>
+		<view class='item acea-row row-middle' wx:if="{{orderInfo.paymentTime}}">
+			<view>支付时间：</view>
+			<view class='conter'>{{orderInfo.paymentTime}}</view>         
+		</view>
+		<view class='item acea-row row-middle' wx:if="{{orderInfo.endTime}}">
+			<view>完成时间：</view>
+			<view class='conter'>{{orderInfo.endTime}}</view>
+		</view>
+		<view class='item acea-row row-middle' wx:if="{{orderInfo.closeTime}}">
+			<view>关闭时间：</view>
+			<view class='conter'>{{orderInfo.closeTime}}</view>
+		</view>
+		<view class="tel acea-row row-middle" bindtap="makePhone">
+			<view class="icon">
+				<image src="/image/me_order_delivery_call.png" />
+			</view>致电联系
+		</view>
+	</view>
+	<view style='height:120rpx;'></view>
+	<view class='footer acea-row row-right row-middle'>
+		<view class='bnt bg-color' wx:if="{{orderInfo.status == 1}}" bindtap='goPay'>立即付款</view>
+		<view class='bnt bnt-code' wx:if="{{orderInfo.status == 3 && orderInfo.getId}}" data-code="{{orderInfo.getId}}" bindtap='showCode'>取货码</view>
+		<view class='bnt bg-color' wx:if="{{orderInfo.status == 3}}" bindtap='confirmOrder'>确认收货</view>
+	</view>
+</view>
+
+<authorize bind:onLoadFun='onLoadFun'></authorize>
+<codeviewer iShidden="{{codeViewerHidden}}" code="{{code}}"></codeviewer>

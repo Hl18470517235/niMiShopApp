@@ -1,0 +1,40 @@
+<navbar parameter='{{parameter}}'></navbar>
+<view class='topCategories'>
+	<scroll-view class="scroll-view_x" scroll-x style="width:auto;overflow:hidden;">
+		<view wx:for="{{categories}}" wx:key="index" bindtap="fchanged" class='item {{index==fstActive?"on":""}}' data-index='{{index}}' data-id='b{{index}}'>
+			<view class="acea-row row-center-wrapper">
+				<view class='img-box'>
+					<image src='{{item.productTypeIcon}}'></image>
+				</view>
+				<view class='name'>{{item.productTypeName}}</view>
+			</view>
+		</view>
+	</scroll-view>
+</view>
+<view class='productSort'>
+	<view class='aside'>
+		<block wx:for="{{categories2}}" wx:for-item="item" wx:key="index">
+			<view class='item acea-row row-center-wrapper {{index==navActive?"on":""}}' data-index='{{index}}' bindtap='tap'>
+				<text>{{item.productTypeName}}</text>
+			</view>
+		</block>
+	</view>
+	<view class='conter'>
+		<scroll-view class="categories3" scroll-x v-if="categories3">
+			<block wx:for="{{categories3}}" wx:key="index">
+				<view bindtap="tchanged" class='item {{index==thdActive?"on":""}}' data-index='{{index}}'>
+					<text class='name'>{{item.productTypeName}}</text>
+				</view>
+			</block>
+		</scroll-view>
+		<scroll-view scroll-y="true" style='height:{{height}}rpx;' scroll-into-view="{{toView}}" bindscrolltolower="loadMore" scroll-with-animation='true'>
+			<goodList bastList="{{productList}}" status="w590" id="b{{category.productTypeId}}" rlabel="2"></goodList>
+			<view class='noCommodity' wx:if="{{productList.length==0 && pageNo > 1}}">
+				<view class='pictrue'>
+					<image src='/image/product_none.png'></image>
+				</view>
+				<view style="text-align:center;margin-top:24rpx;">亲～没有查询到商品呢～</view>
+			</view>
+		</scroll-view>
+	</view>
+</view>

@@ -1,0 +1,17 @@
+<navbar parameter='{{parameter}}'></navbar>
+<view class='evaluate-list'>
+   <view class='generalComment acea-row row-between-wrapper'>
+      <view class='acea-row row-middle font-color'>
+        <view class='evaluate'>全部({{total}})</view>
+      </view>
+      <view><text class='font-color'>{{reply_chance}}%</text>好评率</view>
+   </view>
+   <userEvaluation reply="{{reply}}"></userEvaluation>
+   <view class='loadingicon acea-row row-center-wrapper' wx:if="{{total > 0}}">
+      <text class='loading iconfont icon-jiazai' hidden='{{loading==false}}'></text>{{loadTitle}}
+    </view>
+</view>
+<view class='noCommodity' wx:if="{{total < 1 && page > 1}}">
+   <view class='pictrue'><image src='/image/loading_error.png'></image></view>
+</view>
+<authorize bind:onLoadFun="onLoadFun"></authorize>

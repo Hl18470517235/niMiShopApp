@@ -1,0 +1,48 @@
+<navbar parameter='{{parameter}}'></navbar>
+
+<form bindsubmit="formSubmit" report-submit='true'>
+	<view class='addAddress'>
+		<view class='list'>
+			<view class='item contact acea-row row-between-wrapper'>
+				<view class='name'>联系人</view>
+				<input type='text' placeholder='请填写姓名' name='real_name' value="{{userAddress.real_name}}" placeholder-class='placeholder'></input>
+				<image class="del" src="/image/collect_delete.png" bindtap="delete"/>
+			</view>
+			<view class='item acea-row row-between-wrapper'>
+				<view class='name'></view>
+				<checkbox-group bindchange='ChangeSex' class="sexes">
+					<checkbox class="cbox" name="sex" value="1" checked="{{userAddress.sex == 1 ? true : false }}" />先生
+          <text class="sp"></text>
+					<checkbox class="cbox" name="sex" value="2" checked="{{userAddress.sex == 2 ? true : false }}" />女士
+				</checkbox-group>
+			</view>
+			<view class='item acea-row row-between-wrapper'>
+				<view class='name'>手机号</view>
+				<input type='text' placeholder='请输入手机号码' name="phone" value='{{userAddress.phone}}' placeholder-class='placeholder'></input>
+			</view>
+			<view  bindtap="bindRegionChange" class='item acea-row between-wrapper'>
+				<view class='name'>所在地区</view>
+				<view>
+					<view class='acea-row row-between-wrapper'>
+						<view class="picker">{{region[0]}}，{{region[1]}}，{{region[2]}}</view>
+						<view class='iconfont icon-dizhi font-color'></view>
+					</view>
+				</view>          
+			</view>
+			<view class='item acea-row row-between-wrapper'>
+				<view class='name'>门牌号</view>
+				<input type='text' placeholder='详细地址' name='detail' placeholder-class='placeholder' value='{{region[3]}}'></input>
+			</view>
+      <view class='item acea-row row-between-wrapper'>
+				<view class='name'>标签</view>
+				<input type='text' placeholder='最多5个字，如：家' name='label' placeholder-class='placeholder' value='{{userAddress.label}}'></input>
+			</view>
+		</view> 
+		<view class='default acea-row row-middle'>
+			<checkbox-group bindchange='ChangeIsDefault'>
+				<checkbox checked="{{userAddress.isDefaultFlag == 0 }}" />设置为默认地址</checkbox-group>
+		</view>
+		<button class='keepBnt bg-color' formType="submit">保存</button>
+	</view>
+</form> 
+<authorize bind:onLoadFun='onLoadFun'></authorize>

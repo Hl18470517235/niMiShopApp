@@ -1,0 +1,5 @@
+<view class='Popup' hidden='{{iShidden}}' bindtap="close">
+   <image src='https://yjlc.yijialianchuang.com/yjlc/api/order/createQRcode?getId={{code}}'></image>
+   <view class='title'>取货码：{{code}}</view>
+</view>
+<view class='mask' hidden='{{iShidden}}' bindtap="close"></view>

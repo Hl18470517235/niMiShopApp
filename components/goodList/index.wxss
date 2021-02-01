@@ -1,0 +1,41 @@
+@import '/app.wxss';
+.goodList .item{position:relative;padding:22rpx;background-color: white;margin:20rpx;border-radius: 20rpx;box-shadow: 0 4rpx 12rpx 0 rgba(0, 0, 0, 0.4);}
+.goodList .item .pictrue{width:180rpx;height:180rpx;position:relative;}
+.goodList .item .pictrue image{width:100%;height:100%;border-radius:10rpx;}
+.goodList .item .pictrue .numPic{position:absolute;left:7rpx;top:7rpx;width:50rpx;height:50rpx;border-radius:50%;}
+.goodList .item .text{font-size:30rpx;color:#222;width:440rpx;}
+.goodList .item .text .line2{font-size:24rpx;color:#5A5A5A;}
+.goodList .item .text .money{font-size:28rpx;margin-top:0rpx;}
+.goodList .item .text .money .price{color: #F5222D;}
+.goodList .item .text .money .market-price{font-size:20rpx;color:#5A5A5A;margin-left:10rpx;text-decoration: line-through;}
+.goodList .item .icon{position:absolute;right:24rpx;width:48rpx;height:48rpx;border-radius:50%;bottom:22rpx;}
+.goodList .item .icon image{width:100%;height:100%;}
+.goodList.w590 .item{padding:0;border-radius: 0;white-space: nowrap;margin:50rpx 0;box-shadow: none;}
+.goodList.w590 .item .text .line2{display:block;text-overflow: ellipsis;color:#919191;}
+.goodList.w590 .item .pictrue{width:160rpx;height:160rpx;}
+.goodList.w590 .item .text{width:370rpx;}
+.goodList.w590 .item .icon{right:0rpx;bottom:0;}
+.goodList .item .line3 {padding: 10rpx 0;font-size:20rpx;}
+.goodList .item .line3 .in{border-radius: 20rpx;display: inline-block; padding:2rpx 10rpx;margin-right:10rpx;}
+.goodList .item .line3 .ps{background-color:rgba(67,219,203, 0.3);color:#006D75;}
+.goodList .item .line3 .zy{color:#FF4D4F;background-color: rgba(255,120,117,0.3);}
+.goodList .item .line3 .act{color:#F5222D;border:2rpx solid #F5222D;}
+.count {margin: 10rpx 0;margin-left: 4rpx; color:#919191;font-size: 20rpx;}
+.goodslist .list .item{width:220rpx;height:300rpx;border-radius: 10rpx;border:1px solid #D9D9D9;padding:10rpx;position: relative;margin:15rpx 0;}
+.goodslist .list .item .pic{width:200rpx;height:200rpx;}
+.goodslist .list .item .pic image{width:100%;height:100%;border-radius: 10rpx;}
+.goodslist .list .item .name{font-size:28rpx;color:#101010;height:40rpx;line-height: 40rpx;white-space: nowrap;display: block;text-overflow: ellipsis;overflow: hidden;}
+.goodslist .list .item .price{font-size:28rpx;color:#DD4934;height:40rpx;line-height: 40rpx;}
+.goodslist .list .item .icon{width:44rpx;height:44rpx;position: absolute;right:15rpx;bottom:5rpx;}
+.goodslist .list .item .icon image{width:100%;height:100%;border-radius: 50%;}
+.fontBox {
+  width: 50rpx;
+  height: 50rpx;
+  text-align: center;
+  line-height: 50rpx;
+  border-radius: 50%;
+  background-color: #fb0038d1;
+}
+.icon-tianchongxing- {
+  color: #fff;
+}

@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "navbar": "/components/navbar/index",
+    "orderGoods": "/components/orderGoods/index",
+    "codeviewer": "/components/codeWindow/index",
+    "authorize": "/components/authorize/authorize"
+  },
+  "navigationBarTextStyle": "white"
+}

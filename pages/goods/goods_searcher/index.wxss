@@ -1,0 +1,20 @@
+page{background-color:#f5f5f5!important;}
+.searchGood .search{padding:20rpx 30rpx;}
+.searchGood .searcher .input{width:542rpx;background-color:white;border-radius:30rpx;text-align:left;box-sizing:border-box;height:60rpx;}
+.searchGood .searcher .input input{width:460rpx;font-size:28rpx;}
+.searchGood .search .input .placeholder{color:#bbb;}
+.searchGood .search .input .iconfont{color:#000;font-size:28rpx;margin-left:20rpx;}
+.searchGood .search .cart{position: relative;width: 78rpx;}
+.searchGood .search .cart .i{width: 48rpx;height: 48rpx;}
+.searchGood .search .num {font-size:24rpx;padding:0 8rpx;background-color: #F81B27;border-radius: 16rpx; color: white; position: absolute;top:-10rpx;right:10rpx;}
+.searchGood .search .bnt{width:120rpx;text-align:center;height:66rpx;line-height:66rpx;font-size:28rpx;color:white;border-radius: 33rpx;}
+.searchGood .history {width:712rpx; min-height: 620rpx;margin:100rpx auto;background-color: white; border-radius: 20rpx;padding:28rpx 40rpx;}
+.searchGood .history .title {font-size: 32rpx; color: #101010; line-height: 40rpx; height:40rpx;position: relative; padding-left: 45rpx;}
+.searchGood .history .icon{width:40rpx; height:40rpx;position: absolute; top:0rpx; left: 0;}
+.searchGood .history .list{margin-top:46rpx;}
+.searchGood .history .list .item{background-color: #B0B1BB; color:#101010; font-size:24rpx; border-radius: 30rpx; margin-right:16rpx; padding:0 32rpx;}
+.searchGood .nav{height:86rpx;color:#101010;font-size:28rpx;background-color: white;margin: 0 30rpx;border-radius: 20rpx;}
+.searchGood .nav .item{text-align:center;}
+.searchGood .nav .item.font-color{font-weight:bold;}
+.searchGood .nav .item image{width:15rpx;height:8rpx;margin-left:10rpx;display: block;} 
+.searchGood .header2{height:192rpx;position:fixed;left:0;width:100%;z-index: 10000;background: white;}

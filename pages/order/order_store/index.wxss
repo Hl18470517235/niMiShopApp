@@ -1,0 +1,71 @@
+.ti-huo-list .item{width:712rpx;border:2rpx solid #D9D9D9;border-radius: 20rpx;margin:20rpx auto;padding-top:10rpx;box-shadow: 0 0 6rpx 0 rgba(0, 0, 0, 0.4);}
+.ti-huo-list .item .icon{width: 32rpx; height: 32rpx;margin-right: 12rpx;}
+.ti-huo-list .item .icon image{width: 100%; height: 100%;}
+.ti-huo-list .item .itm{padding:10rpx 30rpx;position: relative;}
+.ti-huo-list .item .itm .name{font-weight: bold;font-weight: bold;width: 430rpx;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.ti-huo-list .item .itm .txt{max-width: 600rpx;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.ti-huo-list .item .btns{height:90rpx;font-weight: bold;border-top:2rpx solid #D9D9D9;}
+.ti-huo-list .item .btns .icon{width:32rpx;height:32rpx;margin-right:20rpx;}
+.distance{position: absolute; right: 30rpx;top: 10rpx;    color: red;font-size: 24rpx;}
+.addressBox{
+  position: relative;
+  margin: 16rpx;
+  padding: 16rpx;
+  border-radius: 20rpx;
+  border: 2rpx solid #D9D9D9;
+}
+.addressBox .address{
+  margin: 16rpx 0;
+}
+.addressBox .title {
+  font-weight: bold;
+}
+.addressBox .address {
+  color: #91919196;
+}
+.addressBox .btn {
+  width: 120rpx;
+  border: 2rpx solid red;
+  height: 50rpx;
+  line-height: 50rpx;
+  border-radius: 30rpx;
+  font-size: 24rpx;
+  text-align: center;
+  color: red;
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
+}
+.inputBox {
+  position: relative;
+  height: 60rpx;
+  width: 96%;
+  border-radius: 30rpx;
+  border: 2rpx solid #9f9f9f69;
+  margin: 16rpx;
+  padding: 6rpx 16rpx;
+  padding-left: 120rpx;
+}
+.inputBox .img {
+  position: absolute;
+  top: 15rpx;
+  left: 70rpx;
+  width: 30rpx;
+  height: 30rpx;
+}
+.iconbox {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.iconStyle {
+  font-size: 200rpx;
+  color: #BFBFBF;
+  animation:myfirst 2s infinite ;
+}
+@keyframes myfirst
+{
+  100%{transform: rotate(360deg);}
+}

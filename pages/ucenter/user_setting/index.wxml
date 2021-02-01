@@ -1,0 +1,33 @@
+<navbar parameter='{{parameter}}'></navbar>
+<view class='newsList'>
+	<view class='list'>
+		<navigator url='/pages/ucenter/user_info/index' hover-class='none' class='item acea-row row-between-wrapper'>
+			<view class='text acea-row row-column-between'>个人信息</view>
+			<view class='pictrue'>
+				<image src='/image/me_enter.png'></image>
+			</view>
+		</navigator>
+		<navigator catchtap="unbind" wx:if="{{phone}}" hover-class='none' class='item acea-row row-between-wrapper'>
+			<view class='text acea-row row-middle row-between'>解绑APP账号</view>
+			<view class="acea-row row-middle">
+				<view style="margin-right:20rpx;color:#919191;margin-bottom:-12rpx;">{{phone}}</view>
+				<view class='pictrue'>
+					<image src='/image/me_enter.png'></image>
+				</view>
+			</view>
+		</navigator>
+		<navigator url='/pages/ucenter/user_phone/index' wx:else hover-class='none' class='item acea-row row-between-wrapper'>
+			<view class='text acea-row row-column-between'>绑定APP账号</view>
+			<view class='pictrue'>
+				<image src='/image/me_enter.png'></image>
+			</view>
+		</navigator>
+		<navigator url='/pages/other/protocol_list/index' hover-class='none' class='item acea-row row-between-wrapper' style="margin-top:20rpx;">
+			<view class='text acea-row row-column-between'>服务协议</view>
+			<view class='pictrue'>
+				<image src='/image/me_enter.png'></image>
+			</view>
+		</navigator>
+	</view>
+</view>
+<authorize bind:onLoadFun="onLoadFun"></authorize>

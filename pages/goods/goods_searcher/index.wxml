@@ -1,0 +1,50 @@
+<navbar parameter='{{parameter}}'></navbar>
+<view class='searchGood'>
+	<view class="header" style='top:{{navH}}rpx;'>
+	<view class='search searcher acea-row row-between-wrapper'>
+		<view class='input acea-row row-between-wrapper'>
+			<text class='iconfont icon-sousuo2'></text>
+			<input type='text' value='{{searchValue}}' focus="{{focus}}" placeholder='关键词' placeholder-class='placeholder' bindinput="setValue" confirm-type="search" bindconfirm="searchBut"></input>
+		</view>
+		<view bindtap="searchBut">
+			<button class="bnt bg-color">搜索</button>
+		</view>
+	</view>
+	<view class='nav acea-row row-middle row-around'>
+		<view class='item acea-row row-middle' bindtap='set_where' data-type='1'>
+			综合排序
+			<view>
+				<image wx:if="{{zhsort==1}}" src='/image/product_list_paixu02_sel.png'></image>
+				<image wx:else src='/image/product_list_paixu02_nor.png'></image>
+				<image style="margin-top:8rpx;" wx:if="{{zhsort==2}}" src='/image/product_list_paixu01_sel.png'></image>
+				<image style="margin-top:8rpx;" wx:else src='/image/product_list_paixu01_nor.png'></image>
+			</view>
+		</view>
+		<view class='item acea-row row-middle' bindtap='set_where' data-type='2'>
+			价格
+			<view>
+				<image wx:if="{{price==1}}" src='/image/product_list_paixu02_sel.png'></image>
+				<image wx:else src='/image/product_list_paixu02_nor.png'></image>
+				<image style="margin-top:8rpx;" wx:if="{{price==2}}" src='/image/product_list_paixu01_sel.png'></image>
+				<image style="margin-top:8rpx;" wx:else src='/image/product_list_paixu01_nor.png'></image>
+			</view>
+		</view>
+		<view class='item acea-row row-middle' bindtap='set_where' data-type='3'>
+			销量
+			<view>
+				<image wx:if="{{stock==1}}" src='/image/product_list_paixu02_sel.png'></image>
+				<image wx:else src='/image/product_list_paixu02_nor.png'></image>
+				<image style="margin-top:8rpx;" wx:if="{{stock==2}}" src='/image/product_list_paixu01_sel.png'></image>
+				<image style="margin-top:8rpx;" wx:else src='/image/product_list_paixu01_nor.png'></image>
+			</view>
+		</view>
+	</view>
+	</view>
+	<goodList bastList="{{bastList}}"></goodList>
+	<view class='noCommodity' wx:if="{{bastList.length==0 && page > 1}}">
+		<view class='pictrue'>
+			<image src='/image/product_none.png'></image>
+		</view>
+		<view style="text-align:center;margin-top:24rpx;">亲～没有查询到商品呢～</view>
+	</view>
+</view>

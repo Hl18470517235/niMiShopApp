@@ -1,0 +1,28 @@
+<navbar parameter='{{parameter}}'></navbar>
+<view class='address-management {{addressList.length < 1 && page > 1 ? "fff":""}}'>
+      <view class='item' wx:for="{{addressList}}" data-index="{{index}}" wx:key="index">
+          <view class='address'  data-id="{{item.id}}" data-index="{{index}}" bindtap='goOrder'>
+            <view class='consignee'>
+            {{item.receivingUserName}}
+            <text class='label default' wx:if="{{item.isDefaultFlag == 0}}">默认</text>
+            <text class='label uset' wx:if="{{item.label}}">{{item.label}}</text>
+            </view>
+            <view class="line1">{{item.provinceId}}{{item.cityId}}{{item.areaId}}{{item.detailAdress}}</view>
+            <view class="line2">
+               <text wx:if="{{item.sex == 1}}">先生</text>
+               <text wx:else>女士</text> 
+               <text class='phone'>{{item.receivingPhone}}</text>
+            </view>
+          </view> 
+          <view class="edit" data-id="{{item.adressId}}" bindtap='editAddress'><image src="/image/me_location_change01.png"/></view>
+      </view>
+   <view class='noCommodity' wx:if="{{addressList.length < 1 && page > 1}}">
+      <view class='pictrue'><image src='/image/loading_error.png'></image></view>
+   </view>
+   <view style='height:120rpx;'></view>
+   <view class='footer acea-row row-between-wrapper'>
+      <view class='addressBnt bg-color'  bindtap='addAddress'>添加新地址</view>
+      <view class='addressBnt bg-color' bindtap='getWxAddress'>导入微信地址</view>
+   </view>
+</view>
+<authorize bind:onLoadFun="onLoadFun"></authorize>
