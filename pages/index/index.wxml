@@ -133,7 +133,7 @@
 	</view>
 	<view class='wrapper' wx:if="{{benefit.length}}">
 		<view class='b-title'>
-			<image src="https://yjlc.yijialianchuang.com/yjlc/file/group3/M00/00/6D/wKh9DF_J2hKAOCBAAAKuEfRTQjc481.png" mode="widthFix" />
+			<image src="https://yjlc.yijialianchuang.com/yjlc/file/group1/M00/00/8A/wKh9C2AXe2uATJmXAA8YWC-YLq8650.jpg" mode="widthFix" />
 		</view>
 		<goodList imgType="1" bastList="{{benefit}}"></goodList>
 	</view>

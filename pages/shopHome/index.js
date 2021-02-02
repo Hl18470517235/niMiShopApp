@@ -125,6 +125,7 @@ Page({
     let leaveId = ''
     let categoryList = []
     list.map(item => {
+      console.log(item)
       if(item.productTypeLeaveId == null) {
         leaveId = item.productTypeId
       }
@@ -132,14 +133,17 @@ Page({
     let navData = []
     list.map((item, index) => {
       if(item.productTypeLeaveId !== leaveId) {
+        if(item.productTypeLeaveId) {
         list[index].productList = []
         list[index].totalModal = true
         list[index].pageNo = 1
         list[index].itemModal = false
         categoryList.push(item)
         navData.push(item.productTypeName)
+        }
       }
     })
+    console.log(navData)
     this.setData({
       categoryList,
       navData

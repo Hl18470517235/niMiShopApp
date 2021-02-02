@@ -1,5 +1,6 @@
 @import '/app.wxss';
 .goodList .item{position:relative;padding:22rpx;background-color: white;margin:20rpx;border-radius: 20rpx;box-shadow: 0 4rpx 12rpx 0 rgba(0, 0, 0, 0.4);}
+.goodList .items{margin:20rpx 0;box-shadow: 0 0rpx 0rpx 0 rgba(0, 0, 0, 0.4);}
 .goodList .item .pictrue{width:180rpx;height:180rpx;position:relative;}
 .goodList .item .pictrue image{width:100%;height:100%;border-radius:10rpx;}
 .goodList .item .pictrue .numPic{position:absolute;left:7rpx;top:7rpx;width:50rpx;height:50rpx;border-radius:50%;}

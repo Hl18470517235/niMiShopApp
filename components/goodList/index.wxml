@@ -1,6 +1,6 @@
 <view class='goodList {{status}}' wx:if="{{type == 0}}">
 	<block wx:for="{{bastList}}" wx:key="index">
-		<view data-id="{{item.productId}}" bindtap="toDetail" class='item acea-row row-between-wrapper'>
+		<view data-id="{{item.productId}}" bindtap="toDetail" class='{{imgType == "1" ? "items" : ""}} item acea-row row-between-wrapper'>
 			<view style="position:relative">
 				<view class='pictrue'>
 					<image src='{{item.productIndexPhoto}}'></image>

@@ -66,10 +66,18 @@ Page({
   getUserInfo: function () {
     var that = this;
     getUserInfo().then(res => {
+      let userOrderCountBean = res.userOrderCountBean
+      console.log(userOrderCountBean)
+      for(let count in userOrderCountBean) {
+        if(userOrderCountBean[count] > 99) {
+          userOrderCountBean[count] = "99+"
+        }
+      }
       let info = res.userAndQuotaBean
       info.existPwd = res.existPwd
       that.setData({
-        userInfo: info
+        userInfo: info,
+        userOrderCountBean
       });
     });
   },

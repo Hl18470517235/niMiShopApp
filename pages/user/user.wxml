@@ -55,6 +55,7 @@
 			</view>
 			<view class='orderState acea-row row-middle'>
 				<view class='item' data-url='/pages/order/order_list/index?status=1' bindtap='goPages'>
+					<view wx:if="{{userOrderCountBean.orderOne}}" class="{{userOrderCountBean.orderOne == '99+' ? 'font' : '' }} border">{{userOrderCountBean.orderOne}}</view>
 					<view class='pictrue'>
 						<image src='/image/me_order_01.png'></image>
 						<text class="order-status-num" wx:if="{{orderStatusNum.unpaid_count > 0}}">{{ orderStatusNum.unpaid_count }}</text>
@@ -62,6 +63,7 @@
 					<view>待付款</view>
 				</view>
 				<view class='item' data-url='/pages/order/order_list/index?status=2' bindtap='goPages'>
+					<view wx:if="{{userOrderCountBean.orderTwo}}" class="{{userOrderCountBean.orderTwo == '99+' ? 'font' : '' }} border">{{userOrderCountBean.orderTwo}}</view>
 					<view class='pictrue'>
 						<image src='/image/me_order_02.png'></image>
 						<text class="order-status-num" wx:if="{{orderStatusNum.unshipped_count > 0}}">{{ orderStatusNum.unshipped_count }}</text>
@@ -69,6 +71,7 @@
 					<view>待发货</view>
 				</view>
 				<view class='item' data-url='/pages/order/order_list/index?status=3' bindtap='goPages'>
+					<view wx:if="{{userOrderCountBean.orderThree}}" class="{{userOrderCountBean.orderThree == '99+' ? 'font' : '' }} border">{{userOrderCountBean.orderThree}}</view>
 					<view class='pictrue'>
 						<image src='/image/me_order_03.png'></image>
 						<text class="order-status-num" wx:if="{{orderStatusNum.received_count > 0}}">{{ orderStatusNum.received_count }}</text>
@@ -76,6 +79,7 @@
 					<view>待收货</view>
 				</view>
 				<view class='item' data-url='/pages/order/order_list/index?status=4' bindtap='goPages'>
+					<view wx:if="{{userOrderCountBean.orderFour}}" class="{{userOrderCountBean.orderFour == '99+' ? 'font' : '' }} border">{{userOrderCountBean.orderFour}}</view>
 					<view class='pictrue'>
 						<image src='/image/me_order_04.png'></image>
 						<text class="order-status-num" wx:if="{{orderStatusNum.evaluated_count > 0}}">{{ orderStatusNum.evaluated_count }}</text>
