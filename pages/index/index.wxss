@@ -80,7 +80,7 @@ box-shadow: 0 40rpx 30rpx -10rpx #eee;}
 .index .wrapper .newProducts .item .mold{text-decoration: line-through;font-size:24rpx;}
 .index .wrapper .newProducts .item .icon{width:44rpx;height:44rpx;position: absolute;right:35rpx;bottom:5rpx;}
 .index .wrapper .newProducts .item .icon image{width:100%;height:100%;border-radius: 50%;}
-.index .wrapper .b-title{height: 246rpx;overflow: hidden;width:100%;}
+.index .wrapper .b-title{height: 246rpx;overflow: hidden;width:100%;border-radius: 8rpx;}
 .index .wrapper .b-title image{width:100%;height:auto;}
 .addTuiGuang{width: 180rpx;height:140rpx;position: fixed;bottom: 20px;left: 10px;animation:myfirsts 1s infinite ;}
 @keyframes myfirst

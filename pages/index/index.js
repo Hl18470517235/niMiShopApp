@@ -80,6 +80,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let a = [8, 5, 10]
+    let a_length = a.length
+    for(let i = 0; i < a_length; i++) {
+      if(a == 10) continue;
+      console.log(11111111111111111111)
+      console.log(a[i])
+    }
     Util.chekWxLogin().then(res => {
       app.globalData.model = res.isLogin
       app.globalData.userInfo = res.userinfo

@@ -34,7 +34,7 @@
     </view>
   </block>
 </scroll-view>
-<view class="fixScroll" style="position: fixed;top: {{barHeight}}px;left: 0;right: 0;z-index: 9999;" wx:if="{{!navModal}}">
+<view class="fixScroll" style="position: fixed;top: {{barHeight}}px;left: 0;right: 0;z-index: 9999;" hidden='{{navModal}}'>
 <scroll-view scroll-x="true" class="tabBox" scroll-left="{{navScrollLeft}}" scroll-with-animation="{{true}}">
   <block wx:for="{{navData}}" wx:for-index="idx" wx:for-item="navItem" wx:key="idx">
     <view class="item"  data-current="{{idx}}" bindtap="switchNav">
@@ -78,3 +78,5 @@
 </view>
 <view bindtap="fixdBtnEvent" animation="{{animationData}}" class="iconfont icon-jia-tianchong iconStyle"></view>
 </view>
+
+<authorize id="authorize" type="{{type}}" bind:onLoadFun="onLoadFun" isAuto="{{isAuto}}" iShidden="{{iShidden}}"></authorize>

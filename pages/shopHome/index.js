@@ -1,6 +1,7 @@
 // pages/shopHome/index.js
 import { findShopBindType } from '../../api/shopHome.js'
 import {  postCartAdd } from '../../api/store.js';
+import Util from '../../utils/util.js';
 import {
   getCategoryList,
   getProductslist
@@ -24,6 +25,9 @@ Page({
     autoplay: true,
     interval: 2000,
     duration: 500,
+    type:1,
+    isAuto:false,
+    iShidden:false,
     navModal: true,
     categoryList: [],
     navScrollLeft: 0,
@@ -107,6 +111,10 @@ Page({
     this.scrollShow()
   },
   addToCart(e) {
+    if(!app.globalData.model){
+      this.authorize.setAuthStatus()
+      return; 
+    }
     let item = e.currentTarget.dataset.item
     if(item.count == 0) {
       return app.Tips({
@@ -125,7 +133,6 @@ Page({
     let leaveId = ''
     let categoryList = []
     list.map(item => {
-      console.log(item)
       if(item.productTypeLeaveId == null) {
         leaveId = item.productTypeId
       }
@@ -143,7 +150,6 @@ Page({
         }
       }
     })
-    console.log(navData)
     this.setData({
       categoryList,
       navData
@@ -274,6 +280,11 @@ Page({
     this.setData({
       adminId: options.id
     })
+    Util.chekWxLogin().then(res => {
+      app.globalData.model = res.isLogin
+      app.globalData.userInfo = res.userinfo
+      app.globalData.token = res.userinfo.userId;
+    })
     this.findShopBindType()
   },
 
@@ -295,6 +306,7 @@ Page({
         })
       },
   }) 
+  this.authorize = this.selectComponent('#authorize')
   this.scrollShow()   
   },
 
@@ -338,6 +350,22 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    let data = {
+      title: '2021“美好生活”宜春首届线上富硒年货节丨火热进行中',
+      imageUrl: 'https://yjlc.yijialianchuang.com/yjlc/file/group3/M00/00/78/wKh9DGAPvJyAb5FWAAq3NBw3-8I138.png',
+      path: '/pages/shopHome/index?id=82021012617480725484294307901120',
+    }
+    return data;
+  },
+  /**
+  *分享到朋友圈
+  */
+  onShareTimeline: function () {
+  let data = {
+      title: '2021“美好生活”宜春首届线上富硒年货节丨火热进行中',
+      imageUrl:  'https://yjlc.yijialianchuang.com/yjlc/file/group3/M00/00/78/wKh9DGAPvJyAb5FWAAq3NBw3-8I138.png',
+      path: '/pages/shopHome/index?id=82021012617480725484294307901120',
+    }
+  return data;
   }
 })
