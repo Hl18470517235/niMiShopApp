@@ -29,15 +29,16 @@
 							<view class='img-box'>
 								<image src='{{item.productIndexPhoto}}'></image>
 							</view>
-							<view class="img-box act-box" wx:if="{{item.activityId}}">
+							<view class="img-box act-box" wx:if="{{item.activityPrice}}">
 								<image src="/image/product_list_act.png" />
 							</view>
 						</view>
 						<view class='pro-info line1'>{{item.productName}}</view>
 						<view class='line2' wx:if="{{item.activityLabel}}"><text>{{item.activityLabel}}</text></view>
-						<view class='money font-color' wx:if="{{item.activityId}}">￥{{item.activityPrice}}</view>
+						<view class='money font-color' wx:if="{{item.activityPrice}}">￥{{item.activityPrice}}</view>
 						<view class='money font-color' wx:else>￥{{item.price}}</view>
-						<view class='mold'>￥{{item.shopPrice}}</view>
+						<view class='mold' wx:if="{{item.activityLabel}}">￥{{item.price}}</view> 
+						<view class='mold' wx:else>￥{{item.shopPrice}}</view>         
 					</navigator>
 				</block>
 			</scroll-view>

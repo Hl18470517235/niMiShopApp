@@ -45,6 +45,7 @@ Page({
       page: this.data.page,
       limit: this.data.limit
     }).then(res=>{
+      console.log(res)
       wx.hideLoading();
       var list = res.data, loadend = list.length < that.data.limit;
       that.data.bastList = app.SplitArray(list, that.data.bastList);

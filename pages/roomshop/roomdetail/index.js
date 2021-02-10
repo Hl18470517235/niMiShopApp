@@ -224,5 +224,12 @@ if(finalTime2 < 0){
    */
   onShareAppMessage: function () {
 
-  }
+  },
+  onShareTimeline: function () {
+    let data = {
+        title: this.data.roomItem.mini_room_name,
+        //path: '/pages/roomshop/index',
+      }
+    return data;
+    }
 })

@@ -183,7 +183,7 @@
 				</button> -->
 			</view>
 		</view>
-		<view class='myService'>
+		<!-- <view class='myService'>
 			<view class='title acea-row row-middle'>更多功能</view>
 			<view class='serviceList acea-row row-middle' bindtap="gotoDownload">
 				<button class='item' hover-class='none' >
@@ -197,7 +197,7 @@
 						<view>敬请前往APP体验......</view>
 				</view>
 			</view>
-		</view>
+		</view> -->
 	</view>
 </view>
 

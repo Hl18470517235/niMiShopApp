@@ -22,7 +22,7 @@
 		<!-- 分享按键开始 -->
 		<view>
 			<button open-type="share"  class='shareButton'>
-				<image src="{{shareToWechart}}"></image>
+				<image class="img" src="{{shareToWechart}}"></image>
 				<!-- <text class='btntxt'>分享给朋友</text> -->
 			</button>
 		</view>

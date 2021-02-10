@@ -16,7 +16,7 @@ Page({
       'class': '5',
     },
     findType:"2",
-    navData:['www','www','www','www','www','www','www','www',],
+    navData:[],
     categoryNum: 0,
     navScrollLeft: 0,
     timeS:false,
@@ -353,6 +353,16 @@ goTop: function (e) {  // 一键回到顶部
    */
   onShareAppMessage: function () {
 
+  },
+    /**
+  *分享到朋友圈
+  */
+ onShareTimeline: function () {
+  let data = {
+      title: '亿家联创直播商城',
+      path: '/pages/roomshop/index',
+    }
+  return data;
   }
 })
 

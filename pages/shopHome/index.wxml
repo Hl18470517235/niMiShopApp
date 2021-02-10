@@ -1,7 +1,10 @@
 <navbar id="the-id" parameter='{{parameter}}'></navbar>
 <scroll-view class="scroll-view_H" bindscroll="bindscroll" scroll-y="true" scroll-into-view="{{toView}}" style="height: 100vh;">
   <view style="height: 0rpx;" id="item100"></view>
-<image mode="widthFix" class="banner" src="https://yjlc.yijialianchuang.com/yjlc/file/group3/M00/00/78/wKh9DGAPvJyAb5FWAAq3NBw3-8I138.png"></image>
+<image mode="widthFix" class="banner" src="https://yjlc.yijialianchuang.com/yjlc/file/group1/M00/00/8A/wKh9C2AbZ4qAIMC4AAWsUaW2t_M154.jpg"></image>
+<view class='goLiving' bindtap="goLiving">
+  <image mode="widthFix" src="https://yjlc.yijialianchuang.com/yjlc/file/group3/M00/00/7A/wKh9DGAbyMaADXDBAA-dKB-6Q_U924.jpg"></image>
+</view>
 <!-- <view class="header-box">
   <view class="text"><view class="borders"></view><text>爆款销售</text><view class="border"></view></view>
 </view>
@@ -69,14 +72,14 @@
 <view class="iconBox" animation="{{heightAni}}">
 <block wx:if="{{aniModel}}">
   <view bindtap="goHome" class="iconfont icon-shouye homeIcon"></view>
-  <view bindtap="goHome" class="text" style="color: #D61943;margin-bottom: 8rpx;">首页</view>
+  <view bindtap="goHome" class="text" style="color: #FA8C16;margin-bottom: 8rpx;">首页</view>
   <view bindtap="goCar" class="iconfont icon-gwc carIcon"></view>
-  <view bindtap="goCar" class="text" style="color: #F2D9A7;margin-bottom: 8rpx;">购物车</view>
+  <view bindtap="goCar" class="text" style="color: #FF4D4F;margin-bottom: 8rpx;">购物车</view>
   <view bindtap="goTop" class="iconfont icon-tubiao02 topIcon"></view>
   <view bindtap="goTop" class="text" style="color: #27c2f1;margin-bottom: 8rpx;">回顶部</view>
 </block>
 </view>
 <view bindtap="fixdBtnEvent" animation="{{animationData}}" class="iconfont icon-jia-tianchong iconStyle"></view>
 </view>
-
+                              
 <authorize id="authorize" type="{{type}}" bind:onLoadFun="onLoadFun" isAuto="{{isAuto}}" iShidden="{{iShidden}}"></authorize>

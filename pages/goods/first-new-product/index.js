@@ -127,6 +127,8 @@ Page({
       });
     }else{
       findTimeLimitProduct(param).then(res=>{
+        console.log(1111111111111111111)
+        console.log(res)
         let list = res.pageInfo.list
         for (var item of list) {
           item.shopPrice = (item.shopPrice / 100).toFixed(2);

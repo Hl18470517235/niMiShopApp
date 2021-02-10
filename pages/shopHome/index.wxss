@@ -134,6 +134,9 @@ position: fixed;top: 136rpx;left: 0;right: 0;z-index: 9999;
 }
 .header-boxs .text {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
   background: url('https://yjlc.yijialianchuang.com/yjlc/file/group1/M00/00/88/wKh9C2AQICmAfl1JAAAIW0Q8T4c488.png');
   background-size:cover;
   color: #F2D9A7;
@@ -146,18 +149,12 @@ position: fixed;top: 136rpx;left: 0;right: 0;z-index: 9999;
   font-weight: bold;
 }
 .twoborder {
-  position: absolute;
-  top: 50%;
-  left: 13%;
   display: inline-block;
   height: 2rpx;
   width: 108rpx;
   background-color: #F2D9A7;
 }
 .twoborders {
-  position: absolute;
-  top: 50%;
-  right: 13%;
   display: inline-block;
   height: 2rpx;
   width: 108rpx;
@@ -279,13 +276,13 @@ position: fixed;top: 136rpx;left: 0;right: 0;z-index: 9999;
 }
 .homeIcon {
   font-size: 50rpx;
-  color: #D61943;
+  color: #FA8C16;
   text-align: center;
   line-height: 60rpx;
 }
 .carIcon {
   font-size: 50rpx;
-  color: #F2D9A7;
+  color: #FF4D4F;
   text-align: center;
   line-height: 60rpx;
 }
@@ -302,4 +299,14 @@ position: fixed;top: 136rpx;left: 0;right: 0;z-index: 9999;
   width: 100%;
   height: 160rpx;
   background-color: #B90029;
+}
+.goLiving {
+  height: 272rpx;
+  overflow: hidden;
+  width:100%;
+}
+.goLiving image{
+  width:100%;
+  height:auto;
+  display: block;
 }

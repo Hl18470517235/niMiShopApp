@@ -21,7 +21,6 @@
     "pages/live_broadcast/index",
     "pages/roomshop/roomdetail/index",
     "pages/roomshop/index",
-    "pages/sameService/index",
     "pages/cs/index",
     "pages/withdrawal/index",
     "pages/withdrawal/record/index",
@@ -152,7 +151,7 @@
   },
   "plugins": {
     "live-player-plugin": {
-      "version": "1.2.7",
+      "version": "1.2.8",
       "provider": "wx2b03c6e691cd7370"
     },
     "routePlan": {

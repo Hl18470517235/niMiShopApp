@@ -224,7 +224,6 @@ const chekWxLogin = function () {
       codeToSessionKey({
         code: code.code
       }).then(rst => {
-        console.log(rst)
         getApp().globalData.session_key = rst.sessionKey;
         getApp().globalData.openid = rst.openId;
         let data = {

@@ -100,7 +100,7 @@ Component({
         that.setData({
           iShidden: false
         });
-        } 
+        }
       })
     },
     //授权

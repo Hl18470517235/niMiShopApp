@@ -37,8 +37,6 @@
 			</block>
 		</swiper>
 	</view>
-
-
 	<view class='news acea-row row-between-wrapper' wx:if="{{itemNew.length}}">
 		<view class='pictrue'>
 			<image src='/image/index_notice.png'></image>

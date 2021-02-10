@@ -54,7 +54,7 @@ Page({
     userRegionId: '',
     shopRegionId: '',
     shopAdminType: '',
-    selectNum: 1,
+    selectNum: 0,
     shopLng:'',
     payType: 'weixin', //支付方式
     openType: 1, //优惠券打开方式 1=使用
@@ -198,9 +198,9 @@ Page({
           let totalMoneyLabel = 'cartInfo[0].totalMoneyLabel'
           let shoppingAmount = 'cartInfo[0].shoppingAmount'
           this.setData({
-            totalAmount: this.data.allPrices,
-            [totalMoneyLabel]: this.data.allPrices,
-            [shoppingAmount]: this.data.psPrice,
+            totalAmount: (parseFloat(that.data.cartInfo[0].shippingFee) + parseFloat((that.data.cartInfo[0].totalMoney) / 100)).toFixed(2),
+            [totalMoneyLabel]: (parseFloat(that.data.cartInfo[0].shippingFee) + parseFloat((that.data.cartInfo[0].totalMoney) / 100)).toFixed(2),
+            [shoppingAmount]: that.data.cartInfo[0].shippingFee,
             TypeLabel: '物流配送',
             dispatchingType: 3,
             [shopType]: 0
@@ -370,7 +370,6 @@ Page({
       addressId: e.detail,
       'address.address': false
     });
-    // this.getaddressInfo();
   },
   /**
    * 生命周期函数--监听页面加载
@@ -378,8 +377,6 @@ Page({
   onLoad: function (options) {
     var data = JSON.parse(options.str)
     var that = this
-    // var cartInfo = that.data.cartInfo
-    // cartInfo[0] = {shippingTypeList:[]}
     var shopid = data.shoppingId
     var ishorsemanflag = data.ishorsemanflag
     that.setData({
@@ -472,6 +469,7 @@ Page({
     }else{
       if(that.data.shopAdminType == '2') {
         that.setData({isQs:null,countType:false,shopModel:true,tiHuoShopType:true,selectNum:value})
+        if(value == '0') {that.setData({tiHuoShopType:false})}
         this.getConfirm()         
       } else {
         that.setData({isQs:null,countType:false,shopModel:true,tiHuoShopType:false})
@@ -479,7 +477,7 @@ Page({
       }         
     }
     if(value == '2'){
-      that.setData({countType:true,tiHuoShopType:true,dispatchingType:2})
+      that.setData({countType:true,tiHuoShopType:false,dispatchingType:2})
     }
     if( value == '0' && that.data.cartInfo[0].adminType == 11) {
       that.setData({
@@ -537,8 +535,10 @@ Page({
         that.setData({
           userRegionId: res.userAdressBean.regionId,
           lat:res.userAdressBean.lat,
-          lng:res.userAdressBean.lng
+          lng:res.userAdressBean.lng,
+          addressModel: true
         })
+        wx.setStorageSync('selected_address', res.userAdressBean)
       }
     }
       let cartInfo = res.shoppingInfoBean
@@ -553,15 +553,17 @@ Page({
           that.setData({
             TypeLabel:'物流配送',
             dispatchingType: 3,
-            shopModel:false,
+            shopModel:false,     
           })
           if(this.data.userRegionId == this.data.shopRegionId) {
             that.setData({
-              shopModel:true
+              shopModel:true,
+              selectNum: 0
             })
           } else {
             that.setData({
-              shopModel:false
+              shopModel:false,
+              selectNum: 1
             })
           }
           cart.shippingTypeLabel = '物流配送'
@@ -580,7 +582,7 @@ Page({
             if(that.data.selectNum == 1) { 
             cart.totalMoneyLabel = cart.totalMoney + cart.shoppingAmount
             cart.totalMoneyLabel = (cart.totalMoneyLabel / 100).toFixed(2)
-            cart.shoppingAmount = (cart.shoppingAmount / 100).toFixed(2)
+            cart.shoppingAmount = (cart.shoppingAmount / 100).toFixed(2)    
             } else {
               var num = 0
               cart.totalMoneyLabel = cart.totalMoney + num
@@ -626,6 +628,7 @@ Page({
               if(!that.data.tiHuoShopType){
             if(this.data.userRegionId == this.data.shopRegionId) {
             cart.canShippingToHome = 1;
+
               that.setData({
                 TypeLabel: '小区服务站自提(三天内)',
                 dispatchingType: 1
@@ -712,9 +715,15 @@ Page({
             totalDiscount: totalDiscount.toFixed(2)
           });
         }else{
+          if(this.data.userRegionId == this.data.shopRegionId && this.data.TypeLabel == '小区服务站自提（三天内）') {
+          var num = 0
+          cart.totalMoneyLabel = cart.totalMoney + num
+          cart.totalMoneyLabel = (cart.totalMoneyLabel / 100).toFixed(2)
+          cart.shoppingAmount = (num / 100).toFixed(2)
+          }
           that.setData({
             cartInfo: cartInfo,
-            totalAmount: totalAmount.toFixed(2),
+            totalAmount: cart.totalMoneyLabel,
             totalDiscount: totalDiscount.toFixed(2)
           });
         }

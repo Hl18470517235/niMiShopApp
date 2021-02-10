@@ -27,7 +27,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    shareToWechart: "../../../image/shareToWechart.png",
+    shareToWechart: "../../../image/wxlogo.png",
     maskHidden: false,
     name: "",
     parameter: {
@@ -292,6 +292,10 @@ Page({
       });
       storeInfo.price = (storeInfo.price / 100).toFixed(2);
       storeInfo.shopPrice = (storeInfo.shopPrice / 100).toFixed(2);
+      if(storeInfo.activityPrice) {
+        storeInfo.shopPrice  = storeInfo.price
+        storeInfo.price =  parseFloat(storeInfo.activityPrice)
+      }
       if (storeInfo.activityPrice) {
         storeInfo.price = storeInfo.activityPrice
       }

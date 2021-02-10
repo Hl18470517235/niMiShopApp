@@ -31,7 +31,11 @@
 <text style="color:red;" wx:if="{{timeModel}}">开播倒计时:<text wx:if="{{countDownTxt.day > 0}}">{{countDownTxt.day}}天</text><text>{{countDownTxt.hou}}时</text> <text>{{countDownTxt.min}}分</text><text>{{countDownTxt.sec}}秒</text></text>
 </view>
 <view class="imgbox">
-<image class="roomimg" src="{{roomItem.feeds_img_self}}"></image>
+<view class="img-box">
+  <image class="roomimg" src="{{roomItem.feeds_img_self}}"></image>
+  <view class="iconfont icon-bofang1"></view>
+  <view class="mas"></view>
+</view>
 <view class="productbox">
 <view id="shopBox1"></view>
 <view id="shopBox2"></view>

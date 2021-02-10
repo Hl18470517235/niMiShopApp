@@ -309,7 +309,11 @@ Page({
   this.authorize = this.selectComponent('#authorize')
   this.scrollShow()   
   },
-
+   goLiving() {
+      wx.switchTab({
+        url: '/pages/roomshop/index',
+      }); 
+   },
   /**
    * 生命周期函数--监听页面显示
    */
@@ -351,7 +355,7 @@ Page({
    */
   onShareAppMessage: function () {
     let data = {
-      title: '2021“美好生活”宜春首届线上富硒年货节丨火热进行中',
+      title: '2021“美好生活·富硒年货”宜春市网上年货节丨火热进行中，快来抢购家乡味',
       imageUrl: 'https://yjlc.yijialianchuang.com/yjlc/file/group3/M00/00/78/wKh9DGAPvJyAb5FWAAq3NBw3-8I138.png',
       path: '/pages/shopHome/index?id=82021012617480725484294307901120',
     }
@@ -362,7 +366,7 @@ Page({
   */
   onShareTimeline: function () {
   let data = {
-      title: '2021“美好生活”宜春首届线上富硒年货节丨火热进行中',
+      title: '2021“美好生活·富硒年货”宜春市网上年货节丨火热进行中，快来抢购家乡味',
       imageUrl:  'https://yjlc.yijialianchuang.com/yjlc/file/group3/M00/00/78/wKh9DGAPvJyAb5FWAAq3NBw3-8I138.png',
       path: '/pages/shopHome/index?id=82021012617480725484294307901120',
     }

@@ -22,7 +22,7 @@ page{background-color:#fb0038d1!important;}
 .nav2 .item .icon image{width: 100%; height: 100%;}
 .nav2 .item .addr{width:278rpx;white-space: nowrap;overflow:hidden;display: block;text-overflow:ellipsis;}
 .nav2 .jt3{width: 0;height: 0;position:absolute;border-left: 10rpx solid transparent;border-right: 10rpx solid transparent;border-bottom: 14rpx solid rgba(38,39,40, 0.3);left:50rpx;top:0;z-index: 100;}
-.index .news{height:70rpx;margin-top:16rpx;background:#117773;box-shadow:0 10rpx 30rpx #f5f5f5;border-radius: 10rpx;}
+.index .news{height:70rpx;margin-top:16rpx;background:#B90029;border-radius: 10rpx;}
 .index .news .pictrue{width:72rpx;height:38rpx;box-sizing: content-box;margin-left:24rpx;}
 .index .news .pictrue image{width:100%;height:100%;}
 .index .news .swiperTxt{width:582rpx;height:100%;line-height:70rpx;overflow:hidden;}
@@ -100,3 +100,19 @@ box-shadow: 0 40rpx 30rpx -10rpx #eee;}
 .zhibostatus{position: absolute;top: 10rpx;right: 10rpx;padding-right: 10rpx;padding-left: 10rpx;padding-top: 5rpx;padding-bottom: 5rpx;background-color: #FF7875;color: #fff;border-radius: 10rpx;}
 .imga06 {width: 100vw;height: 200rpx;margin: 16rpx;}
 .navStyle {background:var(--themeColor);height:40rpx;border-radius: 0 0 50% 50%;}
+.banner {
+  display: flex;
+}
+.banner .icon {
+  width: 20%;
+  height: 40rpx;
+}
+.swiper {
+  width: 80%;
+  height: 40rpx;
+  color: #fff;
+  padding: 20rpx 0rpx;
+}
+.swiper-item {
+  height: 40rpx;
+}

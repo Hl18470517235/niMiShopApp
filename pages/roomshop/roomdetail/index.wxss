@@ -64,9 +64,34 @@
   display: flex;
 }
 .detailList .imgbox .roomimg {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.imgbox .img-box {
+  position: relative;
   width: 456rpx;
   height: 400rpx;
   border-radius: 20rpx 0px 0px 20rpx;
+}
+.imgbox .img-box .mas {
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  right: 0rpx;
+  bottom: 0rpx;
+  background-color: #0000001f;
+  border-radius: 20rpx 0px 0px 20rpx;
+}
+.imgbox .img-box .icon-bofang1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 80rpx;
+  font-weight: bold;
+  color: #78d3ef;
+  z-index: 100;
 }
 .historybox {
   position: absolute;

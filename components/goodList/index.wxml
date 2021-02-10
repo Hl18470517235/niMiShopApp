@@ -24,14 +24,15 @@
 							<text wx:if="{{item.productIsFlag == 2}}">全国商品</text>
 							<text wx:if="{{item.productIsFlag == 3}}">商家联盟</text>
 						</view>
-						<view class="act in" wx:if="{{item.activityLabel}}">
+						<view class="act in" wx:if="{{item.activityPrice}}">
 							<text>{{item.activityLabel}}</text>
 						</view>
 					</view>
 					<view class='money font-color'>
-						<text class='price' wx:if="{{item.activityId}}">￥{{item.activityPrice}}</text>
+						<text class='price' wx:if="{{item.activityPrice}}">￥{{item.activityPrice}}</text>
 						<text class='price' wx:else>￥{{item.price}}</text>
-						<text class='market-price'>￥{{item.shopPrice}}</text>
+						<text class='market-price' wx:if="{{item.activityPrice}}">￥{{item.price}}</text>
+						<text class='market-price' wx:else>￥{{item.shopPrice}}</text>
 						<!-- <text class="count">库存：{{item.count}}</text> -->
 					</view>
 				</view>
@@ -57,7 +58,7 @@
 				</view>
 			</view>
 			<view class="name">{{item.productName}}</view>
-			<view class='price' wx:if="{{item.activityId}}">￥{{item.activityPrice}}</view>
+			<view class='price' wx:if="{{item.activityPrice}}">￥{{item.activityPrice}}</view>
 			<view class='price' wx:else>￥{{item.price}}</view>
 			<view class="icon" data-id="{{item.productId}}" data-index="{{index}}" catchtap="addToCart">
 				<image src="/image/home_shopping.png" />

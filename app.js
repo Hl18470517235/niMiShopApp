@@ -190,7 +190,7 @@ App({
             } else {
               that.loaded()
               wx.showModal({
-                content: '地理位置信息获取失败, 请打开手机GPS定位',
+                content: '地理位置信息获取失败, 请打开手机GPS定位后, 重新进入小程序',
                 showCancel: false,
               })
             }
